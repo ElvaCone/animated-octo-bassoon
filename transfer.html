@@ -10,14 +10,24 @@
 <body>
     <script>
 
-        function getSum(start = 0, end = 0) {
-            let sum = 0
-            for(let i = start; i <= end; i++) {
-                sum += i
-            }
-            document.write(sum)
+        function fn() {
+            document.write(1)
         }
-        getSum(1, 100)
+        fn()
+
+        function fn() {
+            document.write(2)
+        }
+        fn()
+
+        // function getSum(start = 0, end = 0) {
+        //     let sum = 0
+        //     for(let i = start; i <= end; i++) {
+        //         sum += i
+        //     }
+        //     document.write(sum)
+        // }
+        // getSum(1, 100)
 
         // let arr = [2, 1, 3, 5, 4]
         // log
