@@ -10,13 +10,17 @@
 <body>
     <script>
 
-        (function (x, y) {
-            document.write(x + y)
-        })(5, 9)
-        function getSum(a, b) {
-            document.write(a + b)
-        }
-        getSum(2, 3)
+        (function I(a, b) {
+            document.write( a + b)
+        }(4, 5))
+
+        // (function (x, y) {
+        //     document.write(x + y)
+        // })(5, 9)
+        // function getSum(a, b) {
+        //     document.write(a + b)
+        // }
+        // getSum(2, 3)
 
         // (function(x, y) {
         //     document.write(x + y)
