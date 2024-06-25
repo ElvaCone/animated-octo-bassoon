@@ -215,7 +215,7 @@
             font-size: 80px;
         } */
 
-        * {
+        /* * {
             color: orange !important;
         }
         #pid {
@@ -229,14 +229,35 @@
         }
         * {
             color: red;
+        } */
+
+        /* 0 2 1
+        1 0 1
+        1 1 0 */
+        .class1 .class2 div {
+            color: red;
+        }
+        div #id3 {
+            color: green;
+        }
+        #id1 .class3 {
+            color: blue;
         }
     </style>
 </head>
 
 <body>
 
-    <p class="para" id="pid">aaa</p>
-    <p class="para" id="pid" style="color: purple;">aaa</p>
+    <div class="class1" id="id1">
+        <div class="class2" id="id2">
+            <div class="class3" id="id3">
+                text
+            </div>
+        </div>
+    </div>
+
+    <!-- <p class="para" id="pid">aaa</p>
+    <p class="para" id="pid" style="color: purple;">aaa</p> -->
 
     <!-- <div>
         aaa
