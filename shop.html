@@ -485,15 +485,35 @@
         /* li:nth-child(n+4) {
             background-color: red;
         } */
-        li:nth-child(-n+4) {
+        /* li:nth-child(-n+4) {
             background-color: red;
+        } */
+        
+        div {
+            text-align: right;
+        }
+        div::before {
+            content: 'aaa';
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: block;
+        }
+        div::after {
+            content: 'ccc';
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display: inline-block;
         }
     </style>
 </head>
 
 <body>
 
-    <ul>
+    <div>bbb</div>
+
+    <!-- <ul>
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -505,7 +525,7 @@
         <li>9</li>
         <li>10</li>
         <li>11</li>
-    </ul>
+    </ul> -->
 
     <!-- <div class="banner">
         <h2>aaa</h2>
