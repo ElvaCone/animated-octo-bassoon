@@ -640,7 +640,7 @@
             overflow: auto;
         } */
 
-        div {
+        /* div {
             width: 100px;
             height: 100px;
             background-color: pink;
@@ -650,14 +650,47 @@
         }
         .div2 {
             margin-top: 20px;
+        } */
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .son {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+
+        .father {
+            overflow: hidden;
+        }
+        .son {
+            margin-top: 50px;
+        }
+
+        .father{
+            border-top: 1px solid #000;
+        }
+        .son {
+            margin-top: 50px;
+        }
+
+        .father{
+            padding-top: 50px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="div1">div1</div>
-    <div class="div2">div2</div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <!-- <div class="div1">div1</div>
+    <div class="div2">div2</div> -->
 
     <!-- <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div> -->
 
