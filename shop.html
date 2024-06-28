@@ -961,7 +961,7 @@
             background-color: black;
         } */
 
-        .div1 {
+        /* .div1 {
             margin: 20px auto;
             width: 1000px;
             background-color: pink;
@@ -989,6 +989,31 @@
         .div2 {
             height: 100px;
             background-color: black;
+        } */
+
+        .div1 {
+            margin: 20px auto;
+            width: 1000px;
+            background-color: pink;
+        }
+        .div1 {
+            overflow: hidden;
+        }
+        .div1 .left {
+            float: left;
+            width: 100px;
+            height: 500px;
+            background-color: red;
+        }
+        .div1 .right {
+            float: right;
+            width: 800px;
+            height: 500px;
+            background-color: blue;
+        }
+        .div2 {
+            height: 100px;
+            background-color: black;
         }
     </style>
 </head>
@@ -998,7 +1023,6 @@
     <div class="div1 clearfix">
         <div class="left"></div>
         <div class="right"></div>
-        <!-- <div class="clearfix"></div> -->
     </div>
     <div class="div2"></div>
 
