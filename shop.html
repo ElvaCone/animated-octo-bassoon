@@ -909,10 +909,9 @@
             margin-bottom: 0;
         } */
 
-        .div1 {
+        /* .div1 {
             margin: 20px auto;
             width: 1000px;
-            /* height: 500px; */
             background-color: pink;
         }
         .div1 .left {
@@ -933,16 +932,43 @@
         .div2 {
             height: 100px;
             background-color: black;
+        } */
+
+        .div1 {
+            margin: 20px auto;
+            width: 1000px;
+            background-color: pink;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .div1 .left {
+            float: left;
+            width: 100px;
+            height: 500px;
+            background-color: red;
+        }
+        .div1 .right {
+            float: right;
+            width: 800px;
+            height: 500px;
+            background-color: blue;
+        }
+        .div2 {
+            height: 100px;
+            background-color: black;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="div1">
+    <div class="div1 clearfix">
         <div class="left"></div>
         <div class="right"></div>
-        <div class="clearfix"></div>
+        <!-- <div class="clearfix"></div> -->
     </div>
     <div class="div2"></div>
 
