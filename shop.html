@@ -991,7 +991,7 @@
             background-color: black;
         } */
 
-        .div1 {
+        /* .div1 {
             margin: 20px auto;
             width: 1000px;
             background-color: pink;
@@ -1014,15 +1014,27 @@
         .div2 {
             height: 100px;
             background-color: black;
+        } */
+
+        .father {
+            display: flex;
+            justify-content: space-between;
+            background-color: pink;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="div1 clearfix">
-        <div class="left"></div>
-        <div class="right"></div>
+    <div class="father">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
     </div>
     <div class="div2"></div>
 
