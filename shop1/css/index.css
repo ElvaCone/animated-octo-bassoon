@@ -2,3 +2,17 @@
     width: 1200px;
     margin: 0 auto;
 }
+
+body {
+    background-color: #f3f5f7;
+}
+
+.header {
+    height: 100px;
+    background-color: #fff;
+}
+
+.header .wrapper {
+    padding-top: 29px;
+    display: flex;
+}
