@@ -38,7 +38,7 @@ body {
 }
 
 .header .nav ul a {
-    display: block;
+    /* display: block; */
     padding: 6px 8px;
     font-size: 19px;
     line-height: 27px;

@@ -4,49 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test</title>
     <style>
-        .father {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            /* align-content: flex-start; */
-            /* align-content: flex-end; */
-            /* align-content: center; */
-            /* align-content: space-between; */
-            /* align-content: space-around; */
-            /* align-content: space-evenly; */
-            align-content: normal;
-
-            height: 300px;
-            border: 1px solid black;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .son {
-            width: 400px;
-            height: 20px;
+        li {
+            list-style: none;
+        }
+
+        .header .nav ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header .nav ul li {
+            /* margin-right: 24px; */
             background-color: orange;
         }
+
+        /* .header .nav ul a {
+            display: block;
+            padding: 6px 8px;
+            font-size: 19px;
+            line-height: 27px;
+        } */
     </style>
 </head>
 
 <body>
-    <div class="father">
-        <div class="son">1</div>
-        <div class="son">2</div>
-        <div class="son">3</div>
-        <div class="son">4</div>
-        <div class="son">5</div>
-        <div class="son">6</div>
-        <div class="son">7</div>
-        <div class="son">8</div>
-        <div class="son">9</div>
-        <div class="son">10</div>
-        <div class="son">11</div>
-        <div class="son">12</div>
+    <div class="header">
+        <div class="wrapper">
+            <div class="nav">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">课程</a></li>
+                    <li><a href="#">职业规划</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 </body>
 
 </html>
