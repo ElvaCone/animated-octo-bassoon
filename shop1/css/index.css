@@ -16,3 +16,11 @@ body {
     padding-top: 29px;
     display: flex;
 }
+
+.header .logo a {
+    display: block;
+    width: 195px;
+    height: 41px;
+    background-image: url(../images/logo.png);
+    font-size: 0;
+}

@@ -6,28 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .div1 {
-            /* margin: 10px; */
-            /* width: 50px; */
-            height: 50px;
-            background-color: red;
-            /* overflow: hidden; */
+        .father {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            /* align-content: center; */
+            /* align-content: space-between; */
+            /* align-content: space-around; */
+            /* align-content: space-evenly; */
+            align-content: normal;
+
+            height: 300px;
+            border: 1px solid black;
         }
 
-        .div2 {
-            /* float: left; */
-            width: 100px;
-            height: 100px;
-            background-color: blue;
+        .son {
+            width: 400px;
+            height: 20px;
+            background-color: orange;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="div1">
-        aaa
-        <div class="div2"></div>
+    <div class="father">
+        <div class="son">1</div>
+        <div class="son">2</div>
+        <div class="son">3</div>
+        <div class="son">4</div>
+        <div class="son">5</div>
+        <div class="son">6</div>
+        <div class="son">7</div>
+        <div class="son">8</div>
+        <div class="son">9</div>
+        <div class="son">10</div>
+        <div class="son">11</div>
+        <div class="son">12</div>
     </div>
 
 </body>
