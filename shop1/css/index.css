@@ -24,3 +24,23 @@ body {
     background-image: url(../images/logo.png);
     font-size: 0;
 }
+
+.header .nav {
+    margin-left: 102px;
+}
+
+.header .nav ul {
+    display: flex;
+}
+
+.header .nav ul li {
+    margin-right: 24px; 
+}
+
+.header .nav ul a {
+    display: block;
+    padding: 6px 8px;
+    font-size: 19px;
+    line-height: 27px;
+}
+
