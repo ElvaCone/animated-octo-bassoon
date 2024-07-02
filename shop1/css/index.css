@@ -225,3 +225,26 @@ body {
     color: #00a4ff;
 }
 
+.course {
+    margin-top: 15px;
+}
+
+.hd {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
+}
+
+.hd h3 {
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.hd .more {
+    padding-right: 20px;
+    font-size: 14px;
+    color: #999;
+    background: url(../images/more.png) no-repeat right center;
+}
+
