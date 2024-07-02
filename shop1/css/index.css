@@ -248,3 +248,47 @@ body {
     background: url(../images/more.png) no-repeat right center;
 }
 
+.bd ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bd ul li {
+    margin-bottom: 14px;
+    width: 228px;
+    height: 271px;
+    /* background-color: pink; */
+}
+
+.bd ul li .pic {
+    height: 156px;
+}
+
+.bd ul li .text {
+    padding: 20px;
+    height: 115px;
+    background-color: #fff;
+}
+
+.bd ul li .text h4 {
+    margin-bottom: 13px;
+    height: 40px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.bd ul li .text p {
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+}
+
+.bd ul li .text span {
+    color: #fa6400;
+}
+
+.bd ul li .text i {
+    font-style: normal;
+}
