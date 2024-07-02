@@ -79,3 +79,18 @@ body {
     background-image: url(../images/search.png);
 }
 
+.user {
+    margin-left: 32px;
+    margin-top: 4px;
+}
+
+.user img {
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.user span {
+    font-size: 16px;
+    color: #666;
+}
+
