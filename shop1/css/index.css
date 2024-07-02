@@ -94,3 +94,36 @@ body {
     color: #666;
 }
 
+.banner {
+    height: 420px;
+    background-color: #0092cb;
+}
+
+.banner .wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 420px;
+    background-image: url(../uploads/banner.png);
+}
+
+.banner .left {
+    padding: 3px 20px;
+    width: 191px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.banner .left a {
+    display: block;
+    height: 46px;
+    line-height: 46px;
+    background: url(../images/right.png) no-repeat right center;
+    font-size: 16px;
+    color: #fff;
+}
+
+.banner .left a:hover {
+    background-image: url(../images/right-hover.png);
+    color: #00a4ff;
+}
+
