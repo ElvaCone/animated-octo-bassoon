@@ -324,3 +324,38 @@ body {
     margin-bottom: 15px;
     height: 100px;
 }
+
+.footer {
+    margin-top: 60px;
+    padding-top: 60px;
+    height: 273px;
+    background-color: #fff;
+}
+
+.footer .wrapper {
+    display: flex;
+    justify-content: space-between
+}
+
+.footer .left {
+    width: 440px;
+}
+
+.footer .left p {
+    margin-top: 24px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #666;
+}
+
+.footer .left .download {
+    display: block;
+    width: 120px;
+    height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #00a4ff;
+    line-height: 34px;
+    border: 1px solid #00a4ff;
+}
