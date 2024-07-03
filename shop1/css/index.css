@@ -359,3 +359,23 @@ body {
     line-height: 34px;
     border: 1px solid #00a4ff;
 }
+
+.footer .right {
+    display: flex;
+}
+
+.footer .right dl {
+    margin-left: 130px;
+}
+
+.footer .right dl dt {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.footer .right dl a {
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+}
