@@ -6,17 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img {
+        div {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+        }
+        .div1 {
+            background-color: pink;
+
+            z-index: 1;
+        }
+        .div2 {
+            background-color: skyblue;
+            top: 50px;
+            left: 50px;
+            
+            z-index: 2;
         }
     </style>
 </head>
 
 <body>
-    <img src="../shop1/uploads/ai01.png">
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
 </body>
 
 </html>
