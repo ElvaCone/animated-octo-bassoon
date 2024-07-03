@@ -258,7 +258,6 @@ body {
     margin-bottom: 14px;
     width: 228px;
     height: 271px;
-    /* background-color: pink; */
 }
 
 .bd ul li .pic {
@@ -291,4 +290,37 @@ body {
 
 .bd ul li .text i {
     font-style: normal;
+}
+
+.hd ul {
+    display: flex;
+}
+
+.hd ul li {
+    margin-right: 60px;
+    font-size: 16px;
+
+}
+
+.hd ul li .active {
+    color: #00a4ff;
+}
+
+.frontend .bd,
+.python .bd {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bd .left {
+    width: 228px;
+}
+
+.bd .right {
+    width: 957px;
+}
+
+.bd .right .top {
+    margin-bottom: 15px;
+    height: 100px;
 }
