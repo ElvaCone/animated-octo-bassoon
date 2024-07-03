@@ -6,17 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
-            width: 112px;
-            height: 110px;
-            background-image: url(./images/abcd.jpg);
-            background-position: -256px -276px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        .service {
+            width: 1190px;
+            height: 42px;
+            background-color: pink;
+        }
+        .service ul {
+            display: flex;
+        }
+        .service ul li {
+            display: flex;
+            padding-left: 40px;
+            width: 297px;
+            height: 42px;
+            background: orange;
+        }
+        .service ul li h5 {
+            margin-right: 10px;
+            width: 36px;
+            height: 42px;
+            background-image: url(./images/sprite.png);
+            background-position: 0 -192px;
+        }
+        .service ul li:nth-child(2) h5 {
+            background-position: -41px -192px;
+        }
+        .service ul li:nth-child(3) h5 {
+            background-position: -82px -192px;
+        }
+        .service ul li:nth-child(4) h5 {
+            background-position: -123px -192px;
+        }
+        .service ul li p {
+            font-size: 18px;
+            color: #444;
+            font-weight: bold;
+            line-height: 42px;
         }
     </style>
 </head>
 
 <body>
-    <div></div>
+    <div class="service">
+        <ul>
+            <li>
+                <h5></h5>
+                <p>品类齐全，轻松购物</p>
+            </li>
+            <li>
+                <h5></h5>
+                <p>多仓直发，极速配送</p>
+            </li>
+            <li>
+                <h5></h5>
+                <p>正品行货，精致服务</p>
+            </li>
+            <li>
+                <h5></h5>
+                <p>天天低价，畅选无忧</p>
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>
