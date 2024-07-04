@@ -56,6 +56,32 @@
             right: 0;
             border-radius: 15px 0 0 15px;
         }
+
+        .banner ol {
+            display: flex;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            /* width: 30px; */
+            height: 13px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 6.5px;
+        }
+
+        .banner ol li {
+            margin: 2.5px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .banner ol .active {
+            background-color: #ff5000;
+        }
     </style>
 </head>
 
@@ -78,12 +104,19 @@
                 </a>
             </li>
         </ul>
+
         <a href="#" class="prev">
             <i class="iconfont iconfont-left-open"></i>
         </a>
         <a href="#" class="next">
             <i class="iconfont iconfont-right-open"></i>
         </a>
+
+        <ol>
+            <li></li>
+            <li class="active"></li>
+            <li></li>
+        </ol>
     </div>
 </body>
 
