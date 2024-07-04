@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../shop1/css/base.css">
+    <link rel="stylesheet" href="./fontello/css/fontello.css">
     <style>
         .banner {
             margin: 100px auto;
+            position: relative;
             width: 564px;
             height: 315px;
             overflow: hidden;
@@ -21,6 +23,38 @@
         .banner img {
             width: 564px;
             border-radius: 12px;
+        }
+
+        .banner:hover .prev,
+        .banner:hover .next {
+            display: block;
+        }
+
+        .banner .prev,
+        .banner .next {
+            /* display: none; */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+
+            font-size: 10px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .banner .prev {
+            left: 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .banner .next {
+            right: 0;
+            border-radius: 15px 0 0 15px;
         }
     </style>
 </head>
@@ -44,6 +78,12 @@
                 </a>
             </li>
         </ul>
+        <a href="#" class="prev">
+            <i class="iconfont iconfont-left-open"></i>
+        </a>
+        <a href="#" class="next">
+            <i class="iconfont iconfont-right-open"></i>
+        </a>
     </div>
 </body>
 

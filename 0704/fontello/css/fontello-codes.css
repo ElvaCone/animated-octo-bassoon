@@ -1,5 +1,4 @@
 
-.iconfont-emo-happy:before { content: '\e800'; } /* '' */
 .iconfont-feather:before { content: '\e800'; } /* '' */
 .iconfont-glass:before { content: '\e801'; } /* '' */
 .iconfont-to-end-alt:before { content: '\e802'; } /* '' */
@@ -16,9 +15,25 @@
 .iconfont-globe-alt:before { content: '\e80d'; } /* '' */
 .iconfont-looped-square-interest:before { content: '\e80e'; } /* '' */
 .iconfont-looped-square-outline:before { content: '\e80f'; } /* '' */
+.iconfont-emo-happy:before { content: '\e810'; } /* '' */
+.iconfont-left-open:before { content: '\e811'; } /* '' */
+.iconfont-right-open:before { content: '\e812'; } /* '' */
+.iconfont-up-open:before { content: '\e813'; } /* '' */
+.iconfont-down-open:before { content: '\e814'; } /* '' */
+.iconfont-down-dir:before { content: '\e815'; } /* '' */
+.iconfont-up-dir:before { content: '\e816'; } /* '' */
+.iconfont-left-dir:before { content: '\e817'; } /* '' */
+.iconfont-right-dir:before { content: '\e818'; } /* '' */
 .iconfont-food:before { content: '\f0f5'; } /* '' */
 .iconfont-beer:before { content: '\f0fc'; } /* '' */
+.iconfont-circle-empty:before { content: '\f10c'; } /* '' */
+.iconfont-circle:before { content: '\f111'; } /* '' */
 .iconfont-reply-all:before { content: '\f122'; } /* '' */
 .iconfont-down:before { content: '\f175'; } /* '' */
+.iconfont-up:before { content: '\f176'; } /* '' */
+.iconfont-left:before { content: '\f177'; } /* '' */
+.iconfont-right:before { content: '\f178'; } /* '' */
+.iconfont-dot-circled:before { content: '\f192'; } /* '' */
 .iconfont-bank:before { content: '\f19c'; } /* '' */
 .iconfont-building-filled:before { content: '\f1ad'; } /* '' */
+.iconfont-circle-thin:before { content: '\f1db'; } /* '' */
