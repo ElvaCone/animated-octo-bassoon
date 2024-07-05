@@ -2,3 +2,39 @@
     margin: 0 auto;
     width: 1240px;
 }
+
+.shortcut {
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut .wrapper {
+    display: flex;
+    justify-content: flex-end;
+    height: 52px;
+    line-height: 52px;
+}
+
+.shortcut .wrapper ul {
+    display: flex;
+}
+
+.shortcut .wrapper ul li a {
+    padding: 0 15px;
+    border-right: 1px solid #999;
+    font-size: 14px;
+    color: #fff;
+}
+
+.shortcut .wrapper ul li:last-child a {
+    border-right: 0;
+}
+
+.shortcut .wrapper ul li .iconfont {
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.shortcut .wrapper .login {
+    color: #5EB69C;
+}
