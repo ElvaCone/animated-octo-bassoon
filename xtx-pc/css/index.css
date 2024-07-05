@@ -1,0 +1,14 @@
+.banner {
+    height: 500px;
+    background-color: #F5F5F5;
+}
+
+.banner .wrapper {
+    overflow: hidden;
+    height: 500px;
+}
+
+.banner .pic {
+    display: flex;
+    width: 3720px;
+}
