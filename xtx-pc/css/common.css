@@ -44,7 +44,7 @@
     margin-top: 22px;
     margin-bottom: 22px;
     height: 88px;
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .header .logo {
@@ -81,4 +81,31 @@
 .header .nav ul li a:hover {
     color: #5EB69C;
     border-bottom: 2px solid #5EB69C;
+}
+
+.header .search {
+    display: flex;
+    margin-top: 33px;
+    margin-right: 45px;
+    width: 170px;
+    height: 34px;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+.header .search .iconfont {
+    margin-right: 8px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.header .search input {
+    /* 浏览器优先生效 input 标签的默认宽度，所以 flex：1 不生效 */
+    /* 解决办法：重置 input 默认宽度 → width：0 */
+    flex: 1;
+    width: 0;
+}
+
+.header .search input::placeholder {
+    font-size: 16px;
+    color: #ccc;
 }
