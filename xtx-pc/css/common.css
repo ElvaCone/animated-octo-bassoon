@@ -38,3 +38,25 @@
 .shortcut .wrapper .login {
     color: #5EB69C;
 }
+
+.header {
+    display: flex;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    height: 88px;
+    background-color: pink;
+}
+
+.header .logo {
+    margin-right: 40px;
+    width: 200px;
+    height: 88px;
+}
+
+.header .logo a {
+    display: block;
+    width: 200px;
+    height: 88px;
+    background-image: url(../images/logo.png);
+    font-size: 0;
+}
