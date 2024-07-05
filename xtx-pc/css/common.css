@@ -109,3 +109,25 @@
     font-size: 16px;
     color: #ccc;
 }
+
+.header .cart {
+    position: relative;
+    margin-top: 32px;
+}
+
+.header .cart .iconfont {
+    font-size: 24px;
+}
+
+.header .cart i {
+    position: absolute;
+    top: 1px;
+    left: 15px;
+    height: 15px;
+    line-height: 15px;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #FFFEFE;
+    background-color: #E26237;
+    border-radius: 8px;
+}
