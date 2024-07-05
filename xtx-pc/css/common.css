@@ -60,3 +60,25 @@
     background-image: url(../images/logo.png);
     font-size: 0;
 }
+
+.header .nav {
+    margin-top: 33px;
+    margin-right: 28px;
+}
+
+.header .nav ul {
+    display: flex;
+}
+
+.header .nav ul li {
+    margin-right: 47px;
+}
+
+.header .nav ul li a {
+    padding-bottom: 10px;
+}
+
+.header .nav ul li a:hover {
+    color: #5EB69C;
+    border-bottom: 2px solid #5EB69C;
+}
