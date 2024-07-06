@@ -156,3 +156,12 @@
     margin-left: 3px;
     font-size: 22px;
 }
+
+.recommend li {
+    background-color: #fff;
+}
+
+.recommend .body .text p {
+    font-size: 16px;
+    color: #A1A1A1;
+}
