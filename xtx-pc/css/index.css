@@ -89,17 +89,12 @@
     background-color: #fff;
 }
 
-.goods {
-    /* height: 42px; */
-}
-
 .title {
     margin-top: 40px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     height: 42px;
-    background-color: pink;
 }
 
 .title .left {
@@ -124,4 +119,40 @@
 
 .title .right .iconfont {
     margin-left: 10px;
+}
+
+.body ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body li {
+    width: 304px;
+    height: 404px;
+    background-color: #EEF9F4;
+}
+
+.body .pic {
+    width: 304px;
+    height: 304px;
+}
+
+.body .text {
+    text-align: center;
+}
+
+.body .text h4 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.body .text p {
+    font-size: 18px;
+    color: #AA2113;
+}
+
+.body .text p .price {
+    margin-left: 3px;
+    font-size: 22px;
 }
