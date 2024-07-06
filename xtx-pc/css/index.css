@@ -88,3 +88,40 @@
 .banner .circle-index .active i {
     background-color: #fff;
 }
+
+.goods {
+    /* height: 42px; */
+}
+
+.title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 42px;
+    background-color: pink;
+}
+
+.title .left {
+    display: flex;
+}
+
+.title .left h3 {
+    margin-right: 15px;
+    font-size: 30px;
+}
+
+.title .left p {
+    align-self: flex-end;
+    font-size: 14px;
+    color: #a1a1a1;
+}
+
+.title .right .more {
+    line-height: 42px;
+    color: #a1a1a1;
+}
+
+.title .right .iconfont {
+    margin-left: 10px;
+}
