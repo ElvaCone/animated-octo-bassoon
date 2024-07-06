@@ -165,3 +165,51 @@
     font-size: 16px;
     color: #A1A1A1;
 }
+
+.brand {
+    height: 468px;
+    background-color: #F5F5F5;
+}
+
+.brand .title {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.brand .title .button {
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+}
+
+.brand .body li {
+    width: 244px;
+    height: 306px;
+}
+
+.brand .body img {
+    width: 244px;
+    height: 306px;
+}
+
+.brand .title .button {
+    display: flex;
+}
+
+.brand .title .button .prev,
+.brand .title .button .next {
+    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+}
+
+.brand .title .button .prev {
+    background-color: #ddd;
+}
+
+.brand .title .button .next {
+    background-color: #00BE9A;
+}
