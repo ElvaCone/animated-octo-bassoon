@@ -213,3 +213,31 @@
 .brand .title .button .next {
     background-color: #00BE9A;
 }
+
+.title .right {
+    display: flex;
+}
+
+.title .right .classify {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+
+.title .right .classify li {
+    margin-right: 6px;
+    padding: 0 7px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    /* background-color: pink; */
+}
+
+.title .right .classify .active {
+    background-color: #00BE9A;
+}
+
+.title .right .classify .active a {
+    color: #fff;
+}
