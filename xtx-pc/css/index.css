@@ -55,3 +55,36 @@
     font-size: 14px;
     color: #fff;
 }
+
+.banner .circle-index {
+    display: flex;
+    position: absolute;
+    right: 16px;
+    bottom: 8px;
+}
+
+.banner .circle-index li {
+    margin-left: 8px;
+    width: 22px;
+    height: 22px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.banner .circle-index li i {
+    display: block;
+    margin: 4px;
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.banner .circle-index .active {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.banner .circle-index .active i {
+    background-color: #fff;
+}
