@@ -331,3 +331,86 @@
 .content .right li:hover {
     border: 2px solid #00BE9A;
 }
+
+.topic {
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.topic .topic-body {
+    margin-top: 30px;
+}
+
+.topic .topic-body ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topic .topic-body ul li {
+    width: 405px;
+    height: 355px;
+}
+
+.topic .topic-body .pic {
+    position: relative;
+    width: 405px;
+    height: 288px;
+}
+
+.topic .topic-body .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 405px;
+    height: 67px;
+    font-size: 14px;
+    color: #666;
+}
+
+.topic .topic-body .text .left {
+    display: flex;
+}
+
+.topic .topic-body .text .left p {
+    margin-right: 20px;
+}
+
+.topic .topic-body .text .left p:nth-child(1) span {
+    color: #AA2113;
+}
+
+.topic .topic-body .cover {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 405px;
+    height: 90px;
+    background-image: linear-gradient(180deg, rgba(137, 137, 137, 0.00) 0%, rgba(0, 0, 0, 0.90) 100%);
+}
+
+.topic .topic-body .cover .left {
+    color: #fff;
+}
+
+.topic .topic-body .cover .left h4 {
+    margin-top: 6px;
+    font-size: 20px;
+}
+
+.topic .topic-body .cover .right {
+    padding: 0 7px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #fff;
+    color: #AA2113;
+    font-size: 15px;
+}
+
+.topic .topic-body .cover .right span {
+    font-size: 18px;
+}
