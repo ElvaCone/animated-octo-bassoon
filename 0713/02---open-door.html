@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../shop1/css/base.css" />
+	<style>
+		.father {
+			display: flex;
+			margin: 0 auto;
+			overflow: hidden;
+			width: 1366px;
+			height: 600px;
+			background-image: url(./images/bg.jpg);
+		}
+		.father .left,
+		.father .right {
+			width: 683px;
+			height: 600px;
+			background-image: url(./images/fm.jpg);
+			transition: all 0.5s;
+		}
+		.right {
+			background-position: right 0;
+		}
+		.father:hover .left {
+			transform: translateX(-100%);
+		}
+		.father:hover .right {
+			transform: translateX(100%);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="father">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+</body>
+
+</html>
