@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../xtx-pc/css/base.css" />
+	<style>
+		li {
+			list-style: none;
+		}
+		.father {
+			margin: 200px auto;
+			width: 249px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		.pic {
+			position: relative;
+		}
+		img {
+			width: 100%;
+		}
+		.pic::after {
+			position: absolute;
+			content: '';
+			width: 58px;
+			height: 58px;
+			background-image: url(./images/play.png);
+			top: 50%;
+			left: 50%;
+			margin-left: -29px;
+			margin-top: -29px;
+			transform: scale(5);
+			opacity: 0;
+			transition: all 0.5s;
+		}
+		li:hover .pic::after {
+			transform: scale(1);
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="father">
+		<ul>
+			<li>
+				<div class="pic">
+					<img src="./images/party.jpeg">
+				</div>
+				<p>aaaaaaaaaaaaaaaaaaaaa</p>
+			</li>
+		</ul>
+	</div>
+</body>
+
+</html>
