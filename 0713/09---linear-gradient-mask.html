@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../xtx-pc/css/base.css" />
+	<style>
+		.box {
+			position: relative;
+			margin: 200px auto;
+			width: 300px;
+			height: 212px;
+		}
+		.box img {
+			width: 300px;
+		}
+		.box .title {
+			position: absolute;
+			left: 15px;
+			bottom: 20px;
+			z-index: 1;
+			width: 260px;
+			color: #fff;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.box .mask {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(
+				transparent,
+				rgba(0, 0, 0, 0.5)
+			);
+			opacity: 0;
+		}
+		.box:hover .mask {
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<img src="./images/product.jpeg">
+		<p class="title">aaaaaaaaaaaaaaaaaaaabbb</p>
+		<div class="mask"></div>
+	</div>
+</body>
+
+</html>
