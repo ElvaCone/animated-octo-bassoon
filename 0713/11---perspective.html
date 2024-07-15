@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+		.father {
+			margin: 100px auto;
+			width: 300px;
+			height: 300px;
+			perspective: 1000px;
+			border: 1px solid black;
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			transition: all 0.5s;
+		}
+		.son:hover {
+			/* transform: translateZ(100px); */
+			/* transform: translateZ(-100px); */
+			/* transform: translate3d(10px, 20px, 300px); */
+			transform: translate3d(10px, 20px, 30px);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+
+</html>
