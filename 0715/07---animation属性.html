@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../xtx-pc/css/base.css" />
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+
+            animation: sizeChange 2s;
+            animation: sizeChange 2s linear;
+            animation: sizeChange 2s steps(3);
+            animation: sizeChange 2s 1s;
+            animation: sizeChange 2s 3;
+            animation: sizeChange 2s infinite;
+            animation: sizeChange 2s infinite alternate;
+            animation: sizeChange 2s forwards;
+            animation: sizeChange 2s backwards;
+        }
+        @keyframes sizeChange{
+            from {
+                width: 500px;
+            }
+            to {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
