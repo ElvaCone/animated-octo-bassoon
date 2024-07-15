@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../xtx-pc/css/base.css" />
+    <style>
+        .box {
+            margin: 400px 300px;
+            width: 610px;
+            height: 122px;
+            border: 5px solid black;
+            overflow: hidden;
+        }
+        .box ul {
+            display: flex;
+            animation: move 6s infinite linear;
+        }
+        img {
+            width: 200px;
+        }
+        .box:hover ul {
+            animation-play-state: paused;
+        }
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-1400px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="./images/1.jpg"></li>
+            <li><img src="./images/2.jpg"></li>
+            <li><img src="./images/3.jpg"></li>
+            <li><img src="./images/4.jpg"></li>
+            <li><img src="./images/5.jpg"></li>
+            <li><img src="./images/6.jpg"></li>
+            <li><img src="./images/7.jpg"></li>
+            <li><img src="./images/1.jpg"></li>
+            <li><img src="./images/2.jpg"></li>
+            <li><img src="./images/3.jpg"></li>
+        </ul>
+    </div>
+</body>
+
+</html>
