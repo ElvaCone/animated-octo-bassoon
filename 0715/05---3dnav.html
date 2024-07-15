@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../xtx-pc/css/base.css" />
+    <style>
+        .nav {
+            margin: 300px auto;
+            width: 300px;
+            height: 40px;
+        }
+        .nav ul {
+            display: flex;
+        }
+        .nav li {
+            position: relative;
+            width: 100px;
+            height: 40px;
+            transform-style: preserve-3d;
+            /* transform: rotateX(-30deg) rotateY(30deg); */
+            transition: all 1s;
+        }
+        .nav li a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .nav li a:first-child {
+            background-color: orange;
+            transform: rotateX(90deg) translateZ(20px);
+        }
+        .nav li a:last-child {
+            background-color: green;
+            transform: translateZ(20px);
+        }
+        .nav li:hover {
+            transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">首页</a>
+                <a href="#">index</a>
+            </li>
+            <li>
+                <a href="#">登录</a>
+                <a href="#">login</a>
+            </li>
+            <li>
+                <a href="#">注册</a>
+                <a href="#">register</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
