@@ -78,3 +78,24 @@ header .note {
   border: 0.01333333rem solid #EDEDEDE5;
   border-radius: 0.10666667rem;
 }
+.type a img {
+  margin-right: 0.37333333rem;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+}
+.type a .text {
+  flex: 1;
+}
+.type a .text h4 {
+  font-size: 0.42666667rem;
+  color: #3C3E42;
+  line-height: 0.64rem;
+}
+.type a .text p {
+  font-size: 0.34666667rem;
+  color: #848484;
+  line-height: 0.53333333rem;
+}
+.type a .text .icon-right {
+  font-size: 0.42666667rem;
+}

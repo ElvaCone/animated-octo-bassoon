@@ -10,13 +10,16 @@ header {
     justify-content: space-between;
     height: (44 / @rootFontSize);
     line-height: (44 / @rootFontSize);
+
     // background-color: pink;
     .icon-left {
         font-size: (22 / @rootFontSize);
     }
+
     h3 {
         font-size: (17 / @rootFontSize);
     }
+
     .note {
         font-size: (15 / @rootFontSize);
         color: #2CB5A5;
@@ -27,13 +30,16 @@ header {
     margin-top: (30 / @rootFontSize);
     margin-bottom: (34 / @rootFontSize);
     text-align: center;
+
     img {
         margin-bottom: (18 / @rootFontSize);
         width: (240 / @rootFontSize);
         height: (206 / @rootFontSize);
     }
+
     p {
         font-size: (16 / @rootFontSize);
+
         span {
             color: #16C2A3;
         }
@@ -42,9 +48,11 @@ header {
 
 .type {
     padding: 0 (15 / @rootFontSize);
+
     li {
         margin-bottom: (15 / @rootFontSize);
     }
+
     a {
         display: flex;
         align-items: center;
@@ -52,5 +60,31 @@ header {
         height: (78 / @rootFontSize);
         border: (0.5 / @rootFontSize) solid #EDEDEDE5;
         border-radius: (4 / @rootFontSize);
+
+        img {
+            margin-right: (14 / @rootFontSize);
+            width: (40 / @rootFontSize);
+            height: (40 / @rootFontSize);
+        }
+
+        .text {
+            flex: 1;
+
+            h4 {
+                font-size: (16 / @rootFontSize);
+                color: #3C3E42;
+                line-height: (24 / @rootFontSize);
+            }
+
+            p {
+                font-size: (13 / @rootFontSize);
+                color: #848484;
+                line-height: (20 / @rootFontSize);
+            }
+
+            .icon-right {
+                font-size: (16 / @rootFontSize);
+            }
+        }
     }
 }
