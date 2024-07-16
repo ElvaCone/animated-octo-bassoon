@@ -1,3 +1,56 @@
 // out: ../css/
 
-@import "./base";
+@import "./base.less";
+
+@rootFontSize: 37.5rem;
+
+header {
+    padding: 0 (15 / @rootFontSize);
+    display: flex;
+    justify-content: space-between;
+    height: (44 / @rootFontSize);
+    line-height: (44 / @rootFontSize);
+    // background-color: pink;
+    .icon-left {
+        font-size: (22 / @rootFontSize);
+    }
+    h3 {
+        font-size: (17 / @rootFontSize);
+    }
+    .note {
+        font-size: (15 / @rootFontSize);
+        color: #2CB5A5;
+    }
+}
+
+.banner {
+    margin-top: (30 / @rootFontSize);
+    margin-bottom: (34 / @rootFontSize);
+    text-align: center;
+    img {
+        margin-bottom: (18 / @rootFontSize);
+        width: (240 / @rootFontSize);
+        height: (206 / @rootFontSize);
+    }
+    p {
+        font-size: (16 / @rootFontSize);
+        span {
+            color: #16C2A3;
+        }
+    }
+}
+
+.type {
+    padding: 0 (15 / @rootFontSize);
+    li {
+        margin-bottom: (15 / @rootFontSize);
+    }
+    a {
+        display: flex;
+        align-items: center;
+        padding: 0 (15 / @rootFontSize);
+        height: (78 / @rootFontSize);
+        border: (0.5 / @rootFontSize) solid #EDEDEDE5;
+        border-radius: (4 / @rootFontSize);
+    }
+}
