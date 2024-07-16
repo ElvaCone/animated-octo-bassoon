@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../xtx-pc/css/base.css" /> -->
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+            background: url(./images/f1_1.jpg) no-repeat center 0 / cover;
+        }
+        .cloud img{
+            position: absolute;
+            left: 50%;
+        }
+        .cloud img:nth-child(1) {
+            margin-left: -200px;
+            top: 50px;
+            animation: cloud 1s infinite alternate;
+        }
+        .cloud img:nth-child(2) {
+            margin-left: -500px;
+            top: 150px;
+            animation: cloud 1s 0.3s infinite alternate;
+        }
+        .cloud img:nth-child(3) {
+            margin-left: 500px;
+            top: 150px;
+            animation: cloud 1s 0.8s infinite alternate;
+        }
+        @keyframes cloud {
+            to {
+                transform: translate(50px);
+            }
+        }
+        .text img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: text 1s;
+        }
+        @keyframes text {
+            20% {
+                transform: translate(-50%, -50%) scale(0.2);
+            }
+            40% {
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cloud">
+        <img src="./images/yun1.png">
+        <img src="./images/yun2.png">
+        <img src="./images/yun3.png">
+    </div>
+    <div class="text">
+        <img src="./images/font1.png">
+    </div>
+</body>
+
+</html>
