@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../xtx-pc/css/base.css" />
+    <style>
+        div {
+            width: 140px;
+            height: 140px;
+            background-image: url(./images/bg.png);
+            /* border: 1px solid black; */
+            animation: 
+                run 1s steps(12) infinite,
+                move 3s forwards;
+        }
+        div:hover {
+            animation-play-state: paused;
+        }
+        @keyframes run {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1680px 0;
+            }
+        }
+        @keyframes move {
+            0% {
+                transform: translate(0);
+            }
+            100% {
+                transform: translate(1600px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
