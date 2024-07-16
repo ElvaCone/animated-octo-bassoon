@@ -1,0 +1,15 @@
+.father {
+    width: 100px;
+    .son {
+        height: 200px;
+        a {
+            color: pink;
+            &:hover {
+                transform: scale(2);
+            }
+            &:nth-child(3) {
+                background-color: black;
+            }
+        }
+    }
+}
