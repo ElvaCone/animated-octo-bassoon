@@ -1,5 +1,10 @@
 .box1 {
   width: 20.53333333vw;
-  height: 6.77339901vh;
+  height: 14.66666667vw;
   background-color: pink;
+}
+.box2 {
+  width: 9.48275862vh;
+  height: 6.77339901vh;
+  background-color: green;
 }
