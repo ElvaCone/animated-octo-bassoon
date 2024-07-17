@@ -2,3 +2,35 @@
 
 @import "./base.less";
 
+@vw: 3.75vw;
+
+body {
+    background-color: #f9fafb;
+}
+
+.wrapper {
+    padding: 0 (15 / @vw);
+}
+
+header {
+    padding: 0 (15 / @vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: (375 / @vw);
+    height: (50 / @vw);
+    background-color: #fff;
+
+    .logo {
+        height: (50 / @vw);
+    }
+
+    .download {
+        width: (80 / @vw);
+        height: (30 / @vw);
+        line-height: (30 / @vw);
+        border-radius: (15 / @vw);
+        background-color: #ffe31b;
+        text-align: center;
+    }
+}
