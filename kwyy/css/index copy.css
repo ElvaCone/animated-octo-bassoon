@@ -49,7 +49,7 @@ header {
 header .logo {
   height: 13.33333333vw;
 }
-header a {
+header .download {
   width: 21.33333333vw;
   height: 8vw;
   line-height: 8vw;
@@ -58,7 +58,6 @@ header a {
   text-align: center;
 }
 .search {
-  margin-top: 13.33333333vw;
   padding: 2.66666667vw 4vw;
   height: 13.86666667vw;
 }
@@ -159,33 +158,4 @@ header a {
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 0 2.66666667vw;
-}
-.download {
-  padding-left: 4vw;
-  padding-right: 2.66666667vw;
-  display: flex;
-  left: 4vw;
-  bottom: 8vw;
-  align-items: center;
-  position: fixed;
-  width: 92vw;
-  height: 12vw;
-  background-color: #fff;
-  border-radius: 6vw;
-}
-.download img {
-  margin-right: 2.66666667vw;
-  width: 9.6vw;
-  height: 9.6vw;
-}
-.download p {
-  flex: 1;
-}
-.download span {
-  width: 8.53333333vw;
-  height: 8.53333333vw;
-  border-radius: 4.26666667vw;
-  background-color: #f2f3f5;
-  text-align: center;
-  line-height: 8.53333333vw;
 }
