@@ -2,3 +2,102 @@
 
 @import "./base.less";
 
+.bg-body-tertiary {
+    background-color: transparent !important;
+    // background-color: pink !important;
+
+    .navbar-collapse {
+        flex-grow: 0;
+
+        li {
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.carousel {
+    .carousel-item {
+        // height: 500px;
+        background-size: cover;
+        background-position: center 0;
+
+        &:nth-child(1) {
+            background-image: url(../assets/uploads/banner_1.jpg);
+        }
+
+        &:nth-child(2) {
+            background-image: url(../assets/uploads/banner_2.jpg);
+        }
+
+        &:nth-child(3) {
+            background-image: url(../assets/uploads/banner_3.jpg);
+        }
+
+        &:nth-child(4) {
+            background-image: url(../assets/uploads/banner_4.jpg);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        .carousel-item {
+            height: 250px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel {
+        .carousel-item {
+            height: 400px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel {
+        .carousel-item {
+            height: 500px;
+        }
+    }
+}
+
+.project {
+    margin-top: 60px;
+    text-align: center;
+    // background-color: pink;
+
+    .row {
+        div {
+            height: 200px;
+            // background-color: pink;
+            margin-bottom: 10px;
+
+            a {
+                display: block;
+                height: 200px;
+                background-color: pink;
+                border-radius: 4px;
+            }
+
+            &:nth-child(1) a {
+                background-color: #70c3ff;
+            }
+
+            &:nth-child(2) a {
+                background-color: #fd6a7f;
+            }
+
+            &:nth-child(3) a {
+                background-color: #7f8ea0;
+            }
+
+            &:nth-child(4) a {
+                background-color: #89d04f;
+            }
+        }
+    }
+}
