@@ -16,6 +16,24 @@
         console.log(names[4]);
         console.log(names.length);
 
+        let arr = ['cc']
+        // 末尾添加，返回新数组长度
+        let newLength = arr.push('dd', 'ee')
+        // 开头添加，返回新数组长度
+        newLength = arr.unshift('aa', 'bb')
+        console.log(newLength);
+
+        // 删除末尾元素，返回被删除的元素
+        let deletedElement = arr.pop()
+        // 删除开头元素，返回被删除的元素
+        deletedElement = arr.shift()
+        
+        // 删除从下标为${第一个参数}开始的${第二个参数}个元素，返回被删除的元素组成的数组
+        deletedElement = arr.splice(2,3)
+        // 删除从下标为${第一个参数}开始的所有元素，返回被删除的元素组成的数组
+        deletedElement = arr.splice(2)
+        console.log(deletedElement);
+
     </script>
 </body>
 
