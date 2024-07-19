@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box1 {
+        .box {
             width: 100px;
             height: 100px;
             background-color: pink;
@@ -27,9 +27,10 @@
 </head>
 
 <body>
-    <div class="box1"></div>
+    <div class="box"></div>
     <script>
-        const box = document.querySelector('.box1')
+        const box = document.querySelector('.box')
+        // 类名不加点，且是字符串
         box.className = 'box2 box3 box4'
     </script>
 </body>
