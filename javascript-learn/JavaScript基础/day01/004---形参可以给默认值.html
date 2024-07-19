@@ -10,13 +10,22 @@
 <body>
     <script>
 
-        // 形参可以给默认值
         function getSum(x = 0, y = 0) {
             document.write(x + y)
         }
         getSum(1, 2)
         getSum(1)
         getSum()
+
+        function getArrSum(arr) {
+            let sum = 0
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            document.write(sum)
+        }
+        getArrSum([1, 2, 3])
+        getArrSum()
 
     </script>
 </body>
