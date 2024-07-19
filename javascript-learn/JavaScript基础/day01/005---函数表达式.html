@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 函数表达式必须先声明再调用
+        // fn1(1, 2)
+        let fn1 = function(x, y) {
+            console.log(x + y);
+        }
+        fn1(1, 2)
+
+        // 具名函数的调用可以写在任何地方
+        fn2(1, 2)
+        function fn2(x, y) {
+            console.log(x + y);
+        }
+        fn2(1, 2)
+
+    </script>
+</body>
+
+</html>

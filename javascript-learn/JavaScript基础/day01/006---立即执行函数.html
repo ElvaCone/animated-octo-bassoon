@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+// let name = 'aaa'
+        // 立即执行函数的第一种写法
+        (function(x, y) {
+            console.log(x + y);
+        })(1, 2); // 立即执行函数之间要用分号隔开
+// let name = 'aaa'
+        (function(x, y) {
+            console.log(x + y);
+        })(1, 2);
+let name = 'aaa'
+let name2 = 'aaa';  // 必须用分号将立即执行函数和其它语句隔开
+
+        // 立即执行函数的第二种写法
+        (function(x, y) {
+            console.log(x + y);
+        }(1, 2));
+
+    </script>
+</body>
+
+</html>
