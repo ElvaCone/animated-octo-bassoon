@@ -21,9 +21,17 @@
         console.log(false || ++age || false || ++age); // ||运算符如果有真值则返回第一个真值
         // console.log(age);
 
-        console.log(undefined && 0); // 返回undefined
+        console.log(undefined && 0); // 返回undefined &&运算符如果有假值则返回第一个假值
         console.log(undefined || 0); // 返回0
         console.log(!undefined); // 返回true
+
+        if ('' || 0 || undefined || null || NaN) { // 这些在逻辑运算中都是false
+            console.log('不全是false');
+        } else {
+            console.log('全是false');
+        }
+
+        console.log('' || 0 || undefined || null || NaN); // ||运算符如果全为假则返回最后一个假值
     </script>
 </body>
 
