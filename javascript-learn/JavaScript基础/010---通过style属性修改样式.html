@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box')
+        box.style.width = '300px'
+        box.style.border = '2px solid red'
+        box.style.backgroundColor = 'blue' // 小驼峰
+        box.style.borderTop = '5px solid green' // 小驼峰
+    </script>
+</body>
+
+</html>
