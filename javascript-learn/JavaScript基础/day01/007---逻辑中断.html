@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let age = 18
+
+        console.log(true || age++); // ||运算符一真则真，逻辑中断，后面的不执行
+        console.log(age);
+
+        console.log(false && age++); // &&运算符一假则假，逻辑中断，后面的不执行
+        console.log(age);
+
+        console.log(true && age && ++age); // &&运算符如果全为真则返回最后一个真值
+        console.log(false || ++age || false || ++age); // ||运算符如果有真值则返回第一个真值
+        // console.log(age);
+    </script>
+</body>
+
+</html>
