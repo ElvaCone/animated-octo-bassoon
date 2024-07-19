@@ -20,6 +20,10 @@
         console.log(true && age && ++age); // &&运算符如果全为真则返回最后一个真值
         console.log(false || ++age || false || ++age); // ||运算符如果有真值则返回第一个真值
         // console.log(age);
+
+        console.log(undefined && 0); // 返回undefined
+        console.log(undefined || 0); // 返回0
+        console.log(!undefined); // 返回true
     </script>
 </body>
 
