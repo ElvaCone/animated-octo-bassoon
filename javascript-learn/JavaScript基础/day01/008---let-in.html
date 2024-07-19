@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['aa', 'bb', 'cc']
+        for (let k in arr) {
+            console.log(k);
+            console.log(typeof k); // 是字符串
+            console.log(arr[k]);
+        }
+
+
+        let obj = {
+            name: 'aaa',
+            age: 18,
+            address: 'bbb'
+        }
+        for (let k in obj) {
+            console.log(k);
+            console.log(typeof k); // 是字符串
+            // console.log(obj.k);  // 这样不行，因为等价于console.log(obj.'name')
+            // console.log(obj.name);
+            console.log(obj[k]);
+        }
+    </script>
+</body>
+
+</html>
