@@ -13,14 +13,18 @@
         // 间隔时间的单位是毫秒
         setInterval(function () {
             console.log('100ms执行一次');
-        }, 100)
+        }, 100) // 函数的声明后面不加小括号
 
         function fn() {
             console.log('1s执行一次');
         }
-        setInterval(fn, 1000) // 不加小括号
-        setInterval(fn(), 1000) // 加小括号就会只调用一次
-        setInterval('fn()', 1000) // 加小括号的话就要加单引号
+        setInterval(fn, 1000) // 函数名后面不加小括号
+        setInterval(fn(), 1000) // 函数名后面加小括号就会只调用一次
+        setInterval('fn()', 1000) // 函数名后面加小括号的话就要加单引号
+
+        let n = setInterval(fn, 1000) // 获取定时器的id，用let获取因为以后id可能改变
+        console.log(n);
+        clearInterval(n) // 关闭定时器
     </script>
 </body>
 
