@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+
+    <script>
+        const button = document.querySelector('button')
+
+        button.onclick = function () {
+            console.log('L0 clicked');
+            button.onclick = null // L0解绑的方法
+        }
+
+        // 匿名函数无法被解绑，所以需要将函数提取出来
+        function fn() {
+            console.log('L2 clicked');
+        }
+
+        button.addEventListener('click', fn)
+        button.removeEventListener('click', fn) // L2解绑的方法
+    </script>
+</body>
+
+</html>
