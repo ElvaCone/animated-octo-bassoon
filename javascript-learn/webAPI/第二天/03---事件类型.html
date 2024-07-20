@@ -20,6 +20,8 @@
 
     <script>
         const box = document.querySelector('.box')
+        const inputText = document.querySelector('[type="text"]')
+
         box.addEventListener('click', function () {
             console.log('click');
         })
@@ -30,12 +32,18 @@
             console.log('mouseleave');
         })
 
-        const inputText = document.querySelector('input')
         inputText.addEventListener('focus', function () {
             console.log('focus');
         })
         inputText.addEventListener('blur', function () {
             console.log('blur');
+        })
+
+        inputText.addEventListener('keydown', function () {
+            console.log('keydown');
+        })
+        inputText.addEventListener('keyup', function () {
+            console.log('keyup');
         })
     </script>
 </body>
