@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>轮播图点击切换</title>
+  <title>轮播图</title>
   <style>
     * {
       box-sizing: border-box;
@@ -127,21 +127,7 @@
       // { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
 
-    const img = document.querySelector('.slider-wrapper img')
-    const p = document.querySelector('.slider-footer p')
-    const sliderFooter = document.querySelector('.slider-footer')
-    let i = 0
-    setInterval(function () {
-      i++
-      if (i >= sliderData.length) {
-        i = 0
-      }
-      img.src = sliderData[i].url
-      p.innerHTML = sliderData[i].title
-      sliderFooter.style.backgroundColor = sliderData[i].color
-      document.querySelector('ul .active').classList.remove('active')
-      document.querySelector(`ul li:nth-child(${i + 1})`).classList.add('active')
-    }, 1000)
+    
   </script>
 </body>
 
