@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        const box = document.querySelector('.box')
+        box.addEventListener('click', function () {
+            console.log('click');
+        })
+        box.addEventListener('mouseenter', function () {
+            console.log('mouseenter');
+        })
+        box.addEventListener('mouseleave', function () {
+            console.log('mouseleave');
+        })
+    </script>
+</body>
+
+</html>
