@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 8000px;
+            height: 8000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        // scrollTop和scrollLeft是可写的
+        document.documentElement.scrollTop = 800
+        document.documentElement.scrollLeft = 800
+        window.addEventListener('scroll', function () {
+            let scrollTop = document.documentElement.scrollTop
+            let scrollLeft = document.documentElement.scrollLeft
+        })
+    </script>
+</body>
+
+</html>
