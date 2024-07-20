@@ -26,6 +26,9 @@
         input.addEventListener('keyup', function (e) {
             console.log(e.type);
             console.log(e.key); // 按的键
+            if (e.key === 'Enter') {
+                console.log('按了回车键');
+            }
         })
     </script>
 </body>
