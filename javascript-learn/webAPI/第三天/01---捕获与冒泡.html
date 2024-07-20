@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+        const html = document.querySelector('html')
+        // const body = document.querySelector('body')
+        const father = document.querySelector('.father')
+        const son = document.querySelector('.son')
+
+        // L2事件监听的第3个参数为true则是捕获为false则是冒泡，不写就默认为false
+        // 捕获的顺序为 document -> html -> body -> 父元素 -> 子元素 ，冒泡反之
+        document.addEventListener('click', function () {
+            console.log('document');
+        }, true)
+        html.addEventListener('click', function () {
+            console.log('html');
+        }, true)
+        document.body.addEventListener('click', function () {
+            console.log('document.body');
+        }, true)
+        father.addEventListener('click', function () {
+            console.log('father');
+        }, true)
+        son.addEventListener('click', function () {
+            console.log('son');
+        }, true)
+
+        // L2事件监听的第3个参数为true则是捕获为false则是冒泡，不写就默认为false
+        // 捕获的顺序为 document -> html -> body -> 父元素 -> 子元素 ，冒泡反之
+        document.addEventListener('click', function () {
+            console.log('document');
+        })
+        html.addEventListener('click', function () {
+            console.log('html');
+        })
+        document.body.addEventListener('click', function () {
+            console.log('document.body');
+        })
+        father.addEventListener('click', function () {
+            console.log('father');
+        })
+        son.addEventListener('click', function () {
+            console.log('son');
+        })
+
+        // e.stopPropagation()是阻止流动，既可以用于阻止捕获又可以用于阻止冒泡
+        son.addEventListener('click', function (e) {
+            console.log('son');
+            e.stopPropagation()
+        })
+    </script>
+</body>
+
+</html>
