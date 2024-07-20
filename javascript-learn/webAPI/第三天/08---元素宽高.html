@@ -43,11 +43,11 @@
     <script>
         const div = document.querySelector('div')
 
-        // clientWidth和clientHeight获取到元素可见部分的宽高，不包含border、margin、滚动条等。如果元素是隐藏的则获取到0
+        // clientWidth和clientHeight获取到元素可见部分的宽高，包含padding，不包含border、margin、滚动条等。如果元素是隐藏的则获取到0
         console.log(div.clientWidth);
         console.log(div.clientHeight);
 
-        // offsetWidth和offsetHeight获取到元素可见部分的宽高，包含border。如果元素是隐藏的则获取到0
+        // offsetWidth和offsetHeight获取到元素可见部分的宽高，包含padding、border、滚动条，不包含伪元素。如果元素是隐藏的则获取到0
         console.log(div.offsetWidth);
         console.log(div.offsetHeight);
     </script>
