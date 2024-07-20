@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setInterval(函数， 间隔时间)
+        // 间隔时间的单位是毫秒
+        setInterval(function () {
+            console.log('100ms执行一次');
+        }, 100)
+
+        function fn() {
+            console.log('1s执行一次');
+        }
+        setInterval(fn, 1000) // 不加小括号
+        setInterval(fn(), 1000) // 加小括号就会只调用一次
+        setInterval('fn()', 1000) // 加小括号的话就要加单引号
+    </script>
+</body>
+
+</html>
