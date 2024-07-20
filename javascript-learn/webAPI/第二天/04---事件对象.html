@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>按钮</button>
+
+    <script>
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', function (e) {
+            console.log(e.type); // 事件类型
+            console.log(e.clientX); // 光标相对于浏览器可见窗口左上角的X位置
+            console.log(e.clientY); // 光标相对于浏览器可见窗口左上角的Y位置
+            console.log(e.offsetX); // 光标相对于当前DOM元素左上角的X位置
+            console.log(e.offsetY); // 光标相对于当前DOM元素左上角的Y位置
+        })
+
+        input.addEventListener('keyup', function (e) {
+            console.log(e.type);
+            console.log(e.key); // 按的键
+        })
+    </script>
+</body>
+
+</html>
