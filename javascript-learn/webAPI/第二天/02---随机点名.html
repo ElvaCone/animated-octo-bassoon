@@ -55,7 +55,30 @@
     </div>
 
     <script>
+        const arr = ['aa', 'bb', 'cc', 'dd', 'ee']
 
+        const qs = document.querySelector('.qs')
+        const start = document.querySelector('.start')
+        const end = document.querySelector('.end')
+
+        let random = 0
+        let timeId = 0
+
+        start.addEventListener('click', function () {
+            timeId = setInterval(function () {
+                random = Math.floor(Math.random() * arr.length)
+                qs.innerHTML = arr[random]
+                if (arr.length === 1) {
+                    start.disabled = true
+                    end.disabled = true
+                }
+            }, 50)
+        })
+
+        end.addEventListener('click', function () {
+            clearInterval(timeId)
+            arr.splice(random, 1)
+        })
     </script>
 </body>
 
