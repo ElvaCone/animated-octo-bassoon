@@ -45,6 +45,11 @@
         inputText.addEventListener('keyup', function () {
             console.log('keyup');
         })
+
+        inputText.addEventListener('input', function () {
+            console.log('input');
+            console.log(inputText.value);
+        })
     </script>
 </body>
 
