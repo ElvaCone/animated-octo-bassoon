@@ -8,8 +8,19 @@
 </head>
 
 <body>
+    <button disabled>请阅读用户协议（5）</button>
     <script>
-        
+        const btn = document.querySelector('button')
+        let i = 5
+        let n = setInterval(function () {
+            i--
+            btn.innerHTML = `请阅读用户协议（${i}）`
+            if (i === 0) {
+                clearInterval(n)
+                btn.disabled = false
+                btn.innerHTML = '同意'
+            }
+        }, 1000)
     </script>
 </body>
 
