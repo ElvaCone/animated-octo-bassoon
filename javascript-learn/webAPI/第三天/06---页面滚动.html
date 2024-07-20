@@ -18,12 +18,16 @@
 
     <script>
         // scrollTop和scrollLeft是可写的
+        // 第一种滚动的方法
         document.documentElement.scrollTop = 800
         document.documentElement.scrollLeft = 800
         window.addEventListener('scroll', function () {
             let scrollTop = document.documentElement.scrollTop
             let scrollLeft = document.documentElement.scrollLeft
         })
+
+        // 第二种滚动的方法
+        window.scrollTo(0, 0)
     </script>
 </body>
 
