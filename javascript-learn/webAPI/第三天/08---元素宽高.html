@@ -41,9 +41,14 @@
 
     <script>
         const div = document.querySelector('div')
+
         // clientWidth和clientHeight获取到元素可见部分的宽高，不包含border、margin、滚动条等
         console.log(div.clientWidth);
         console.log(div.clientHeight);
+
+        // offsetWidth和offsetHeight获取到元素可见部分的宽高，包含border
+        console.log(div.offsetWidth);
+        console.log(div.offsetHeight);
     </script>
 </body>
 
