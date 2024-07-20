@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="aaa" class="inputText">
+    <input type="checkbox" name="" id="" class="inputCheckbox">
+    <button>按钮</button>
+    <script>
+        {
+            const inputText = document.querySelector('.inputText')
+            console.log(inputText.value);
+            console.log(inputText.innerHTML); // innerHTML得不到表单的内容
+            inputText.value = 'bbb'
+            inputText.type = 'password'
+        }
+
+        {
+            const inputCheckbox = document.querySelector('.inputCheckbox')
+            inputCheckbox.checked = true
+        }
+
+        {
+            const button = document.querySelector('button')
+            button.disabled = true
+        }
+    </script>
+</body>
+
+</html>
