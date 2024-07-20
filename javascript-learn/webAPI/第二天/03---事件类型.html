@@ -16,6 +16,7 @@
 
 <body>
     <div class="box"></div>
+    <input type="text">
 
     <script>
         const box = document.querySelector('.box')
@@ -27,6 +28,14 @@
         })
         box.addEventListener('mouseleave', function () {
             console.log('mouseleave');
+        })
+
+        const inputText = document.querySelector('input')
+        inputText.addEventListener('focus', function () {
+            console.log('focus');
+        })
+        inputText.addEventListener('blur', function () {
+            console.log('blur');
         })
     </script>
 </body>
