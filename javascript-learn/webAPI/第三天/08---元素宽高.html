@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+
+            border: 10px solid black;
+            margin: 10px;
+            overflow: scroll;
+
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaa
+    </div>
+
+    <script>
+        const div = document.querySelector('div')
+        // clientWidth和clientHeight获取到元素可见部分的宽高，不包含border、margin、滚动条等
+        console.log(div.clientWidth);
+        console.log(div.clientHeight);
+    </script>
+</body>
+
+</html>
