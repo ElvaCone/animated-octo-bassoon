@@ -11,10 +11,10 @@
 
 <body>
     <script>
-        let date = new Date()
+        let date = new Date('2011-9-30 09:33:27')
         console.log(date);
 
-        date = new Date('2011-9-30')
+        date = new Date()
         console.log(date);
 
         console.log(date.getFullYear());// 得到4位数的年
@@ -24,6 +24,10 @@
         console.log(date.getHours());
         console.log(date.getMinutes());
         console.log(date.getSeconds());
+
+        console.log(date.toLocaleString());
+        console.log(date.toLocaleDateString());
+        console.log(date.toLocaleTimeString());
     </script>
 </body>
 
