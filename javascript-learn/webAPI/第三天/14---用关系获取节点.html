@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+            <div class="son"></div>
+            <div class="son"></div>
+        </div>
+    </div>
+    <script>
+        const son = document.querySelector('.son')
+        // 获取父节点
+        console.log(son.parentNode);
+        console.log(son.parentNode.parentNode);
+
+        const grandfather = document.querySelector('.grandfather')
+        // 获取所有子节点，包括文本节点（空格、换行）、注释节点等
+        console.log(grandfather.childNodes);
+        // 获取所有元素节点 得到的是伪数组
+        console.log(grandfather.children);
+
+        const son2 = document.querySelector('.son:nth-child(2)')
+        // 获取上一个兄弟元素节点
+        console.log(son2.previousElementSibling);
+        // 获取下一个兄弟元素节点
+        console.log(son2.nextElementSibling);
+    </script>
+</body>
+
+</html>
