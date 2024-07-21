@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+        let date = new Date()
+        console.log(date);
+
+        date = new Date('2011-9-30')
+        console.log(date);
+
+        console.log(date.getFullYear());// 得到4位数的年
+        console.log(date.getMonth() + 1); // 得到的月份比实际月份小一
+        console.log(date.getDate());
+        console.log(date.getDay()); // Sunday得到0
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+    </script>
+</body>
+
+</html>
