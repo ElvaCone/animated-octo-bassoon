@@ -68,6 +68,7 @@
     const gender = document.querySelector('.gender')
     const salary = document.querySelector('.salary')
     const city = document.querySelector('.city')
+    const items = document.querySelectorAll('.info [name]')
 
     function render() {
       tbody.innerHTML = ''
@@ -86,11 +87,15 @@
         `
         tbody.appendChild(tr)
       }
-      // console.log(arr);
     }
 
     info.addEventListener('submit', function (e) {
       e.preventDefault()
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].value === '') {
+          return alert('输入内容不能为空！')
+        }
+      }
       const obj = {
         stuId: arr.length,
         uname: uname.value,
