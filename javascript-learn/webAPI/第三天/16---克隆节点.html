@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul')
+        const li1 = ul.children[0]
+        // 创建节点
+        const li1Clone = li1.cloneNode(true)
+        ul.appendChild(li1Clone)
+
+        // 写true则为深克隆
+        console.log(li1.cloneNode(true));
+        // 写false则为浅克隆，只克隆标签
+        console.log(li1.cloneNode(false));
+        // 不写则默认false
+        console.log(li1.cloneNode());
+    </script>
+</body>
+
+</html>
