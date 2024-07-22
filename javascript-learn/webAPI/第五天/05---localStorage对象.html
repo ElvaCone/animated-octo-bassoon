@@ -31,6 +31,8 @@
         }
         // 复杂数据类型必须先转换成JSON字符串再存储
         localStorage.setItem('obj', JSON.stringify(obj))
+        // 还原成复杂数据类型
+        console.log(JSON.parse(localStorage.getItem('obj')));
     </script>
 </body>
 
