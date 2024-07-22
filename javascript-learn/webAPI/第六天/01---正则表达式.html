@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+        const str = 'We are family.'
+        const reg = /are/
+        // 匹配到则返回true，没匹配到则返回false
+        console.log(reg.test(str));
+        // 匹配到则返回数组，没匹配到则返回null
+        console.log(reg.exec(str));
+        console.log('-----------------------------------------');
+
+        // 开头
+        console.log(/^a/.test('a'));
+        console.log(/^a/.test('aa'));
+        console.log(/^a/.test('ab'));
+        console.log(/^a/.test('ba'));
+        console.log('-----------------------------------------');
+        // 结尾
+        console.log(/a$/.test('a'));
+        console.log(/a$/.test('aa'));
+        console.log(/a$/.test('ab'));
+        console.log(/a$/.test('ba'));
+        console.log('-----------------------------------------');
+        // 精确匹配
+        console.log(/^a$/.test('a')); // true
+        console.log(/^a$/.test('aa')); // false
+        console.log(/^a$/.test('aaa')); // false
+        console.log('-----------------------------------------');
+        // * 表示零次或更多次
+        console.log(/^a*$/.test('')); // true
+        console.log(/^a*$/.test('a')); // true
+        console.log(/^a*$/.test('aa')); // true
+        console.log(/^a*$/.test('aaa')); // true
+        console.log(/^a*$/.test('ab')); // false
+        console.log(/^a*$/.test('aba')); // false
+        console.log(/^a*$/.test('ba')); // false
+        console.log(/^a*$/.test('bab')); // false
+        console.log('-----------------------------------------');
+        // + 表示零次或更多次
+        console.log(/^a+$/.test('')); // false
+        console.log(/^a+$/.test('a')); // true
+        console.log(/^a+$/.test('aa')); // true
+        console.log(/^a+$/.test('aaa')); // true
+        console.log(/^a+$/.test('ab')); // false
+        console.log(/^a+$/.test('aba')); // false
+        console.log(/^a+$/.test('ba')); // false
+        console.log(/^a+$/.test('bab')); // false
+        console.log('-----------------------------------------');
+        // ? 表示零次或一次
+        console.log(/^a?$/.test('')); // true
+        console.log(/^a?$/.test('a')); // true
+        console.log(/^a?$/.test('aa')); // false
+        console.log(/^a?$/.test('aaa')); // false
+        console.log(/^a?$/.test('ab')); // false
+        console.log(/^a?$/.test('aba')); // false
+        console.log(/^a?$/.test('ba')); // false
+        console.log(/^a?$/.test('bab')); // false
+        console.log('-----------------------------------------');
+        // {n} 表示出现n次
+        console.log(/^a{3}$/.test('')); // false
+        console.log(/^a{3}$/.test('a')); // false
+        console.log(/^a{3}$/.test('aa')); // false
+        console.log(/^a{3}$/.test('aaa')); // true
+        console.log(/^a{3}$/.test('aaaa')); // false
+        console.log(/^a{3}$/.test('aaaaa')); // false
+        console.log(/^a{3}$/.test('aaaaaa')); // false
+        console.log(/^a{3}$/.test('aaaaaaa')); // false
+        console.log('-----------------------------------------');
+        // {n,} 表示出现n次或更多次 注意逗号两侧不要出现空格
+        console.log(/^a{3,}$/.test('')); // false
+        console.log(/^a{3,}$/.test('a')); // false
+        console.log(/^a{3,}$/.test('aa')); // false
+        console.log(/^a{3,}$/.test('aaa')); // true
+        console.log(/^a{3,}$/.test('aaaa')); // true
+        console.log(/^a{3,}$/.test('aaaaa')); // true
+        console.log(/^a{3,}$/.test('aaaaaa')); // true
+        console.log(/^a{3,}$/.test('aaaaaaa')); // true
+        console.log('-----------------------------------------');
+        // {n,m} 表示出现n到m次 注意逗号两侧不要出现空格
+        console.log(/^a{3,5}$/.test('')); // false
+        console.log(/^a{3,5}$/.test('a')); // false
+        console.log(/^a{3,5}$/.test('aa')); // false
+        console.log(/^a{3,5}$/.test('aaa')); // true
+        console.log(/^a{3,5}$/.test('aaaa')); // true
+        console.log(/^a{3,5}$/.test('aaaaa')); // true
+        console.log(/^a{3,5}$/.test('aaaaaa')); // false
+        console.log(/^a{3,5}$/.test('aaaaaaa')); // false
+        console.log('-----------------------------------------');
+        // [] 表示中括号里的任意一个内容出现一次
+        console.log(/^[abc]$/.test('')); // false
+        console.log(/^[abc]$/.test('a')); // true
+        console.log(/^[abc]$/.test('b')); // true
+        console.log(/^[abc]$/.test('c')); // true
+        console.log(/^[abc]$/.test('ad')); // false
+        // 
+        console.log(/^[a-z]$/.test('')); // false
+        console.log(/^[a-z]$/.test('a')); // true
+        console.log(/^[a-z]$/.test('b')); // true
+        console.log(/^[a-z]$/.test('c')); // true
+        console.log(/^[a-z]$/.test('ad')); // false
+        // 
+        console.log(/^[a-zA-Z]$/.test('')); // false
+        console.log(/^[a-zA-Z]$/.test('a')); // true
+        console.log(/^[a-zA-Z]$/.test('b')); // true
+        console.log(/^[a-zA-Z]$/.test('c')); // true
+        console.log(/^[a-zA-Z]$/.test('ab')); // false
+        console.log(/^[a-zA-Z]$/.test('A')); // true
+        console.log(/^[a-zA-Z]$/.test('B')); // true
+        console.log(/^[a-zA-Z]$/.test('C')); // true
+        console.log(/^[a-zA-Z]$/.test('AB')); // false
+        //
+        console.log(/^[a-zA-Z0-9]$/.test('')); // false
+        console.log(/^[a-zA-Z0-9]$/.test('a')); // true
+        console.log(/^[a-zA-Z0-9]$/.test('A')); // true
+        console.log(/^[a-zA-Z0-9]$/.test('0')); // true
+        console.log(/^[a-zA-Z]$/.test('AB')); // false
+        console.log('-----------------------------------------');
+        // []里的^ 表示取反
+        console.log(/^[^a-z]$/.test('')); // false
+        console.log(/^[^a-z]$/.test('a')); // false
+        console.log(/^[^a-z]$/.test('aa')); // false
+        console.log(/^[^a-z]$/.test('A')); // true
+        console.log(/^[^a-z]$/.test('5')); // true
+        console.log('-----------------------------------------');
+        // . 表示除了换行符之外的任何字符
+        console.log(/^.$/.test('')); // false
+        console.log(/^.$/.test('a')); // true
+        console.log(/^.$/.test('aa')); // false
+        console.log(/^.$/.test('A')); // true
+        console.log(/^.$/.test('5')); // true
+    </script>
+</body>
+
+</html>
