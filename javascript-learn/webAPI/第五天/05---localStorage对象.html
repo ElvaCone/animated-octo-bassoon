@@ -23,6 +23,14 @@
         // localStorage存储的是字符串
         localStorage.setItem('age', 18)
         console.log(localStorage.getItem('age'));
+
+        const obj = {
+            name: 'aaa',
+            age: 18,
+            gender: '女'
+        }
+        // 复杂数据类型必须先转换成JSON字符串再存储
+        localStorage.setItem('obj', JSON.stringify(obj))
     </script>
 </body>
 
