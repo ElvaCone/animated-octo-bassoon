@@ -66,22 +66,28 @@
   </table>
   <script>
     // 参考数据
-    const initData = [
-      {
-        stuId: 1,
-        uname: '迪丽热巴',
-        age: 22,
-        salary: '12000',
-        gender: '女',
-        city: '北京',
-        time: '2099/9/9 08:08:08'
-      }
-    ]
+    // const initData = [
+    //   {
+    //     stuId: 1,
+    //     uname: '迪丽热巴',
+    //     age: 22,
+    //     salary: '12000',
+    //     gender: '女',
+    //     city: '北京',
+    //     time: '2099/9/9 08:08:08'
+    //   }
+    // ]
     const tbody = document.querySelector('tbody')
-    localStorage.setItem('data', JSON.stringify(initData))
+    const info = document.querySelector('.info')
+    const uname = document.querySelector('.uname')
+    const age = document.querySelector('.age')
+    const salary = document.querySelector('.salary')
+    const gender = document.querySelector('.gender')
+    const city = document.querySelector('.city')
+
     function render() {
       const arr = JSON.parse(localStorage.getItem('data'))
-      const trArr = arr.map(function (ele) {
+      const trArr = arr.map(function (ele, index) {
         return `
         <tr>
           <td>${ele.stuId}</td>
@@ -92,7 +98,7 @@
           <td>${ele.city}</td>
           <td>${ele.time}</td>
           <td>
-            <a href="javascript:">删除</a>
+            <a href="javascript:" data-id="${index}">删除</a>
           </td>
         </tr>
         `
@@ -100,7 +106,36 @@
       tbody.innerHTML = trArr.join('')
       document.querySelector('.title span').innerHTML = arr.length
     }
-    render()
+
+    info.addEventListener('submit', function (e) {
+      e.preventDefault()
+      if (uname.value && age.value && salary.value) {
+        const arr = JSON.parse(localStorage.getItem('data')) || []
+        arr.push({
+          stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
+          uname: uname.value,
+          age: age.value,
+          salary: salary.value,
+          gender: gender.value,
+          city: city.value,
+          time: new Date().toLocaleString()
+        })
+        localStorage.setItem('data', JSON.stringify(arr))
+        render()
+        info.reset()
+      } else {
+        alert('不能为空')
+      }
+    })
+
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A' && confirm('确定删除？')) {
+        const arr = JSON.parse(localStorage.getItem('data'))
+        arr.splice(e.target.dataset.id, 1)
+        localStorage.setItem('data', JSON.stringify(arr))
+        render()
+      }
+    })
   </script>
 </body>
 
