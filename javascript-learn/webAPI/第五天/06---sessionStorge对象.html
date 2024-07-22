@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+        // 增
+        sessionStorage.setItem('name', 'aaa')
+        // 查
+        console.log(sessionStorage.getItem('name'));
+        // 删
+        sessionStorage.removeItem('name')
+        // 改
+        sessionStorage.setItem('name', 'bbb')
+
+        // sessionStorage存储的是字符串
+        sessionStorage.setItem('age', 18)
+        console.log(sessionStorage.getItem('age'));
+    </script>
+</body>
+
+</html>
