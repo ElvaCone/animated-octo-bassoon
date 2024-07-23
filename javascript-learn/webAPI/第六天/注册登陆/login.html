@@ -77,7 +77,18 @@
     </div>
   </div>
   <script>
-
+    const tabNav = document.querySelector('.tab-nav')
+    const tabPanes = document.querySelectorAll('.tab-pane')
+    tabNav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        e.target.classList.add('active')
+        for (let i = 0; i < tabPanes.length; i++) {
+          tabPanes[i].style.display = 'none'
+        }
+        tabPanes[e.target.dataset.id].style.display = 'block'
+      }
+    })
   </script>
 </body>
 
