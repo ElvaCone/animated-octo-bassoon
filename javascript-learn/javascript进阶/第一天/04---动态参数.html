@@ -9,14 +9,21 @@
 
 <body>
     <script>
-        function sum() {
+        function getSum() {
             // arguments是伪数组
             console.log(arguments);
+
+            let sum = 0
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+
+            }
+            console.log(sum);
         }
-        sum()
-        sum(1)
-        sum(1, 2)
-        sum(1, 2, 3)
+        getSum()
+        getSum(1)
+        getSum(1, 2)
+        getSum(1, 2, 3)
     </script>
 </body>
 
