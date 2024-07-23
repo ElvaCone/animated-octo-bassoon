@@ -1219,8 +1219,31 @@
   </div>
 
   <script>
+    const username = document.querySelector('.xtx_navs li:first-child')
+    const login = username.nextElementSibling
 
+    // 函数——渲染用户名
+    function renderUsername() {
+      const xtxUsername = localStorage.getItem('xtx-userName')
+      if (xtxUsername) {
+        username.innerHTML = `<a href="./login.html">${xtxUsername}</a>`
+        login.innerHTML = `<a href="./register.html">退出登录</a>`
+      } else {
+        username.innerHTML = `<a href="./login.html">请先登录</a>`
+        login.innerHTML = `<a href="./register.html">免费注册</a>`
+      }
+    }
 
+    // 点击“退出登录”
+    login.addEventListener('click', function () {
+      localStorage.removeItem('xtx-userName')
+      renderUsername()
+    })
+
+    // 页面加载完毕
+    window.addEventListener('DOMContentLoaded', function () {
+      renderUsername()
+    })
   </script>
 </body>
 
