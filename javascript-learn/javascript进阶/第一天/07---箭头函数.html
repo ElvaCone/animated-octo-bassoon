@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 完整箭头函数
+        let fn = (x) => {
+            console.log(x)
+        }
+        fn(111)
+
+        // 没有形参就不写
+        fn = () => {
+            console.log(123)
+        }
+        fn()
+
+        // 形参个数为1时可以不写小括号
+        fn = x => {
+            console.log(x)
+        }
+        fn(111)
+
+        // 函数体行数为1时可以不写花括号
+        fn = x => console.log(x)
+        fn(111)
+
+        // 函数体行数为1时可以不写return
+        fn = x => x + x
+        console.log(fn(111))
+
+        // 可以返回一个对象
+        fn = uname => ({ uname: uname })
+        console.log(fn('aaa'))
+    </script>
+</body>
+
+</html>
