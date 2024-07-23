@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const person = { uname: 'aaa', age: 18 }
+            const { uname, age } = person
+            console.log(uname)
+            console.log(age)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // const { uname, age } = { uname: 'aaa', age: 18 }
+            const { age, uname } = { uname: 'aaa', age: 18 } // 对象是无序的
+            console.log(uname)
+            console.log(age)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 变量名和属性名必须一致才能获取到
+            const { uname1, age1 } = { uname: 'aaa', age: 18 }
+            console.log(uname1) // undefined
+            console.log(age1) // undefined
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 变量名可以重新改名
+            const { uname: userName, age } = { uname: 'aaa', age: 18 }
+            console.log(userName)
+            console.log(age)
+            console.log('------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
