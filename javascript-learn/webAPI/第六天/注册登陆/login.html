@@ -21,7 +21,7 @@
   <!-- 登录内容 -->
   <div class="xtx-login-main">
     <div class="wrapper">
-      <form action="">
+      <form action="" autocomplete="off">
         <div class="box">
           <div class="tab-nav">
             <a href="javascript:;" class="active" data-id="0">账户登录</a>
@@ -79,6 +79,10 @@
   <script>
     const tabNav = document.querySelector('.tab-nav')
     const tabPanes = document.querySelectorAll('.tab-pane')
+    const form = document.querySelector('form')
+    const userName = document.querySelector('input[name="username"]')
+    const password = document.querySelector('input[name="password"]')
+    const agree = document.querySelector('input[name="agree"]')
     tabNav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
         document.querySelector('.tab-nav .active').classList.remove('active')
@@ -88,6 +92,19 @@
         }
         tabPanes[e.target.dataset.id].style.display = 'block'
       }
+    })
+    userName.addEventListener('change', function () {
+      // if (condition) {
+
+      // }
+    })
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      if (!agree.checked) {
+        return alert('请勾选同意协议')
+      }
+      localStorage.setItem('xtx-userName', userName.value)
+      location.href = './index.html'
     })
   </script>
 </body>
