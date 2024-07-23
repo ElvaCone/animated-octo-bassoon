@@ -121,7 +121,19 @@
       },
     ]
 
-    
+    let str = ''
+    goodsList.forEach(item => {
+      const { name, price, picture } = item
+      str += `
+      <div class="item">
+      <img src="${picture}" alt="">
+      <p class="name">${name}</p>
+      <p class="price">${price}</p>
+    </div>
+      `
+    })
+    const list = document.querySelector('.list')
+    list.innerHTML = str
   </script>
 </body>
 
