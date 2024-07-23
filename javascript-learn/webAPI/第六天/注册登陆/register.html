@@ -200,8 +200,21 @@
     </div>
   </div>
   <script>
-
-
+    let resendCodeTimer = null
+    const sendCode = document.querySelector('.code')
+    sendCode.addEventListener('click', function () {
+      let resendCodeSecond = 5
+      sendCode.innerHTML = `${resendCodeSecond}秒后重新获取`
+      resendCodeTimer = setInterval(function () {
+        resendCodeSecond--
+        if (resendCodeSecond === 0) {
+          sendCode.innerHTML = '发送验证码'
+          clearInterval(resendCodeTimer)
+          return
+        }
+        sendCode.innerHTML = `${resendCodeSecond}秒后重新获取`
+      }, 1000)
+    })
   </script>
 </body>
 
