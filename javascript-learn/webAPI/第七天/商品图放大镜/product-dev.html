@@ -402,7 +402,50 @@
 </body>
 
 <script>
+  const small = document.querySelector('.small')
+  const middle = document.querySelector('.middle')
+  const large = document.querySelector('.large')
+  let largeCloseTimer = null
 
+  function showLarge() {
+    large.style.backgroundImage = `url(${middle.querySelector('img').src})`
+    large.style.display = 'block'
+  }
+  function hideLarge() {
+    large.style.display = 'none'
+  }
+
+  // 鼠标经过小图
+  small.addEventListener('mouseover', function (e) {
+    if (e.target.tagName === 'IMG') {
+      small.querySelector('.active').classList.remove('.active')
+      e.target.parentNode.classList.add('.active')
+      middle.querySelector('img').src = e.target.src
+      large.style.backgroundImage = `url(${e.target.src})`
+    }
+  })
+
+  // 鼠标进入中图
+  middle.addEventListener('mouseover', function (e) {
+    showLarge()
+    clearTimeout(largeCloseTimer)
+  })
+
+
+  // 鼠标离开中图
+  middle.addEventListener('mouseout', function (e) {
+    largeCloseTimer = setTimeout(hideLarge, 200)
+  })
+
+  // 鼠标进入大图
+  large.addEventListener('mouseover', function (e) {
+    clearTimeout(largeCloseTimer)
+  })
+
+  // 鼠标离开大图
+  large.addEventListener('mouseout', function (e) {
+    largeCloseTimer = setTimeout(hideLarge, 200)
+  })
 </script>
 
 </html>
