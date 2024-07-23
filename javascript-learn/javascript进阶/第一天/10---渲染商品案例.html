@@ -121,23 +121,7 @@
       },
     ]
 
-    // 1. 声明一个字符串变量
-    let str = ''
-    // 2. 遍历数据 
-    goodsList.forEach(item => {
-      // console.log(item)  // 可以得到每一个数组元素  对象 {id: '4001172'}
-      // const {id} =  item  对象解构
-      const { name, price, picture } = item
-      str += `
-      <div class="item">
-        <img src=${picture} alt="">
-        <p class="name">${name}</p>
-        <p class="price">${price}</p>
-      </div>
-      `
-    })
-    // 3.生成的 字符串 添加给 list 
-    document.querySelector('.list').innerHTML = str
+    
   </script>
 </body>
 
