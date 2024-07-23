@@ -40,6 +40,24 @@
             console.log(age)
             console.log('------------------------------------------')
         }
+
+        {
+            // 多级对象（或称嵌套对象）
+            const { uname, family: { mother, father, brother } } = {
+                uname: 'aaa',
+                family: {
+                    mother: 'bbb',
+                    father: 'ccc',
+                    brother: 'ddd',
+                }
+            }
+            console.log(uname)
+            // console.log(family) // 报错：ReferenceError: family is not defined
+            console.log(mother)
+            console.log(father)
+            console.log(brother)
+            console.log('------------------------------------------')
+        }
     </script>
 </body>
 
