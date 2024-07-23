@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数提升指的是在代码执行之前所有函数的声明会被提升到当前作用域的最前面
+        fn()
+        function fn() {
+            console.log(111);
+        }
+
+        fun() // 报错：TypeError: fun is not a function
+        var fun = function () {
+            console.log(222);
+        }
+        fun()
+    </script>
+</body>
+
+</html>
