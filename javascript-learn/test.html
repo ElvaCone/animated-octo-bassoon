@@ -4,26 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 600px;
+            height: 600px;
+            background: yellow;
+        }
+
+        .outer1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 100px;
+            overflow: hidden;
+        }
+
+        .inner {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            margin: 10px;
+        }
+
+        .outer2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 100px;
+            /* overflow: hidden; */
+        }
+    </style>
 </head>
 
 <body>
-    <form class="info">
-        姓名：<input type="text" class="name" name="name">
-        年龄：<input type="text" class="age" name="age">
-        性别：
-        <select name="gender" class="gender">
-            <option value="男">男</option>
-            <option value="女">女</option>
-        </select>
-        薪资：<input type="salary" class="salary" name="salary">
-        城市：
-        <select name="city" class="city">
-            <option value="北京">北京</option>
-            <option value="深圳">深圳</option>
-        </select>
-        <button class="add">提交</button>
-    </form>
+    <div class="container">
+        <div class="outer1">
+            <div class="inner"></div>
+        </div>
+        <div class="outer2"></div>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        console.log(div.offsetTop);
+        console.log(div.offsetLeft);
+        console.log(div.offsetParent);
+    </script>
 </body>
 
 </html>
