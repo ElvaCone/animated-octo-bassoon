@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            // 批量赋值
+            const arr = [20, 100, 40]
+            const [a, b, c] = arr
+            console.log(a)
+            console.log(b)
+            console.log(c)
+            const [d, e, f] = [10, 30, 55]
+            console.log(d)
+            console.log(e)
+            console.log(f)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 交换两个变量
+            let first = 4
+            let second = 9; // 不加分号就会报错：ReferenceError: can't access lexical declaration 'second' before initialization
+            [first, second] = [second, first]
+            console.log(first)
+            console.log(second)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 变量少单元值多
+            const [a, b] = [1, 2, 3]
+            console.log(a)
+            console.log(b)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 变量多单元值少
+            const [a, b, c, d] = [1, 2, 3]
+            console.log(a)
+            console.log(b)
+            console.log(c)
+            console.log(d) // undefined
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 变量少单元值多 用剩余参数接
+            const [a, b, ...c] = [1, 2, 3, 4]
+            console.log(a)
+            console.log(b)
+            console.log(c) // 真数组
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 默认值
+            const [a = 0, b = 0] = [1]
+            console.log(a)
+            console.log(b)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 忽略某些值
+            const [a, b, , d] = [1, 2, 3, 4]
+            console.log(a)
+            console.log(b)
+            console.log(d)
+            console.log('------------------------------------------')
+        }
+
+        {
+            // 多维数组
+            const [a, b, [c, d]] = [1, 2, [3, 4]]
+            console.log(a)
+            console.log(b)
+            console.log(c)
+            console.log(d)
+            console.log('------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
