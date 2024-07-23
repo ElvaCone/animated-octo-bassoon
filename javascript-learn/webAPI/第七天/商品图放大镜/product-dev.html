@@ -404,6 +404,7 @@
 <script>
   const small = document.querySelector('.small')
   const middle = document.querySelector('.middle')
+  const layer = document.querySelector('.layer')
   const large = document.querySelector('.large')
   let largeCloseTimer = null
 
@@ -429,12 +430,14 @@
   middle.addEventListener('mouseover', function (e) {
     showLarge()
     clearTimeout(largeCloseTimer)
+    layer.style.display = 'block'
   })
 
 
   // 鼠标离开中图
   middle.addEventListener('mouseout', function (e) {
     largeCloseTimer = setTimeout(hideLarge, 200)
+    layer.style.display = 'none'
   })
 
   // 鼠标进入大图
@@ -445,6 +448,35 @@
   // 鼠标离开大图
   large.addEventListener('mouseout', function (e) {
     largeCloseTimer = setTimeout(hideLarge, 200)
+  })
+
+
+  // 鼠标在中图移动
+  middle.addEventListener('mousemove', function (e) {
+    let layerX = e.pageX - middle.getBoundingClientRect().left - scrollX
+    let layerY = e.pageY - middle.getBoundingClientRect().top - scrollY
+
+    if (layerX <= 100) {
+      layerX = 0
+    } else if (layerX > 100 && layerX < 300) {
+      layerX -= 100
+    } else {
+      layerX = 200
+    }
+
+    if (layerY <= 100) {
+      layerY = 0
+    } else if (layerY > 100 && layerY < 300) {
+      layerY -= 100
+    } else {
+      layerY = 200
+    }
+
+    layer.style.left = layerX + 'px'
+    layer.style.top = layerY + 'px'
+
+    large.style.backgroundPositionX = (- 2 * layerX) + 'px'
+    large.style.backgroundPositionY = (- 2 * layerY) + 'px'
   })
 </script>
 
