@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getSum(a, b, ...arr) {
+            // arr是真数组
+            console.log(arr);
+
+            let sum = 0
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i]
+
+            }
+            console.log(sum);
+        }
+        getSum()
+        getSum(1)
+        getSum(1, 2)
+        getSum(1, 2, 3)
+        getSum(1, 2, 3, 4)
+        getSum(1, 2, 3, 4, 5)
+    </script>
+</body>
+
+</html>
