@@ -1226,8 +1226,8 @@
     function renderUsername() {
       const xtxUsername = localStorage.getItem('xtx-userName')
       if (xtxUsername) {
-        username.innerHTML = `<a href="./login.html">${xtxUsername}</a>`
-        login.innerHTML = `<a href="./register.html">退出登录</a>`
+        username.innerHTML = `<a href="javascript:void(0)">${xtxUsername}</a>`
+        login.innerHTML = `<a href="javascript:void(0)">退出登录</a>`
       } else {
         username.innerHTML = `<a href="./login.html">请先登录</a>`
         login.innerHTML = `<a href="./register.html">免费注册</a>`
