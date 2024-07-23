@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function outer() {
+            let i = 0
+            function inner() {
+                i++
+                console.log(i);
+            }
+            return inner
+        }
+
+        const fun = outer()
+    </script>
+</body>
+
+</html>
