@@ -207,12 +207,11 @@
       sendCode.innerHTML = `${resendCodeSecond}秒后重新获取`
       resendCodeTimer = setInterval(function () {
         resendCodeSecond--
+        sendCode.innerHTML = `${resendCodeSecond}秒后重新获取`
         if (resendCodeSecond === 0) {
           sendCode.innerHTML = '发送验证码'
           clearInterval(resendCodeTimer)
-          return
         }
-        sendCode.innerHTML = `${resendCodeSecond}秒后重新获取`
       }, 1000)
     })
   </script>
