@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const big = 10.499
+            const little = 10.500
+            console.log(big.toFixed()) // 不写参数就是四舍五入成整数
+            console.log(little.toFixed())
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const big = 10.494
+            const little = 10.505
+            console.log(big.toFixed(2)) // 参数写几就是四舍五入成几位小数
+            console.log(little.toFixed(2))
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const big = 10.4
+            const little = 10
+            console.log(big.toFixed(2)) // 原数字小数位数不够就补0
+            console.log(little.toFixed(2))
+            console.log('-------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
