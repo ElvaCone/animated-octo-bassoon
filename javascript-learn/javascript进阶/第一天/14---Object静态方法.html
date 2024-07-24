@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const student1 = {
+            name: 'aaa',
+            age: 18
+        }
+
+        // 取得key数组
+        console.log(Object.keys(student1))
+        // 取得value数组
+        console.log(Object.values(student1))
+
+        const student2 = {}
+        // 将后者追加给前者
+        Object.assign(student2, student1)
+        console.log(student2)
+        // 将后者追加给前者
+        Object.assign(student2, { gender: '女' })
+        console.log(student2)
+    </script>
+</body>
+
+</html>

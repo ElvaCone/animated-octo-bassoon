@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const arr = [2, 3, 5]
+
+            console.log(arr.reduce((prev, current) => prev + current))
+            console.log(arr.reduce((prev, current) => prev + current, 10))
+
+            console.log(arr.reduce((prev, current) => prev * current))
+            console.log(arr.reduce((prev, current) => prev * current, 10))
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const arr = [{ name: 'aaa', salary: 100 }, { name: 'bbb', salary: 100 }, { name: 'ccc', salary: 100 }]
+            console.log(arr.reduce((prev, current) => prev + current.salary, 0))
+
+            const emptyArr = []
+            console.log(emptyArr.reduce((prev, current) => prev + current.salary, 0)) // 得到0而不是undefined，因为 reduce 方法对一个空数组进行操作时，如果提供了 initialValue ，那么 reduce 方法会直接返回这个 initialValue 而不会执行回调函数
+            // console.log(emptyArr.reduce((prev, current) => prev + current.salary)) // 报错：TypeError: reduce of empty array with no initial value
+            console.log('-------------------------------------------')
+
+        }
+
+        {
+            const arr = [{ name: 'aaa', salary: 100 }, { name: 'bbb', salary: 100 }, { name: 'ccc', salary: 100 }]
+            console.log(arr.find(item => item.name === 'bbb')) // find返回第一个满足条件的
+            console.log(arr.find(item => item.name === 'ddd')) // find找不到就返回undefined
+            console.log(arr.filter(item => item.name === 'bbb')) // filter返回所有满足条件的
+            console.log(arr.filter(item => item.name === 'ddd')) // filter找不到就返回空数组
+            console.log('-------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
