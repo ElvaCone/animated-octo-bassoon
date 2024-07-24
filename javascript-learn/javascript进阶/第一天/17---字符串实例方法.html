@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const arr = 'red,pink,blue'
+
+            console.log(arr.split(',')) // join是将数组转换成字符串，split则相反
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const arr = '截取字符串'
+
+            console.log(arr.substring(2)) // 第二个参数可以不写
+            console.log(arr.substring(2, 4)) // 截取时不包含第二个参数的位置
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const arr = 'To be, or not to be, that is the question.'
+
+            console.log(arr.startsWith('To be')) // 第二个参数可以不写
+            console.log(arr.startsWith("not to be", 10))
+            console.log('-------------------------------------------')
+        }
+
+        {
+            const arr = 'To be, or not to be, that is the question.'
+
+            console.log(arr.includes('To be')) // 第二个参数可以不写
+            console.log(arr.includes('TO BE')) // 严格区分大小写
+            console.log(arr.includes('To be', 1))
+            console.log('-------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
