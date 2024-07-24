@@ -148,7 +148,43 @@
       },
     ]
 
-     
+    const list = document.querySelector('.list')
+    const filter = document.querySelector('.filter')
+
+    function render(arr) {
+      let str = ''
+      arr.forEach(item => {
+        const { name, price, picture } = item
+        str += `
+        <div class="item">
+        <img src="${picture}" alt="">
+        <p class="name">${name}</p>
+        <p class="price">${price}</p>
+      </div>
+        `
+      })
+      list.innerHTML = str
+    }
+
+    render(goodsList)
+
+    filter.addEventListener('click', event => {
+      const { target, dataset } = event
+      const { tagName } = target
+      const { index } = target.dataset
+      if (tagName === 'A') {
+        let newArr = goodsList
+        if (index === '1') {
+          newArr = goodsList.filter(item => item.price > 0 && item.price <= 100)
+        } else if (index === '2') {
+          newArr = goodsList.filter(item => item.price > 100 && item.price <= 300)
+        } else if (index === '3') {
+          newArr = goodsList.filter(item => item.price > 300)
+        }
+        console.log(newArr)
+        render(newArr)
+      }
+    })
   </script>
 </body>
 
