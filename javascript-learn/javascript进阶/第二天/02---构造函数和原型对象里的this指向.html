@@ -21,6 +21,7 @@
             const a = new Person()
 
             console.log(a === that) // true 构造函数里的this指向实例
+            console.log('-------------------------------------------')
         }
 
         {
@@ -37,6 +38,26 @@
             a.sing()
 
             console.log(a === that) // true 原型对象里的this指向实例
+            console.log('-------------------------------------------')
+        }
+
+        {
+            Array.prototype.max = function () {
+                return Math.max(...this)
+            }
+            Array.prototype.min = function () {
+                return Math.min(...this)
+            }
+            Array.prototype.getSum = function () {
+                return this.reduce((prev, item) => prev + item, 0)
+            }
+
+            const arr = [1, 2, 3]
+
+            console.log(arr.max())
+            console.log(arr.min())
+            console.log(arr.getSum())
+            console.log('-------------------------------------------')
         }
 
     </script>
