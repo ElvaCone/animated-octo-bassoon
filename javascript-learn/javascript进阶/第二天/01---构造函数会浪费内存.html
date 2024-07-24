@@ -17,12 +17,17 @@
         function Obj(hand, foot) {
             this.hand = hand
             this.foot = foot
+            this.cook = function () {
+                console.log('做饭')
+            }
         }
+
         const a = new Obj(hand, foot)
         const b = new Obj(hand, foot)
 
-        console.log(a.hand === b.hand)
-        console.log(a.foot === b.foot)
+        console.log(a.hand === b.hand) // true
+        console.log(a.foot === b.foot) // true
+        console.log(a.cook === b.cook) // false 每个实例里都会有自己的函数而不是共用同一个
     </script>
 </body>
 
