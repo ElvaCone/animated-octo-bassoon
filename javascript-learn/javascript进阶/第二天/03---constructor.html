@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            function Person() {
+            }
+
+            console.log(Person.prototype.constructor === Person) // true prototype里的constructor指向构造函数
+            console.log('-------------------------------------------')
+        }
+
+        {
+            function Person() {
+            }
+
+            Person.prototype = {
+                constructor: Person, // 给prototype重新赋值时要记得写constructor属性，否则就找不到自己的构造函数了
+                sing: function () {
+                    console.log('唱歌')
+                },
+                dance: function () {
+                    console.log('跳舞')
+                }
+            }
+
+            console.log(Person.prototype)
+            console.log('-------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
