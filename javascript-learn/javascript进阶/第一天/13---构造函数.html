@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(name, age) {
+            this.uname = name
+            this.age = age
+            return 'aaabbb' // 构造函数的最后写return也不会起效
+        }
+
+        const tom = new Student('Tom', 15)
+        const john = new Student('John', 17)
+        const empty = new Student // 实例化构造函数时如果没有参数则可以省略小括号，但一般不省略
+
+        console.log(tom)
+        console.log(john)
+        console.log(empty)
+
+        Student.eyes = 2 // 静态属性
+        Student.howManyEyes = function () { // 静态方法 如果需要this就不要用箭头函数
+            console.log(this) // 静态方法中的this指向构造函数
+            console.log(this.eyes) // 静态成员只能通过构造函数访问
+            // 如果不写return则被调用时会返回undefined
+        }
+
+        console.log(Student.eyes) // 静态成员只能通过构造函数访问
+        console.log(Student.howManyEyes())
+    </script>
+</body>
+
+</html>
