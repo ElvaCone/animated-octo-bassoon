@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数和原型对象里的this都指向实例
+
+        {
+            let that = null
+
+            function Person() {
+                that = this
+            }
+
+            const a = new Person()
+
+            console.log(a === that) // true 构造函数里的this指向实例
+        }
+
+        {
+            let that = null
+
+            function Person() {
+            }
+
+            Person.prototype.sing = function () {
+                that = this
+            }
+
+            const a = new Person()
+            a.sing()
+
+            console.log(a === that) // true 原型对象里的this指向实例
+        }
+
+    </script>
+</body>
+
+</html>
