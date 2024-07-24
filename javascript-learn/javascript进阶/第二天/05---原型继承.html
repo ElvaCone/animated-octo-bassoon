@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            function Person() {
+                this.eyes = 2
+                this.legs = 2
+            }
+            function Woman() {
+
+            }
+            function Man() {
+
+            }
+
+            Woman.prototype = new Person()
+            Woman.prototype.constructor = Woman
+            Woman.prototype.deliver = function () {
+                console.log('deliver the baby')
+            }
+
+            Man.prototype = new Person()
+            Man.prototype.constructor = Man
+
+            const woman = new Woman()
+            const man = new Man()
+
+            woman.deliver()
+            // man.deliver() // 会报错
+
+            console.log(woman)
+            console.log(man)
+
+            console.log('-------------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
