@@ -148,7 +148,23 @@
       }
     ]
 
-    
+    document.querySelector('.list').innerHTML = goodsList.map(item => {
+      const { name, price, picture, count, spec, gift } = item
+      const subTotal = (price * 100 * count) / 100
+      const finalGift = gift ? gift.split(',').map(item => `<span class="tag">【赠品】${item}</span>`).join('') : ''
+      return `
+    <div class="item">
+      <img src="${picture}" alt="">
+      <p class="name">${name} ${finalGift}</p>
+      <p class="spec">白色/10寸</p>
+      <p class="price">${price.toFixed(2)}</p>
+      <p class="count">x${count}</p>
+      <p class="sub-total">${subTotal.toFixed(2)}</p>
+    </div>
+    `
+    }).join('')
+
+    document.querySelector('.amount').innerHTML = goodsList.reduce((prev, item) => ((item.price * 100 * item.count) / 100) + prev, 0).toFixed(2)
   </script>
 </body>
 
