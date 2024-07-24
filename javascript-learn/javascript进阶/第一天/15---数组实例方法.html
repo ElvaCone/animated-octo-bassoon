@@ -39,6 +39,13 @@
             console.log(arr.filter(item => item.name === 'ddd')) // filter找不到就返回空数组
             console.log('-------------------------------------------')
         }
+
+        {
+            const arr = [{ name: 'aaa', price: 10 }, { name: 'bbb', price: 20 }, { name: 'ccc', price: 30 }]
+            console.log(arr.every(item => item.price >= 10)) // 所有数组元素都符合条件则返回true，否则返回false
+            console.log(arr.some(item => item.price >= 20)) // 只要有数组元素符合条件就返回true，否则返回false
+            console.log('-------------------------------------------')
+        }
     </script>
 </body>
 
