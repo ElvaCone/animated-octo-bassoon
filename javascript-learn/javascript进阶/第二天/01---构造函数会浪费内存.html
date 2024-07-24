@@ -14,7 +14,7 @@
             age: 18
         }
         const foot = ['a', 'b', 'c']
-        function Obj(hand, foot) {
+        function Person(hand, foot) {
             this.hand = hand
             this.foot = foot
             this.cook = function () {
@@ -22,12 +22,18 @@
             }
         }
 
-        const a = new Obj(hand, foot)
-        const b = new Obj(hand, foot)
+        Person.prototype.sing = function () {
+            console.log('唱歌')
+        }
+
+        const a = new Person(hand, foot)
+        const b = new Person(hand, foot)
 
         console.log(a.hand === b.hand) // true
         console.log(a.foot === b.foot) // true
-        console.log(a.cook === b.cook) // false 每个实例里都会有自己的函数而不是共用同一个
+        console.log(a.cook === b.cook) // false 函数如果写在构造函数里，则每个实例里都会有自己的函数而不是共用同一个，导致浪费内存
+        console.log(a.sing === b.sing) // true 函数如果写在原型对象里，则每个实例都共用同一个函数，防止浪费内存
+
     </script>
 </body>
 
