@@ -14,6 +14,9 @@
                 this.eyes = 2
                 this.legs = 2
             }
+            Person.prototype.sayHi = function () {
+                console.log('Hi~')
+            }
             function Woman() {
 
             }
@@ -35,6 +38,9 @@
 
             woman.deliver()
             // man.deliver() // 会报错
+
+            woman.sayHi()
+            man.sayHi()
 
             console.log(woman)
             console.log(man)
