@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>aaa</p>
+
+    <script>
+        {
+            function fn() {
+                try {
+                    const p = document.querySelector('.p')
+                    p.style.color = red
+                } catch (error) {
+                    console.log(error)
+                    console.log(error.message)
+                    return console.log('catch') // 打印catch和finally之后才return
+                } finally {
+                    console.log('finally')
+                }
+
+                console.log(111) // 因为catch里return了所以执行不到
+            }
+
+            fn()
+            console.log('--------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
