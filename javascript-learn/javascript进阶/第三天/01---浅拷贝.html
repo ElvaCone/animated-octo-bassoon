@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const first = {
+                name: 'first',
+                food: {
+                    rice: 'first'
+                }
+            }
+
+            const second = first
+            second.name = 'second'
+            second.food.rice = 'second'
+
+            console.log(first)
+            console.log(second)
+
+            console.log('--------------------------------------')
+        }
+
+        {
+            const first = {
+                name: 'first',
+                food: {
+                    rice: 'first'
+                }
+            }
+
+            const second = { ...first }
+            second.name = 'second'
+            second.food.rice = 'second'
+
+            console.log(first)
+            console.log(second)
+
+            console.log('--------------------------------------')
+        }
+
+        {
+            const first = {
+                name: 'first',
+                food: {
+                    rice: 'first'
+                }
+            }
+
+            const second = {}
+            Object.assign(second, first)
+            second.name = 'second'
+            second.food.rice = 'second'
+
+            console.log(first)
+            console.log(second)
+
+            console.log('--------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
