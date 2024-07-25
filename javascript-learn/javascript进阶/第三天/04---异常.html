@@ -27,7 +27,29 @@
                 console.log(111) // 因为catch里return了所以执行不到
             }
 
-            fn()
+            console.log(fn())
+            console.log('--------------------------------------')
+        }
+
+        {
+            let i = 0
+            let j = 10
+            function fn() {
+                try {
+                    const p = document.querySelector('.p')
+                    p.style.color = red
+                } catch (error) {
+                    return ++i // 会执行但不返回
+                } finally {
+                    return ++j // 会执行且返回
+                }
+
+                console.log(111)
+            }
+
+            console.log(fn()) // 11
+            console.log(i) // 1
+            console.log(j) // 11
             console.log('--------------------------------------')
         }
     </script>

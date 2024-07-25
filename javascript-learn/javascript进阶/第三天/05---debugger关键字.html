@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            function getSum(x, y) {
+                debugger // 会自动卡住，不用在浏览器里手动打很多断点了
+                return x + y
+            }
+
+            getSum()
+            console.log('--------------------------------------')
+        }
+    </script>
+</body>
+
+</html>
