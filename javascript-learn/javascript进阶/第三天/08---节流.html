@@ -42,7 +42,7 @@
         box1.innerHTML = i++
       }
 
-      box1.addEventListener('mousemove', _.debounce(showMove, 500)) // debounce的第一个参数是函数，第二个参数是毫秒
+      box1.addEventListener('mousemove', _.throttle(showMove, 500)) // debounce的第一个参数是函数，第二个参数是毫秒
     }
 
     // 手写
@@ -54,15 +54,20 @@
         box2.innerHTML = i++
       }
 
-      function debounce(fn, t) {
+      function throttle(fn, t) {
         let timer = null
         return function () {
-          if (timer) clearTimeout(timer)
-          timer = setTimeout(fn, t)
+          console.log(timer)
+          if (!timer) {
+            timer = setTimeout(() => {
+              fn()
+              timer = null // 不能用clearTimeout因为影响不到变量timer
+            }, t)
+          }
         }
       }
 
-      box2.addEventListener('mousemove', debounce(showMove, 500))
+      box2.addEventListener('mousemove', throttle(showMove, 500))
     }
   </script>
 </body>
