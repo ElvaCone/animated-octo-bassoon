@@ -21,6 +21,10 @@
             console.log(Object.prototype.constructor === Object) // true
             console.log(Object.prototype.__proto__ === null) // true
 
+            console.log(person instanceof Person) // true
+            console.log(person instanceof Object) // true
+            console.log(Person.prototype instanceof Object) // true
+
             console.log('-------------------------------------------')
         }
 
@@ -33,6 +37,10 @@
             console.log(Object.prototype.constructor === Object) // true
             console.log(Object.prototype.__proto__ === null) // true
 
+            console.log(arr instanceof Array) // true
+            console.log(arr instanceof Object) // true
+            console.log(Array.prototype instanceof Object) // true
+
             console.log('-------------------------------------------')
         }
 
@@ -44,6 +52,10 @@
             console.log(Array.prototype.__proto__ === Object.prototype) // true
             console.log(Object.prototype.constructor === Object) // true
             console.log(Object.prototype.__proto__ === null) // true
+
+            console.log(arr instanceof Array) // true
+            console.log(arr instanceof Object) // true
+            console.log(Array.prototype instanceof Object) // true
 
             console.log('-------------------------------------------')
         }
