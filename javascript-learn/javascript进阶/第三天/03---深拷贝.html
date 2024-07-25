@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <script src="./js/lodash.js"></script>
+
     <script>
         {
             const oldObj = {
@@ -37,6 +39,40 @@
 
             deepCopy(newObj, oldObj)
             console.log(newObj)
+
+            console.log('--------------------------------------')
+        }
+
+        {
+            const oldObj = {
+                name: 'aaa',
+                food: ['rice', 'noodle'],
+                relationship: {
+                    confidant: 'aaa'
+                }
+            }
+
+            const newObj = _.cloneDeep(oldObj) // lodash的深拷贝函数
+
+            console.log(newObj)
+
+            console.log('--------------------------------------')
+        }
+
+        {
+            const oldObj = {
+                name: 'aaa',
+                food: ['rice', 'noodle'],
+                relationship: {
+                    confidant: 'aaa'
+                }
+            }
+
+            const newObj = JSON.parse(JSON.stringify(oldObj)) // 用JSON先转换成字符串再转换成对象
+
+            console.log(newObj)
+
+            console.log('--------------------------------------')
         }
     </script>
 </body>
