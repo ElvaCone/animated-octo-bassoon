@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button class="button1">按钮1</button>
+    <button class="button2">按钮2</button>
+    <button class="button3">按钮3</button>
+    <button class="button4">按钮4</button>
+    <button class="button5">按钮5</button>
+
+    <script>
+        // 普通函数 谁调用就指向谁
+        {
+            console.log(this) // window
+
+            function fn() {
+                console.log(this)
+            }
+            fn() // window
+
+            setTimeout(function () {
+                console.log(this) // window
+            }, 10)
+
+            document.querySelector('button').addEventListener('click', function () {
+                console.log(this) // button
+            })
+
+            const obj = {
+                name: 'aaa',
+                sayHi: function () {
+                    console.log(this)
+                }
+            }
+            obj.sayHi() // obh
+
+            console.log('--------------------------------------')
+        }
+
+        // 箭头函数
+        {
+            console.log('--------------------------------------')
+        }
+
+        // 改变this的指向
+        {
+            // call
+            {
+                const obj = {
+                    name: 'aaa',
+                    sayHi: function () {
+                        console.log('Hi~')
+                    }
+                }
+
+                function fn(x, y) {
+                    console.log(this)
+                    console.log(x + y)
+                }
+
+                fn.call(obj, 1, 2) // obj call的第一个参数是this的指向
+                console.log('--------------------------------------')
+            }
+
+            // apply
+            {
+                const obj = {
+                    name: 'aaa',
+                    sayHi: function () {
+                        console.log('Hi~')
+                    }
+                }
+
+                function fn(x, y) {
+                    console.log(this)
+                    console.log(x + y)
+                }
+
+                fn.apply(obj, [1, 2]) // obj apply的第一个参数是this的指向，第二个参数要传数组
+                console.log('--------------------------------------')
+            }
+
+            // bind
+            {
+                const obj = {
+                    name: 'aaa',
+                    sayHi: function () {
+                        console.log('Hi~')
+                    }
+                }
+
+                function fn(x, y) {
+                    console.log(this)
+                    console.log(x + y)
+                }
+
+                const fun = fn.bind(obj) // 返回一个this指向被改变了的函数
+                fun(1, 2) // obj bind的第一个参数是this的指向
+                console.log('--------------------------------------')
+            }
+
+            // 事件绑定里的计时器
+            {
+                document.querySelector('.button1').addEventListener('click', function () {
+                    console.log(this) // button
+                    setTimeout(function () {
+                        console.log(this) // window
+                    }, 10)
+                })
+                console.log('--------------------------------------')
+            }
+            {
+                document.querySelector('.button2').addEventListener('click', () => {
+                    console.log(this) // window
+                    setTimeout(function () {
+                        console.log(this) // window
+                    }, 10)
+                })
+                console.log('--------------------------------------')
+            }
+            {
+                document.querySelector('.button3').addEventListener('click', function () {
+                    console.log(this) // button
+                    setTimeout(() => {
+                        console.log(this) // button
+                    }, 10)
+                })
+                console.log('--------------------------------------')
+            }
+            {
+                document.querySelector('.button4').addEventListener('click', () => {
+                    console.log(this) // window
+                    setTimeout(() => {
+                        console.log(this) // window
+                    }, 10)
+                })
+                console.log('--------------------------------------')
+            }
+            {
+                document.querySelector('.button5').addEventListener('click', function () {
+                    console.log(this) // button
+                    setTimeout(function () {
+                        console.log(this) // button
+                    }.bind(this), 10)
+                })
+                console.log('--------------------------------------')
+            }
+        }
+    </script>
+</body>
+
+</html>
