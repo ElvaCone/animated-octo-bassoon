@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            const oldObj = {
+                name: 'aaa',
+                food: ['rice', 'noodle'],
+                relationship: {
+                    confidant: 'aaa'
+                }
+            }
+
+            const newObj = {}
+
+            function deepCopy(newObj, oldObj) {
+                for (const k in oldObj) {
+                    if (oldObj[k] instanceof Array) { // 判断Array要放在判断Object之前，因为Array属于Object
+                        newObj[k] = []
+                        deepCopy(newObj[k], oldObj[k])
+                    } else if (oldObj[k] instanceof Object) {
+                        newObj[k] = {}
+                        deepCopy(newObj[k], oldObj[k])
+                    } else {
+                        // newObj.k = oldObj.k // 不能这样写，因为会将字母k而不是k的值当作属性名
+                        newObj[k] = oldObj[k]
+                    }
+                }
+            }
+
+            deepCopy(newObj, oldObj)
+            console.log(newObj)
+        }
+    </script>
+</body>
+
+</html>
