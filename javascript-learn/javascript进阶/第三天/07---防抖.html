@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+
+    .box2 {
+      width: 500px;
+      height: 500px;
+      background-color: green;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">0</div>
+  <div class="box2">0</div>
+
+  <script src="./js/lodash.js"></script>
+  <script>
+    // lodash
+    {
+      let i = 1
+      const box1 = document.querySelector('.box1')
+
+      function showMove() {
+        box1.innerHTML = i++
+      }
+
+      box1.addEventListener('mousemove', _.debounce(showMove, 500)) // debounce的第一个参数是函数，第二个参数是毫秒
+    }
+
+    // 手写
+    {
+      let i = 1
+      const box2 = document.querySelector('.box2')
+
+      function showMove() {
+        box2.innerHTML = i++
+      }
+
+      function debounce(fn, t) {
+        let timer
+        return function () {
+          if (timer) clearTimeout(timer)
+          timer = setTimeout(fn, t)
+        }
+      }
+
+      box2.addEventListener('mousemove', debounce(showMove, 500))
+    }
+  </script>
+</body>
+
+</html>
