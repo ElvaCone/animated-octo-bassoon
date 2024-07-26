@@ -96,3 +96,71 @@
         greet: (name: string) => console.log('Hello', name) // 使用函数的箭头写法时参数需要再次加类型注解
     }
 }
+
+// 字面量类型
+{
+    let age = 18
+    let name = 'aaa'
+
+    let age1: 18 = 18
+    let name1: 'aaa' = 'aaa'
+
+    const age2 = 18
+    const name2 = 'aaa'
+
+    function changeDirection(direction: 'up' | 'down' | 'left' | 'right') { // 字面量类型配合联合类型用来表示一组明确的可选值列表，相比枚举更推荐这种方式
+        console.log(direction);
+    }
+    changeDirection('down')
+}
+
+// 枚举类型
+{
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+
+    function changeDirection1(direction: Direction) {
+        console.log(direction);
+    }
+    changeDirection1(Direction.Left)
+}
+
+// any类型
+{
+    let obj: any = { x: 10 }
+    obj.y = 'aaa'
+    obj()
+    const n: number = obj
+}
+// 隐式具有any类型
+{
+    let a // 声明变量时不提供类型也不提供默认值
+    a = 1
+    a = 'aaa'
+    a()
+}
+{
+    function add(num1, num2) { } // 参数不提供类型
+    add(1, 2)
+    add(null, 'aaa')
+    add(undefined, false)
+}
+
+// typeof
+{
+    const p = { x: 1, y: 2 }
+    console.log(typeof p); // object typeof在非类型上下文中的表现和js中一样
+
+    function fn(point: typeof p) { // typeof可以在类型上下文中引用变量的类型
+
+    }
+    fn(p)
+    fn({ x: 4, y: 99 }) // x和y不能改成其它名称
+
+    let a: typeof p.x = 3 // typeof可以在类型上下文中引用属性的类型
+    let b: typeof a = 4 // typeof可以在类型上下文中引用变量的类型
+}

@@ -2,38 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .box2 {
-            width: 500px;
-            height: 500px;
-            background-color: green;
-            color: #fff;
-            text-align: center;
-            font-size: 100px;
+        .parent {
+            position: relative;
+            margin-left: 50px;
+            padding-left: 20px;
+            background-color: pink;
+        }
+
+        .child {
+            position: absolute;
+            left: 30px;
+            background-color: blue;
         }
     </style>
+    <title>Offset Example</title>
 </head>
 
 <body>
-    <div class="box2">0</div>
-
+    <div class="parent">
+        <div class="child">Child</div>
+    </div>
     <script>
+        const child = document.querySelector('.child');
+        console.log(child.offsetLeft); // 输出 30
 
-        {
-            let timer = null
-
-            timer = setTimeout(function () {
-                clearTimeout(timer)
-            }, 100)
-
-            setTimeout(() => {
-                console.log(timer)
-            }, 1000);
+        const obj = {
+            x: 10
         }
+        obj.y = 8
+        console.log(obj)
     </script>
 </body>
 
