@@ -57,7 +57,7 @@
       function debounce(fn, t) {
         let timer = null
         return function () {
-          if (timer) clearTimeout(timer)
+          clearTimeout(timer) // 传入一个错误的id给clearTimeout不会有任何影响，也不会抛出异常，所以不用检测是否为null
           timer = setTimeout(fn, t)
         }
       }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+    }
+
+    video {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <!-- <video src='../../../css-learn/videos/Blackway & Black Caviar - What's Up Danger (Spider-Man： Into the Spider-Verse) [nZFNut0RGlQ].mp4' controls></video> -->
+    <video src='https://v.itheima.net/LapADhV6.mp4' controls></video>
+    <!-- <video src="https://www.youtube.com/watch?v=QU4KbCkYOAs&list=PLFbd8KZNbe--M7dUsoUwmNLHXUv2XlTbY&index=1&pp=iAQB"
+      controls muted autoplay></video> -->
+  </div>
+
+  <script src="./js/lodash.js"></script>
+  <script>
+    const video = document.querySelector('video')
+    video.ontimeupdate = _.throttle(() => localStorage.setItem('videoTime', video.currentTime), 1000)
+    function setTime() {
+      const time = localStorage.getItem('videoTime')
+      video.currentTime = time ? time : 0
+    }
+    setTime()
+  </script>
+</body>
+
+</html>
