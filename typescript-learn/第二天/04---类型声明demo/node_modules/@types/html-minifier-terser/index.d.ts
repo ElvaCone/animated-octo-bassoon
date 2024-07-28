@@ -1,12 +1,8 @@
-// Type definitions for html-minifier-terser 5.1
-// Project: https://github.com/terser/html-minifier-terser#readme
-// Definitions by: Piotr Błażejewicz <https://github.com/peterblazejewicz>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-
 /**
  * HTMLMinifier is a highly configurable, well-tested, JavaScript-based HTML minifier.
+ * @async
  */
-export function minify(value: string, options?: Options): string;
+export function minify(value: string, options?: Options): Promise<string>;
 
 /**
  * Most of the options are disabled by default
@@ -112,6 +108,11 @@ export interface Options {
      */
     minifyURLs?: boolean | string | object | ((text: string) => string) | undefined;
     /**
+     * Never add a newline before a tag that closes an element
+     * @default false
+     */
+    noNewlinesBeforeTagClose?: boolean | undefined;
+    /**
      * Always collapse to 1 line break (never remove it entirely) when whitespace between tags include a line break.
      * Must be used in conjunction with `collapseWhitespace=true`
      * @default false
@@ -203,3 +204,9 @@ export interface Options {
      */
     useShortDoctype?: boolean | undefined;
 }
+
+declare const htmlminifier: {
+    minify: typeof minify;
+};
+
+export default htmlminifier;

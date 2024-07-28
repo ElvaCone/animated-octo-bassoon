@@ -10,6 +10,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/anymatch": "^3.0.0",
+    "@types/eslint": "^9.6.0",
+    "@types/eslint-scope": "^3.7.7",
+    "@types/estree": "^1.0.5",
+    "@types/glob": "^8.1.0",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/json-schema": "^7.0.15",
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^20.14.12",
+    "@types/source-list-map": "^0.1.6",
+    "@types/tapable": "^2.2.7",
+    "@types/uglify-js": "^3.17.5",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-sources": "^3.2.3",
     "css-loader": "^5.2.7",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.2",
@@ -19,6 +33,6 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.93.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^3.11.3"
+    "webpack-dev-server": "^5.0.4"
   }
 }
