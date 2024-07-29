@@ -30,7 +30,7 @@ function resolveJS(dataStr) {
 }
 
 function resolveHTML(dataStr) {
-    const newHTML = dataStr.replace(regStyle, '<link rel="stylesheet" href="./files/clock/index.css">').replace(regScript, '<script src="./files/clock/index.js"></script>')
+    const newHTML = dataStr.replace(regStyle, '<link rel="stylesheet" href="./index.css">').replace(regScript, '<script src="./index.js"></script>')
     fs.writeFile(path.join(__dirname, './files/clock/index.html'), newHTML, 'utf-8', (err) => {
         if (err) return console.log('写入HTML失败！' + err.message);
         console.log('写入HTML成功！');
