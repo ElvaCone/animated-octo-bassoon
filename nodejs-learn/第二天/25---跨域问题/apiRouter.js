@@ -20,4 +20,13 @@ apiRouter.post('/post', (req, res) => {
     })
 })
 
+apiRouter.delete('/delete', (req, res) => {
+    const body = req.body
+    res.send({
+        status: 0,
+        msg: 'DELETE请求成功！',
+        data: body
+    })
+})
+
 module.exports = apiRouter
