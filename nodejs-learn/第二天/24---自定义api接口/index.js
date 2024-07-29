@@ -3,6 +3,8 @@ const apiRouter = require('./apiRouter')
 
 const app = express()
 
+app.use(express.urlencoded({ extended: false }))
+
 app.use('/api', apiRouter)
 
 app.listen(8000, () => {
