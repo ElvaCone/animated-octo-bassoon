@@ -6,15 +6,22 @@ const server = http.createServer()
 
 server.on('request', (req, res) => {
     const url = req.url
-    
+    const ext = path.extname(req.url)
     let fpath = path.join(__dirname, './files/clock', url)
+
+    if (ext === 'html') {
+        res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    } else if (ext === 'css') {
+        res.setHeader('Content-Type', 'text/css; charset=utf-8')
+    } else if (ext === 'javascript') {
+        res.setHeader('Content-Type', 'text/javascript; charset=utf-8')
+    }
 
     if (url === '/') {
         fpath = path.join(__dirname, './files/clock/index.html')
     }
 
     fs.readFile(fpath, 'utf-8', (err, dataStr) => {
-        // res.setHeader('Content-Type', 'text/html; charset=utf-8') // 不能写，否则css不起效
         if (err) return res.end('404 not found!')
         res.end(dataStr);
     })
