@@ -2,6 +2,7 @@ import './App.scss'
 import avatar from './images/bozai.png'
 import { useState } from 'react'
 import _ from 'lodash'
+import classNames from 'classnames'
 
 /**
  * 评论列表的渲染和操作
@@ -108,7 +109,8 @@ const App = () => {
           <li className="nav-sort">
             {/* 高亮类名： active */}
             {/* 动态添加类名需要使用模板字符串 */}
-            {tabs.map(item => (<span className={`nav-item ${item.type === type && 'active'}`} onClick={() => changeCommentOrder(item.type)} key={item.type}>{item.text}</span>))}
+            {/* {tabs.map(item => (<span className={`nav-item ${item.type === type && 'active'}`} onClick={() => changeCommentOrder(item.type)} key={item.type}>{item.text}</span>))} */}
+            {tabs.map(item => (<span className={classNames('nav-item', { active: item.type === type })} onClick={() => changeCommentOrder(item.type)} key={item.type}>{item.text}</span>))}
           </li>
         </ul>
       </div>
