@@ -52,11 +52,17 @@
     const app = express();
     app.use(express.json());
 
+    const base64Regex = /^[A-Za-z0-9+/=]+$/;
+
     // 定义路由并进行验证
     app.post('/submit', [
         body('name').notEmpty().withMessage('Name is required'),
         body('age').isInt({ min: 0 }).withMessage('Age must be a positive number'),
-        body('email').isEmail().withMessage('Invalid email format')
+        body('email').isEmail().withMessage('Invalid email format'),
+        body('username').isLength({ min: 5 }).withMessage('Username must be at least 5 characters long'),
+        body('password').isStrongPassword().withMessage('Password must be strong'),
+        body('phone').optional().isMobilePhone().withMessage('Invalid phone number'),
+        body('avatar').matches(base64Regex, 'i').withMessage('Invalid avatar Base64 string')
     ], (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
