@@ -19,7 +19,7 @@ function App() {
 
   return (
     < div className="App" >
-      This is app.
+      This is App.
       {/* 给子组件绑定一个函数 */}
       <A onGetAMsg={getAMsg} />
       {/* 给子组件绑定一个状态变量 */}

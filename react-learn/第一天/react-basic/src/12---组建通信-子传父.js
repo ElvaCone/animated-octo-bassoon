@@ -15,7 +15,7 @@ function App() {
 
   return (
     < div className="App" >
-      This is app. {msg}
+      This is App. {msg}
       {/* 给子组件绑定一个函数 */}
       <Son onGetSonMsg={getMsg} />
     </div>

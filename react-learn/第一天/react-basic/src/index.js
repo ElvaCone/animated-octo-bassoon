@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import './index.css';
-import App from './13---组建通信-兄弟组件通信';
+import App from './16---useEffect依赖项的3种情况';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
