@@ -1,8 +1,12 @@
 import './App.scss'
 import avatar from './images/bozai.png'
 import { useState } from 'react'
+import { useRef } from 'react'
 import _ from 'lodash'
 import classNames from 'classnames'
+// import moment from 'moment'// 已经不再积极维护，大，性能差
+import { DateTime } from 'luxon' // moment的后继者，新，现代化
+import { nanoid } from 'nanoid'
 
 /**
  * 评论列表的渲染和操作
@@ -82,6 +86,10 @@ const App = () => {
   const [commentList, setCommentList] = useState(_.orderBy(defaultList, 'hot', 'desc'))
   // 选中Tab的状态变量
   const [type, setType] = useState('hot')
+  // 受控表单绑定
+  const [content, setContent] = useState('')
+  // 获取输入框DOM
+  const inputRef = useRef(null)
   // 点击Tab时改变评论的排序
   const changeCommentOrder = (type) => {
     setType(type)
@@ -94,6 +102,28 @@ const App = () => {
   // 删除评论
   const deleteComment = (rpid) => {
     setCommentList(commentList.filter(item => rpid !== item.rpid))
+  }
+  // 点击发布按钮发布评论
+  const handlePublish = () => {
+    // 评论列表里添加一条
+    setCommentList([
+      ...commentList,
+      {
+        rpid: nanoid(),
+        user: {
+          uid: user.uid,
+          avatar: user.avatar,
+          uname: user.uname,
+        },
+        content: content,
+        ctime: DateTime.now().toFormat('yyyy-MM-dd HH:mm:ss'),
+        like: 66,
+      },
+    ])
+    // 清空输入框
+    setContent('')
+    // 聚焦输入框
+    inputRef.current.focus()
   }
 
   return (
@@ -129,10 +159,13 @@ const App = () => {
             <textarea
               className="reply-box-textarea"
               placeholder="发一条友善的评论"
+              value={content}
+              ref={inputRef}
+              onChange={(e) => setContent(e.target.value)}
             />
             {/* 发布按钮 */}
             <div className="reply-box-send">
-              <div className="send-text">发布</div>
+              <div className="send-text" onClick={handlePublish}>发布</div>
             </div>
           </div>
         </div>

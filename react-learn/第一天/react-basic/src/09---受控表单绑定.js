@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 function App() {
 
-  const [value, setValue] = useState('')
+  const [inputValue1, setInputValue1] = useState('')
 
   return (
     < div className="App" >
-      <input type='text' value={value} onChange={(e) => setValue(e.target.value)}></input>
+      <input type='text' value={inputValue1} onChange={(e) => setInputValue1(e.target.value)}></input>
     </div>
   );
 }
