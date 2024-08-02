@@ -11,12 +11,15 @@ const counterStore = createSlice({
         },
         decrement(state) {
             state.count--
+        },
+        goToNum(state, action) {
+            state.count = action.payload
         }
     }
 })
 
-const { increment, decrement } = counterStore.actions
+const { increment, decrement, goToNum } = counterStore.actions
 const reducer = counterStore.reducer
 
-export { increment, decrement }
+export { increment, decrement, goToNum }
 export default reducer
