@@ -15,6 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "json-server": "^1.0.0-beta.1"
+    "json-server": "^1.0.0-beta.1",
+    "sass": "^1.77.8"
   }
 }
