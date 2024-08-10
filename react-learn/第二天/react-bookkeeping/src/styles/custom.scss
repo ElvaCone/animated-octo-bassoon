@@ -1,0 +1,72 @@
+// Import custom variables
+@import './variables';
+
+// import bootstrap to set changes
+@import '~bootstrap/scss/bootstrap';
+
+// // Custom styles
+// .custom-button {
+//     background-color: $primary;
+//     border: none;
+//     padding: 10px 20px;
+//     color: white;
+//     border-radius: 5px;
+// }
+
+// body {
+//     font-family: $font-family-base;
+//     color: $primary-color;
+// }
+
+
+
+/* TabBar */
+
+.tabbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.tabbar .nav-link {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
+    color: #888;
+}
+
+.tabbar .nav-link.active {
+    color: #007bff;
+}
+
+.tabbar .nav-link i {
+    display: block;
+    font-size: 24px;
+}
+
+/* Custom Button */
+
+.custom-btn {
+    background-color: #ff5722; // Custom background color
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; // Smooth transition on hover
+}
+
+.custom-btn:hover {
+    background-color: #e64a19; // Custom hover background color
+}
+
+.custom-btn:focus {
+    box-shadow: none; // Remove focus outline
+}
+
