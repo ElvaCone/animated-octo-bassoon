@@ -5,7 +5,7 @@ const app = express()
 app.use(express.urlencoded({ extended: false }))
 
 app.post('/', (req, res) => {
-    console.log(req.body); // 不配置express.json的话req.body就为undefined
+    console.log(req.body); // 不配置express.urlencoded的话req.body就为undefined
     res.send('Home page')
 })
 
