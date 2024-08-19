@@ -42,7 +42,7 @@ app.get('/admin/getinfo', (req, res) => { //客户端每次在访问需要权限
 
 app.use((err, req, res, next) => {
     if (err.name === 'UnauthorizedError') { // JWT 令牌无效或缺失
-        res.send({
+        return res.send({
             status: 401,
             msg: '无效的token！'
         })

@@ -62,7 +62,7 @@ db.query(sqlStr3, [user3.username, user3.password, user3.id], (err, results) => 
     }
 })
 
-// 插入语句的简化写法
+// 更新语句的简化写法
 const user4 = {
     id: 5,
     username: 'ddd',

@@ -13,7 +13,10 @@ app.get('/api/jsonp', (req, res) => { // 必须先定义 JSONP 接口，再配�
     res.send(scriptStr)
 })
 
-app.use(cors())
+app.use(cors({
+    origin: 'http://example.com',
+    credentials: true  // 允许携带 Cookies 等凭证信息，允许凭证时，origin 不能为 *，必须指定一个具体的域
+}));
 
 app.use('/api', apiRouter)
 

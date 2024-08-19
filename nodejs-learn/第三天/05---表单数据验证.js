@@ -4,9 +4,14 @@
 
     // 定义验证模式
     const schema = yup.object().shape({
-        name: yup.string().required('Name is required'),
-        age: yup.number().min(0, 'Age must be a positive number').required('Age is required'),
-        email: yup.string().email('Invalid email format').required('Email is required'),
+        name: yup.string()
+            .required('Name is required'),
+        age: yup.number()
+            .min(0, 'Age must be a positive number')
+            .required('Age is required'),
+        email: yup.string()
+            .email('Invalid email format')
+            .required('Email is required'),
     });
 
     // 验证数据
