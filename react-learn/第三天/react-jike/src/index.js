@@ -6,6 +6,7 @@ import router from './router';
 import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

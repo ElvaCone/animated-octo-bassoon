@@ -1,5 +1,9 @@
+import { fetchLogin } from '@/store/modules/user';
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -7,7 +11,10 @@ function LoginForm() {
     const [validated, setValidated] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = (event) => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleSubmit = async (event) => {
         const form = event.currentTarget; // 获取当前元素
         event.preventDefault(); // 阻止表单提交
         if (form.checkValidity() === false) { //如果表单字段没有通过验证，checkValidity() 会返回 false
@@ -20,6 +27,12 @@ function LoginForm() {
             } else {
                 setErrorMessage('Invalid email or password');
             }
+            toast.success('登录成功！')
+            await dispatch(fetchLogin({
+                mobile: '13811111111',
+                code: '235698'
+            }))
+            navigate('/')
         }
     };
 

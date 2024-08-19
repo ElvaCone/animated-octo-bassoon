@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const axiosService = axios.create({
-    baseURL: 'https://api.example.com', // 基础 URL
+    baseURL: 'http://geek.itheima.net/v1_0', // 基础 URL
     timeout: 5000, // 超时时间
 });
 
