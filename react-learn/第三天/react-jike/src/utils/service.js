@@ -42,4 +42,4 @@ axiosService.interceptors.response.use(
 );
 
 // 导出封装的 axios 实例
-export default axiosaxiosService;
+export default axiosService;
