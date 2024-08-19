@@ -46,7 +46,7 @@ function MyFormComponent() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onBlur={(e) => validateEmail(e.target.value)} // 失焦时校验
-                    isInvalid={!!emailError} // Bootstrap 校验状态
+                    isInvalid={!!emailError} // Bootstrap 校验状态  两次取反
                 />
                 <Form.Control.Feedback type="invalid">{emailError}</Form.Control.Feedback>
             </Form.Group>
@@ -58,7 +58,7 @@ function MyFormComponent() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     onBlur={(e) => validatePassword(e.target.value)} // 失焦时校验
-                    isInvalid={!!passwordError} // Bootstrap 校验状态
+                    isInvalid={!!passwordError} // Bootstrap 校验状态  两次取反
                 />
                 <Form.Control.Feedback type="invalid">{passwordError}</Form.Control.Feedback>
             </Form.Group>
