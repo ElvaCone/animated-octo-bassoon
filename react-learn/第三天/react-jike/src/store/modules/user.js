@@ -1,15 +1,15 @@
-import { axiosService } from "@/utils"
+import { axiosService, _setToken, getToken, removeToken } from "@/utils"
 import { createSlice } from "@reduxjs/toolkit"
 
 const userStore = createSlice({
     name: 'user',
     initialState: {
-        token: localStorage.getItem('token_key') || ''
+        token: getToken() || ''
     },
     reducers: {
         setToken(state, action) {
             state.token = action.payload
-            localStorage.setItem('token_key', action.payload)
+            _setToken(action.payload)
         }
     }
 })
