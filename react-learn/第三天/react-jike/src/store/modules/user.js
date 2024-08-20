@@ -1,4 +1,4 @@
-import { axiosService, _setToken, getToken, removeToken } from "@/utils"
+import { axiosService, setToken as _setToken, getToken, removeToken } from "@/utils"
 import { createSlice } from "@reduxjs/toolkit"
 
 const userStore = createSlice({
