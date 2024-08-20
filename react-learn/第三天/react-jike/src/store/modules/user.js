@@ -1,5 +1,6 @@
 import { axiosService, setToken as _setToken, getToken, removeToken } from "@/utils"
 import { createSlice } from "@reduxjs/toolkit"
+import { loginApi, getProfileApi } from "@/apis/user"
 
 const userStore = createSlice({
     name: 'user',
@@ -18,9 +19,9 @@ const { setToken } = userStore.actions
 
 const userReducer = userStore.reducer
 
-const fetchLogin = (LoginForm) => {
+const fetchLogin = (loginFormDate) => {
     return async (dispatch) => {
-        const res = await axiosService.post('/authorizations', LoginForm)
+        const res = await loginApi(loginFormDate)
         dispatch(setToken(res.data.token))
     }
 }
@@ -28,3 +29,4 @@ const fetchLogin = (LoginForm) => {
 export { fetchLogin }
 
 export default userReducer
+
