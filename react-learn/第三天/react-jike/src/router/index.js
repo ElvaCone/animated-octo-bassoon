@@ -5,6 +5,7 @@ import LoginForm from '@/components/表单--基础'
 import AuthRoute from '@/components/AuthRoute'
 import ConfirmModalComponent from '@/components/ConfirmModalComponent'
 import BarChart from '@/components/BarChart'
+import PromiseTest from '@/components/PromiseTest'
 import Home from '@/pages/Hoome'
 import Profile from '@/pages/Profile'
 import Settings from '@/pages/Settings'
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     {
         path: '/BarChart',
         element: <BarChart />
+    },
+    {
+        path: '/PromiseTest',
+        element: <PromiseTest />
     },
     {
         path: '/home',
