@@ -6,6 +6,8 @@ import AuthRoute from '@/components/AuthRoute'
 import ConfirmModalComponent from '@/components/ConfirmModalComponent'
 import BarChart from '@/components/BarChart'
 import PromiseTest from '@/components/PromiseTest'
+import QuillEditor from '@/components/QuillEditor'
+import ArticalForm from '@/components/ArticalForm'
 import Home from '@/pages/Hoome'
 import Profile from '@/pages/Profile'
 import Settings from '@/pages/Settings'
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
     {
         path: '/PromiseTest',
         element: <PromiseTest />
+    },
+    {
+        path: '/QuillEditor',
+        element: <QuillEditor />
+    },
+    {
+        path: '/ArticalForm',
+        element: <ArticalForm />
     },
     {
         path: '/home',
