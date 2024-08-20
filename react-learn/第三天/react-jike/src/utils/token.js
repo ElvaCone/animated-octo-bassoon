@@ -4,11 +4,11 @@ const setToken = (token) => {
     localStorage.setItem(TOKENKEY, token)
 }
 
-const getToken = (token) => {
+const getToken = () => {
     return localStorage.getItem(TOKENKEY)
 }
 
-const removeToken = (token) => {
+const removeToken = () => {
     localStorage.removeItem(TOKENKEY)
 }
 

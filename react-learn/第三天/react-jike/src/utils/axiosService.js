@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken } from './token';
 
 // 创建 axios 实例
 const axiosService = axios.create({
@@ -10,7 +11,7 @@ const axiosService = axios.create({
 axiosService.interceptors.request.use(
     (config) => {
         // 在请求发送之前做一些处理，比如添加 token 到请求头
-        const token = localStorage.getItem('token');
+        const token = getToken();
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`; // 将 token 加到请求头
         }
