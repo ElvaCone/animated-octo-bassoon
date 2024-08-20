@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 const Home = () => {
+    const location = useLocation() // 拿到客户端路由的路径
+    console.log(location.pathname)
     return (
         <div>
             <h2>Home Page</h2>

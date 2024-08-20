@@ -3,6 +3,7 @@ import Layout from '@/pages/Layout'
 import Login from '@/pages/Login'
 import LoginForm from '@/components/表单--基础'
 import AuthRoute from '@/components/AuthRoute'
+import ConfirmModalComponent from '@/components/ConfirmModalComponent'
 import Home from '@/pages/Hoome'
 import Profile from '@/pages/Profile'
 import Settings from '@/pages/Settings'
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: '/LoginForm',
         element: <LoginForm />
+    },
+    {
+        path: '/ConfirmModalComponent',
+        element: <ConfirmModalComponent />
     },
     {
         path: '/home',
