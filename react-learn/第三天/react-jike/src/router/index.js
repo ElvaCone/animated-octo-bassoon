@@ -10,8 +10,11 @@ import QuillEditor from '@/components/QuillEditor'
 import ArticalForm from '@/components/ArticalForm'
 import CustomPagination from '@/components/CustomPagination'
 import Home from '@/pages/Hoome'
-import Profile from '@/pages/Profile'
-import Settings from '@/pages/Settings'
+import { lazy, Suspense } from 'react'
+// import Profile from '@/pages/Profile'
+// import Settings from '@/pages/Settings'
+const Profile = lazy(() => import('@/pages/Profile')) // lazy懒加载
+const Settings = lazy(() => import('@/pages/Settings'))
 
 const router = createBrowserRouter([
     {
@@ -60,11 +63,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'profile',
-                element: <Profile />,
+                element: <Suspense fallback={<div>Profile is loading...</div>}> <Profile /> </Suspense>, // Suspense异步加载
             },
             {
                 path: 'settings',
-                element: <Settings />,
+                element: <Suspense fallback={<div>Settings is loading...</div>}> <Settings /> </Suspense>,
             },
         ],
     },
