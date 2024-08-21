@@ -9,7 +9,7 @@ const ConfirmModal = ({ show, onHide, onConfirm }) => (
         <Modal.Body>Are you sure you want to proceed?</Modal.Body>
         <Modal.Footer>
             <Button variant="secondary" onClick={onHide}>
-                Cancel
+                Cancel  
             </Button>
             <Button variant="primary" onClick={() => {
                 onConfirm();
