@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-const ArticalForm = () => {
+const MyForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         gender: '',
         category: '',
-        file: null,
+        uploadMode: 'none',
+        files: [],
         description: ''
     });
+    const [validated, setValidated] = useState(false);
+    const [error, setError] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value }); // 计算属性名称（computed property names）
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleFileChange = (e) => {
-        setFormData({ ...formData, file: e.target.files[0] });
+        const files = Array.from(e.target.files);
+        setFormData({ ...formData, files });
     };
 
     const handleEditorChange = (value) => {
@@ -27,6 +32,19 @@ const ArticalForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError('');
+
+        if (formData.uploadMode === 'multiple' && formData.files.length !== 3) {
+            setError('请上传三张图片');
+            return;
+        }
+
+        if (formData.uploadMode === 'single' && formData.files.length !== 1) {
+            setError('请上传一张图片');
+            return;
+        }
+
+        setValidated(true);
         // 处理提交逻辑
         console.log('提交的数据: ', formData);
     };
@@ -34,7 +52,8 @@ const ArticalForm = () => {
     return (
         <Container>
             <h1 className="mt-5">示例表单</h1>
-            <Form noValidate onSubmit={handleSubmit}>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 {/* 输入框 */}
                 <Form.Group controlId="formName">
                     <Form.Label>姓名</Form.Label>
@@ -44,7 +63,11 @@ const ArticalForm = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="输入你的名字"
+                        required
                     />
+                    <Form.Control.Feedback type="invalid">
+                        请输入你的名字
+                    </Form.Control.Feedback>
                 </Form.Group>
 
                 {/* 单选按钮 */}
@@ -60,6 +83,7 @@ const ArticalForm = () => {
                             value="male"
                             checked={formData.gender === 'male'}
                             onChange={handleInputChange}
+                            required
                         />
                         <Form.Check
                             inline
@@ -72,6 +96,9 @@ const ArticalForm = () => {
                             onChange={handleInputChange}
                         />
                     </div>
+                    <Form.Control.Feedback type="invalid">
+                        请选择性别
+                    </Form.Control.Feedback>
                 </Form.Group>
 
                 {/* 下拉列表 */}
@@ -82,23 +109,74 @@ const ArticalForm = () => {
                         name="category"
                         value={formData.category}
                         onChange={handleInputChange}
+                        required
                     >
                         <option value="">选择类别</option>
                         <option value="category1">类别 1</option>
                         <option value="category2">类别 2</option>
                         <option value="category3">类别 3</option>
                     </Form.Control>
+                    <Form.Control.Feedback type="invalid">
+                        请选择类别
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                {/* 图片上传模式选择 */}
+                <Form.Group controlId="formUploadMode" className="mt-3">
+                    <Form.Label>图片上传模式</Form.Label>
+                    <div>
+                        <Form.Check
+                            inline
+                            label="无图模式"
+                            name="uploadMode"
+                            type="radio"
+                            id="uploadModeNone"
+                            value="none"
+                            checked={formData.uploadMode === 'none'}
+                            onChange={handleInputChange}
+                        />
+                        <Form.Check
+                            inline
+                            label="单图模式"
+                            name="uploadMode"
+                            type="radio"
+                            id="uploadModeSingle"
+                            value="single"
+                            checked={formData.uploadMode === 'single'}
+                            onChange={handleInputChange}
+                        />
+                        <Form.Check
+                            inline
+                            label="三图模式"
+                            name="uploadMode"
+                            type="radio"
+                            id="uploadModeMultiple"
+                            value="multiple"
+                            checked={formData.uploadMode === 'multiple'}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
                 {/* 上传图片 */}
-                <Form.Group controlId="formFile" className="mt-3">
-                    <Form.Label>上传图片</Form.Label>
-                    <Form.Control
-                        type="file"
-                        name="file"
-                        onChange={handleFileChange}
-                    />
-                </Form.Group>
+                {formData.uploadMode !== 'none' && (
+                    <Form.Group controlId="formFile" className="mt-3">
+                        <Form.Label>上传图片</Form.Label>
+                        <Form.Control
+                            type="file"
+                            name="files"
+                            multiple={formData.uploadMode === 'multiple'}
+                            onChange={handleFileChange}
+                            accept="image/*"
+                            required
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {formData.uploadMode === 'multiple'
+                                ? '请上传三张图片'
+                                : '请上传一张图片'}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                )}
 
                 {/* 富文本编辑器 */}
                 <Form.Group controlId="formDescription" className="mt-3">
@@ -134,4 +212,5 @@ const ArticalForm = () => {
     );
 };
 
-export default ArticalForm;
+export default MyForm;
+
