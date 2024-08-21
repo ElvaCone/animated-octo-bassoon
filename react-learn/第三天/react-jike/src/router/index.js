@@ -8,6 +8,7 @@ import BarChart from '@/components/BarChart'
 import PromiseTest from '@/components/PromiseTest'
 import QuillEditor from '@/components/QuillEditor'
 import ArticalForm from '@/components/ArticalForm'
+import CustomPagination from '@/components/CustomPagination'
 import Home from '@/pages/Hoome'
 import Profile from '@/pages/Profile'
 import Settings from '@/pages/Settings'
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     {
         path: '/ArticalForm',
         element: <ArticalForm />
+    },
+    {
+        path: '/CustomPagination',
+        element: <CustomPagination />
     },
     {
         path: '/home',
