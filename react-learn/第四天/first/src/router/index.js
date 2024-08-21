@@ -3,6 +3,7 @@ import App from '../App'
 import TestUseReducer01 from '../components/TestUseReducer01'
 import TestUseReducer02 from '../components/TestUseReducer02'
 import TestUseReducer03 from '../components/TestUseReducer03'
+import TestUseReducer04 from '../components/TestUseReducer04'
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
         path: '/TestUseReducer03',
         element: <TestUseReducer03 />
+    },
+    {
+        path: '/TestUseReducer04',
+        element: <TestUseReducer04 />
     },
 ])
 
