@@ -18,7 +18,7 @@ const MyForm = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value }); // 计算属性名称（computed property names）
     };
 
     const handleFileChange = (e) => {
