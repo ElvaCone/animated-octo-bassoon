@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import Test from '../components/Test'
 import App from '../App'
 import TestUseReducer01 from '../components/TestUseReducer01'
 import TestUseReducer02 from '../components/TestUseReducer02'
@@ -11,8 +12,13 @@ import TestUseCallback from '../components/TestUseCallback'
 import TestForwardRef from '../components/TestForwardRef'
 import TestUseImperativeHandle from '../components/TestUseImperativeHandle'
 import TestZustand from '../components/TestZustand'
+import PrevCount from '../components/PrevCount'
 
 const router = createBrowserRouter([
+    {
+        path: '/Test',
+        element: <Test />
+    },
     {
         path: '/',
         element: <App />
@@ -60,6 +66,10 @@ const router = createBrowserRouter([
     {
         path: '/TestZustand',
         element: <TestZustand />
+    },
+    {
+        path: '/PrevCount',
+        element: <PrevCount />
     },
 ])
 
