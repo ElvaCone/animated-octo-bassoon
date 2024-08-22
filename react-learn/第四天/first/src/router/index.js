@@ -10,6 +10,7 @@ import TestMemo02 from '../components/TestMemo02'
 import TestUseCallback from '../components/TestUseCallback'
 import TestForwardRef from '../components/TestForwardRef'
 import TestUseImperativeHandle from '../components/TestUseImperativeHandle'
+import TestZustand from '../components/TestZustand'
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
     {
         path: '/TestUseImperativeHandle',
         element: <TestUseImperativeHandle />
+    },
+    {
+        path: '/TestZustand',
+        element: <TestZustand />
     },
 ])
 
