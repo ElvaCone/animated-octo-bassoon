@@ -4,8 +4,9 @@ import TestUseReducer01 from '../components/TestUseReducer01'
 import TestUseReducer02 from '../components/TestUseReducer02'
 import TestUseReducer03 from '../components/TestUseReducer03'
 import TestUseReducer04 from '../components/TestUseReducer04'
-import TestUseState from '../components/TestUseState'
-import TestMemo from '../components/TestMemo'
+import TestUseMemo from '../components/TestUseMemo'
+import TestMemo01 from '../components/TestMemo01'
+import TestMemo02 from '../components/TestMemo02'
 
 const router = createBrowserRouter([
     {
@@ -29,12 +30,16 @@ const router = createBrowserRouter([
         element: <TestUseReducer04 />
     },
     {
-        path: '/TestUseState',
-        element: <TestUseState />
+        path: '/TestUseMemo',
+        element: <TestUseMemo />
     },
     {
-        path: '/TestMemo',
-        element: <TestMemo />
+        path: '/TestMemo01',
+        element: <TestMemo01 />
+    },
+    {
+        path: '/TestMemo02',
+        element: <TestMemo02 />
     },
 ])
 

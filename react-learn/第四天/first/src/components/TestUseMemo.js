@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TestUseState() {
     // 定义两个 state
