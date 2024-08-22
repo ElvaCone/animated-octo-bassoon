@@ -7,6 +7,7 @@ import TestUseReducer04 from '../components/TestUseReducer04'
 import TestUseMemo from '../components/TestUseMemo'
 import TestMemo01 from '../components/TestMemo01'
 import TestMemo02 from '../components/TestMemo02'
+import TestUseCallback from '../components/TestUseCallback'
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
     {
         path: '/TestMemo02',
         element: <TestMemo02 />
+    },
+    {
+        path: '/TestUseCallback',
+        element: <TestUseCallback />
     },
 ])
 
