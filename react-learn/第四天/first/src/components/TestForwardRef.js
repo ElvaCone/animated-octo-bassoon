@@ -5,8 +5,8 @@ function Son(props) {
     return <Form.Control type='text' {...props} />
 }
 
-function Son1({ inputRef, ...otherProps }) {
-    return <Form.Control type='text' ref={inputRef} {...otherProps} /> // 通过props传递ref
+function Son1({ inputRef, ...otherProps }) { // 通过props传递ref
+    return <Form.Control type='text' ref={inputRef} {...otherProps} />
 }
 
 const ForwardRefSon = forwardRef((props, ref) => {
