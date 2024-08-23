@@ -2,9 +2,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import { lazy } from "react"
 import App from '../App'
 
-const TestUseState = lazy(() => import('../components/TestUseState'))
-const TestChildren = lazy(() => import('../components/TestChildren'))
-const TestUseRef = lazy(() => import('../components/TestUseRef'))
+const TestUseState = lazy(() => import('@/components/TestUseState'))
+const TestChildren = lazy(() => import('@/components/TestChildren'))
+const TestUseRef = lazy(() => import('@/components/TestUseRef'))
 
 const router = createBrowserRouter([
     {
