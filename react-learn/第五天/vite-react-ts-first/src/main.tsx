@@ -1,7 +1,11 @@
 import { createRoot } from 'react-dom/client'
-import App from './App'
+import { Suspense } from "react"
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
 
 createRoot(document.getElementById('root')!).render(
-  <App />
+  <Suspense fallback={<div>Loading...</div>}>
+    <RouterProvider router={router} />
+  </Suspense>
 )
 
