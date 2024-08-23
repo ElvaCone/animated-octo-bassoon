@@ -1,21 +1,15 @@
 import TestChildren from "./components/TestChildren"
 import TestUseState from "./components/TestUseState"
+import TestUseRef from "./components/TestUseRef"
 
 
 function App() {
   return (
     <>
-      <div>
-        This is App.
-      </div>
-      <div>
-        TestChildren:
-      </div>
-      <TestChildren />
-      <div>
-        TestUseState:
-      </div>
-      <TestUseState />
+      This is App.<br />
+      TestChildren:<br /><TestChildren />
+      TestUseState:<br /><TestUseState />
+      TestUseRef:<br /><TestUseRef />
     </>
   )
 }
