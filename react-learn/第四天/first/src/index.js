@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
-import TestUseReducer01 from './components/TestUseReducer01'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
