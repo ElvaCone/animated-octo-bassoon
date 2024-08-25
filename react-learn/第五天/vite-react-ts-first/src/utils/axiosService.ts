@@ -9,6 +9,7 @@ const axiosService = axios.create({
 // 请求拦截器
 axiosService.interceptors.request.use(
     (config) => {
+        // 在此添加请求头或其他请求配置
         return config;
     },
     (error) => {
@@ -20,14 +21,14 @@ axiosService.interceptors.request.use(
 // 响应拦截器
 axiosService.interceptors.response.use(
     (response) => {
-        // 响应数据处理，比如统一处理某种返回状态
-        const res = response.data;
-        if (res.status !== 200) {
-            // 可以根据不同状态码进行错误提示或处理
-            console.error('请求错误：', res.message || 'Error');
-            return Promise.reject(new Error(res.message || 'Error'));
+        // 检查响应的状态码
+        const { status, data } = response;
+        if (status !== 200) {
+            // 处理非200状态码的错误
+            console.error('请求错误：', data.message || 'Error');
+            return Promise.reject(new Error(data.message || 'Error'));
         }
-        return res;
+        return data;
     },
     (error) => {
         // 处理响应错误

@@ -5,6 +5,7 @@ import App from '../App'
 const TestUseState = lazy(() => import('@/components/TestUseState'))
 const TestChildren = lazy(() => import('@/components/TestChildren'))
 const TestUseRef = lazy(() => import('@/components/TestUseRef'))
+const Home = lazy(() => import('@/pages/Home'))
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     {
         path: '/TestUseRef',
         element: <TestUseRef />
+    },
+    {
+        path: '/Home',
+        element: <Home />
     },
 ])
 
