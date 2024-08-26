@@ -8,6 +8,7 @@ const TestUseState = lazy(() => import('@/components/TestUseState'))
 const TestChildren = lazy(() => import('@/components/TestChildren'))
 const TestUseRef = lazy(() => import('@/components/TestUseRef'))
 const TestSpinner = lazy(() => import('@/components/TestSpinner'))
+const TestWaypoint = lazy(() => import('@/components/TestWaypoint'))
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     {
         path: '/TestSpinner',
         element: <TestSpinner />
+    },
+    {
+        path: '/TestWaypoint',
+        element: <TestWaypoint />
     },
 ])
 
