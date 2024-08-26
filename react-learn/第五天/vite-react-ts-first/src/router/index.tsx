@@ -9,6 +9,7 @@ const TestChildren = lazy(() => import('@/components/TestChildren'))
 const TestUseRef = lazy(() => import('@/components/TestUseRef'))
 const TestSpinner = lazy(() => import('@/components/TestSpinner'))
 const TestWaypoint = lazy(() => import('@/components/TestWaypoint'))
+const TestInfiniteLoader = lazy(() => import('@/components/TestInfiniteLoader'))
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
     {
         path: '/TestWaypoint',
         element: <TestWaypoint />
+    },
+    {
+        path: '/TestInfiniteLoader',
+        element: <TestInfiniteLoader />
     },
 ])
 

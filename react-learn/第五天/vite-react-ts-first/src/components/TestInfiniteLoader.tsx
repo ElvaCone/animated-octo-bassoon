@@ -25,7 +25,7 @@ async function loadMoreRows({ startIndex, stopIndex }: IndexRange): Promise<void
     }
 }
 
-const Test: React.FC = () => {
+const TestInfiniteLoader: React.FC = () => {
     return (
         <InfiniteLoader
             isRowLoaded={isRowLoaded}
@@ -47,5 +47,5 @@ const Test: React.FC = () => {
     );
 }
 
-export default Test;
+export default TestInfiniteLoader;
 
