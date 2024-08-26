@@ -13,7 +13,7 @@ const HomeList = (props: Props) => {
   // 获取列表数据
   const [listRes, setListRes] = useState<ListRes>({
     results: [],
-    pre_timestamp: '' + new Date().getTime(),
+    pre_timestamp: '' + Date.now(),
   })
 
   useEffect(() => {
@@ -23,8 +23,10 @@ const HomeList = (props: Props) => {
           channel_id: channelId,
           timestamp: '' + Date.now(),
         })
-        console.log(res.data.data.results);
-        
+        console.log(res);
+        console.log("res");
+        // console.log(res.data.data.results);
+
         setListRes({
           results: res.data.data.results,
           pre_timestamp: res.data.data.pre_timestamp,
