@@ -3,6 +3,7 @@ import { ListGroup, Figure } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
 import { ListRes, fetchListAPI } from '@/apis/list'
 import { useNavigate } from 'react-router-dom'
+import { InfiniteScroll } from 'antd-mobile';
 
 type Props = {
   channelId: string
@@ -94,7 +95,7 @@ const HomeList = (props: Props) => {
           </ListGroup.Item>
         ))}
       </ListGroup>
-      {/* <InfiniteScroll loadMore={loadMore} hasMore={hasMore} threshold={10} /> */}
+      <InfiniteScroll loadMore={loadMore} hasMore={hasMore} threshold={10} />
     </>
   )
 }
