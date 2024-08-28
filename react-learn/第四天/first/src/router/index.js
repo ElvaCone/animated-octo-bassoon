@@ -13,6 +13,7 @@ import TestForwardRef from '../components/TestForwardRef'
 import TestUseImperativeHandle from '../components/TestUseImperativeHandle'
 import TestZustand from '../components/TestZustand'
 import PrevCount from '../components/PrevCount'
+import TestPicture from '../components/TestPicture'
 
 const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
     {
         path: '/PrevCount',
         element: <PrevCount />
+    },
+    {
+        path: '/TestPicture',
+        element: <TestPicture />
     },
 ])
 
