@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { Suspense, lazy } from "react"
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+// import { Suspense, lazy } from "react"
 
-const TestUseState = lazy(() => import('./components/TestUseState'))
-const TestChildren = lazy(() => import('./components/TestChildren'))
-const TestUseRef = lazy(() => import('./components/TestUseRef'))
+// const TestUseState = lazy(() => import('./components/TestUseState'))
+// const TestChildren = lazy(() => import('./components/TestChildren'))
+// const TestUseRef = lazy(() => import('./components/TestUseRef'))
 
 function App() {
   return (
