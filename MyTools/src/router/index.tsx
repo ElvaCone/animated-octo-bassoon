@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
-import lazyComponents from '../pages'
-const { Test, 将字幕文件中的所有时间点增加或减少n秒 } = lazyComponents
+import App from '@/App'
+import lazyPages from '@/pages'
+const { Test, 将字幕文件中的所有时间点增加或减少n秒, AAA } = lazyPages
 
 const router = createBrowserRouter([
     {
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: '/将字幕文件中的所有时间点增加或减少n秒',
         element: <将字幕文件中的所有时间点增加或减少n秒 />
+    },
+    {
+        path: '/AAA',
+        element: <AAA />
     },
 ])
 

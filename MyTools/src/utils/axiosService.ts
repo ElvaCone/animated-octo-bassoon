@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios, { InternalAxiosRequestConfig } from 'axios';
 
 // 创建 axios 实例
 const axiosService = axios.create({
-    baseURL: 'http://geek.itheima.net/v1_0', // 基础 URL
+    baseURL: 'http://www.justtestmycode.org', // 基础 URL
     timeout: 5000, // 超时时间
 });
 
 // 请求拦截器
 axiosService.interceptors.request.use(
-    (config) => {
+    (config: InternalAxiosRequestConfig) => {
         // 在此添加请求头或其他请求配置
         return config;
     },
@@ -39,3 +39,4 @@ axiosService.interceptors.response.use(
 
 // 导出封装的 axios 实例
 export default axiosService;
+

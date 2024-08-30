@@ -1,34 +1,39 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { saveAs } from "file-saver";
 
+// 定义 subtitleFile 的类型
+type SubtitleFile = File | null;
+
 function Test() {
-  const [subtitleFile, setSubtitleFile] = useState(null);
-  const [adjustment, setAdjustment] = useState(0);
-  const [processedSubtitles, setProcessedSubtitles] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [fileFormat, setFileFormat] = useState(""); // 识别文件格式
+  const [subtitleFile, setSubtitleFile] = useState<SubtitleFile>(null);
+  const [adjustment, setAdjustment] = useState<number>(0);
+  const [processedSubtitles, setProcessedSubtitles] = useState<string>("");
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [fileFormat, setFileFormat] = useState<string>(""); // 识别文件格式
 
   // 上传文件
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
     setSubtitleFile(file);
 
-    // 读取文件前几行，检查文件格式
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const content = e.target.result;
-      if (content.includes("[Script Info]") || content.includes("[V4+ Styles]")) {
-        setFileFormat("ass");
-      } else {
-        setFileFormat("srt");
-      }
-    };
-    reader.readAsText(file);
+    if (file) {
+      // 读取文件前几行，检查文件格式
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target?.result as string;
+        if (content.includes("[Script Info]") || content.includes("[V4+ Styles]")) {
+          setFileFormat("ass");
+        } else {
+          setFileFormat("srt");
+        }
+      };
+      reader.readAsText(file);
+    }
   };
 
   // 输入框内容变化
-  const handleAdjustmentChange = (event) => {
+  const handleAdjustmentChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAdjustment(parseFloat(event.target.value));
   };
 
@@ -38,7 +43,7 @@ function Test() {
 
     const reader = new FileReader();
     reader.onload = (e) => {
-      const content = e.target.result;
+      const content = e.target?.result as string;
       const lines = content.split("\n");
 
       const adjustedLines = lines.map((line) => {
@@ -55,7 +60,7 @@ function Test() {
             const adjustedMinutes = Math.floor((adjustedSeconds % 3600) / 60);
             const adjustedSecondsFloor = Math.floor(adjustedSeconds % 60);
             const adjustedCentiseconds = Math.floor((adjustedSeconds % 1) * 100);
-            
+
             return `${String(adjustedHours).padStart(1, "0")}:${String(adjustedMinutes).padStart(
               2,
               "0"
@@ -77,7 +82,7 @@ function Test() {
             const adjustedMinutes = Math.floor((adjustedSeconds % 3600) / 60);
             const adjustedSecondsFloor = Math.floor(adjustedSeconds % 60);
             const adjustedMilliseconds = Math.floor((adjustedSeconds % 1) * 1000);
-            
+
             return `${String(adjustedHours).padStart(2, "0")}:${String(adjustedMinutes).padStart(
               2,
               "0"
@@ -144,3 +149,4 @@ function Test() {
 }
 
 export default Test;
+
