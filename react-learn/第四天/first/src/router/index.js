@@ -14,6 +14,7 @@ import TestUseImperativeHandle from '../components/TestUseImperativeHandle'
 import TestZustand from '../components/TestZustand'
 import PrevCount from '../components/PrevCount'
 import TestPicture from '../components/TestPicture'
+import TestIntersectionObserver from '../components/TestIntersectionObserver'
 
 const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
     {
         path: '/TestPicture',
         element: <TestPicture />
+    },
+    {
+        path: '/TestIntersectionObserver',
+        element: <TestIntersectionObserver />
     },
 ])
 
