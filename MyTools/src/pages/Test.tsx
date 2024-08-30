@@ -1,24 +1,20 @@
-import { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { saveAs } from "file-saver";
 
-// 定义 subtitleFile 的类型
-type SubtitleFile = File | null;
-
-function Test() {
-  const [subtitleFile, setSubtitleFile] = useState<SubtitleFile>(null);
+const Test: React.FC = () => {
+  const [subtitleFile, setSubtitleFile] = useState<File | null>(null);
   const [adjustment, setAdjustment] = useState<number>(0);
   const [processedSubtitles, setProcessedSubtitles] = useState<string>("");
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
-  const [fileFormat, setFileFormat] = useState<string>(""); // 识别文件格式
+  const [fileFormat, setFileFormat] = useState<"srt" | "ass" | "">(""); // 文件格式
 
   // 上传文件
-  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0] || null;
     setSubtitleFile(file);
 
     if (file) {
-      // 读取文件前几行，检查文件格式
       const reader = new FileReader();
       reader.onload = (e) => {
         const content = e.target?.result as string;
@@ -33,7 +29,7 @@ function Test() {
   };
 
   // 输入框内容变化
-  const handleAdjustmentChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleAdjustmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAdjustment(parseFloat(event.target.value));
   };
 
@@ -49,7 +45,7 @@ function Test() {
       const adjustedLines = lines.map((line) => {
         if (fileFormat === "ass") {
           // 匹配时间格式 h:mm:ss.cs (ASS 格式)
-          return line.replace(/(\d+):(\d{2}):(\d{2})\.(\d{2})/g, (match, p1, p2, p3, p4) => {
+          return line.replace(/(\d+):(\d{2}):(\d{2})\.(\d{2})/g, (p1, p2, p3, p4) => {
             const totalSeconds =
               parseInt(p1) * 3600 +
               parseInt(p2) * 60 +
@@ -71,7 +67,7 @@ function Test() {
           });
         } else if (fileFormat === "srt") {
           // 匹配时间格式 hh:mm:ss,ms (SRT 格式)
-          return line.replace(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/g, (match, p1, p2, p3, p4) => {
+          return line.replace(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/g, (p1, p2, p3, p4) => {
             const totalSeconds =
               parseInt(p1) * 3600 +
               parseInt(p2) * 60 +

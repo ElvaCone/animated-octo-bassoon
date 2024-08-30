@@ -3,7 +3,6 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { saveAs } from "file-saver";
 
 const Test: React.FC = () => {
-  // State 类型声明
   const [subtitleFile, setSubtitleFile] = useState<File | null>(null);
   const [adjustment, setAdjustment] = useState<number>(0);
   const [processedSubtitles, setProcessedSubtitles] = useState<string>("");
@@ -46,7 +45,7 @@ const Test: React.FC = () => {
       const adjustedLines = lines.map((line) => {
         if (fileFormat === "ass") {
           // 匹配时间格式 h:mm:ss.cs (ASS 格式)
-          return line.replace(/(\d+):(\d{2}):(\d{2})\.(\d{2})/g, (match, p1, p2, p3, p4) => {
+          return line.replace(/(\d+):(\d{2}):(\d{2})\.(\d{2})/g, (p1, p2, p3, p4) => {
             const totalSeconds =
               parseInt(p1) * 3600 +
               parseInt(p2) * 60 +
@@ -68,7 +67,7 @@ const Test: React.FC = () => {
           });
         } else if (fileFormat === "srt") {
           // 匹配时间格式 hh:mm:ss,ms (SRT 格式)
-          return line.replace(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/g, (match, p1, p2, p3, p4) => {
+          return line.replace(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/g, (p1, p2, p3, p4) => {
             const totalSeconds =
               parseInt(p1) * 3600 +
               parseInt(p2) * 60 +
