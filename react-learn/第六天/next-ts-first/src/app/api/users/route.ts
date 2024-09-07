@@ -61,4 +61,3 @@ export async function DELETE(request: NextRequest) {
   return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
 }
 
-
