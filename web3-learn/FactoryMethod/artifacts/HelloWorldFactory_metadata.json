@@ -1,0 +1,127 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "callSayHelloFromFactory",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "newString",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "callSetHelloFromFactory",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createHelloWorld",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "getHelloWorldByIndex",
+				"outputs": [
+					{
+						"internalType": "contract HelloWorld",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"FactoryMethod/HelloWorldFactory.sol": "HelloWorldFactory"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BasicSyntax/BasicSyntax.sol": {
+			"keccak256": "0x6fe0d817bf668558e7f83a83cff90f8dd25865298d9c4e3b69531bd7ba3d08fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1f497865d9d397985f6b14ccec77849d85d76a606461be9dc075ccec6a9348ea",
+				"dweb:/ipfs/QmQ6sFUC9hCjsZCLNMSuJuUb1WuJYNqj6wKLmXwn1vBN2k"
+			]
+		},
+		"FactoryMethod/HelloWorldFactory.sol": {
+			"keccak256": "0xb1b590fd9fd933d60137401c1f510ef081199fb82682e1722aee8f153343e01d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea59bce7dc8d094896f6ce167ede389f92fc20230a2f5fcb2e6332d6368a64ab",
+				"dweb:/ipfs/QmW1aQqvkccMReUyGZnR7gmFqYWDSc4E7wmbs8hzMxZg3s"
+			]
+		}
+	},
+	"version": 1
+}
