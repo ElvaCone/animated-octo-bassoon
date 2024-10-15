@@ -30,8 +30,7 @@ contract HelloWorld {
 
     Info[] infos;
 
-    // mapping(uint256 => Info) infoMapping; // 这样写比较简洁
-    mapping(uint256 id => Info info) infoMapping; // 这样写更语义化
+    mapping(uint256 => Info) infoMapping;
 
     function sayHello(uint256 _id) public view returns (string memory) {
         // return stringVar;

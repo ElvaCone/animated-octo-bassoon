@@ -8,30 +8,28 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "_lockTime",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "_tokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_tokenSymbol",
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "addr",
 						"type": "address"
 					}
 				],
-				"name": "funderToAmount",
+				"name": "balanceOf",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -43,21 +41,14 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getChainlinkDataFeedLatestAnswer",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getFund",
+				"name": "mint",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -77,20 +68,57 @@
 			},
 			{
 				"inputs": [],
-				"name": "refund",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "tokenName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenSymbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "newOwner",
+						"name": "payee",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					}
 				],
-				"name": "transferOwnership",
+				"name": "transfer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -109,7 +137,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"FundMe/FundMe.sol": "FundMe"
+			"FundToken/FundToken.sol": "FundToken"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -123,20 +151,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
-			"keccak256": "0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0",
+		"FundToken/FundToken.sol": {
+			"keccak256": "0x0cf046f4302c6cab607aba9f55294716d082d5612125c2e9ef71176cd63d278f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9",
-				"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
-			]
-		},
-		"FundMe/FundMe.sol": {
-			"keccak256": "0x223935f1a66f85485241971d7b4e6f32211ebdf76b5e7dd11c7de5396c32dde9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1a574991e3f4395326aedab9a4d6881bb1993f3bcf49c50cca8ee7b4d2447eb3",
-				"dweb:/ipfs/QmSxpQi3aXLqh48yt8ZECxoZcWWwB8szK7QJ24zTgWucMM"
+				"bzz-raw://2d11d303e0d0239e3862c7a12fd815faa60dcb48e550e19c93c5fb9f6969abc1",
+				"dweb:/ipfs/QmXFj6JniMyBmRvPfDwziQ19EWKvN9C1qdeDuvetnxt7Yk"
 			]
 		}
 	},

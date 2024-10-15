@@ -6,9 +6,9 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interf
 contract FundMe {
     AggregatorV3Interface internal dataFeed;
 
-    mapping (address => uint256) public funderToAmount;
-    uint256 constant MIN_VALUE = 1 * (10 ** 18) * (10 ** 8); // 1美元
-    uint256 constant TARGET = 10 * (10 ** 18) * (10 ** 8);
+    mapping(address => uint256) public funderToAmount;
+    uint256 constant MIN_VALUE = 1 * (10**18) * (10**8); // 1美元
+    uint256 constant TARGET = 2 * (10**18) * (10**8);
 
     address public owner;
 
@@ -16,10 +16,13 @@ contract FundMe {
     uint256 lockTime;
 
     constructor(uint256 _lockTime) {
+        require(_lockTime > 0, "Lock time must be greater than zero");
         owner = msg.sender;
-        deploymentTime = block.timestamp;
+        deploymentTime = block.timestamp; // 单位为秒
         lockTime = _lockTime;
-        dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306); // ETH转USD的地址
+        dataFeed = AggregatorV3Interface(
+            0x694AA1769357215DE4FAC081bf1f309aDC325306
+        ); // ETH转USD的地址
     }
 
     function fund() external payable {
@@ -29,7 +32,7 @@ contract FundMe {
     }
 
     // 得到的是乘以10的8次方之后的结果
-    function getChainlinkDataFeedLatestAnswer() public view returns (int) {
+    function getChainlinkDataFeedLatestAnswer() public view returns (int256) {
         // prettier-ignore
         (
             /* uint80 roundID */,
@@ -41,7 +44,11 @@ contract FundMe {
         return answer;
     }
 
-    function convertEthToUsd(uint256 ethAmount) internal view returns (uint256) {
+    function convertEthToUsd(uint256 ethAmount)
+        internal
+        view
+        returns (uint256)
+    {
         uint256 ethPrice = uint256(getChainlinkDataFeedLatestAnswer());
         return ethAmount * ethPrice;
     }
@@ -51,22 +58,28 @@ contract FundMe {
     }
 
     function getFund() external onlyOwner windowClosed {
-        require(convertEthToUsd(address(this).balance) >= TARGET, "Target is not reached!");
-        
+        require(
+            convertEthToUsd(address(this).balance) >= TARGET,
+            "Target is not reached!"
+        );
+
         // payable(msg.sender).transfer(address(this).balance);
 
         // bool success = payable(msg.sender).send(address(this).balance);
         // require(success, "Transfer tx failed!");
 
         bool success;
-        (success, ) = payable(msg.sender).call{value: address(this).balance}("");
+        (success, ) = payable(msg.sender).call{value: address(this).balance}(
+            ""
+        );
         require(success, "Transfer tx failed!");
-
-        funderToAmount[msg.sender] = 0;
     }
 
     function refund() external windowClosed {
-        require(convertEthToUsd(address(this).balance) < TARGET, "Target is reached!");
+        require(
+            convertEthToUsd(address(this).balance) < TARGET,
+            "Target is reached!"
+        );
         uint256 amount = funderToAmount[msg.sender];
         require(amount != 0, "You haven't fund!");
 
@@ -76,13 +89,20 @@ contract FundMe {
         funderToAmount[msg.sender] = 0;
     }
 
+    function checkMyAmount() external view returns (uint256) {
+        return funderToAmount[msg.sender];
+    }
+
     modifier onlyOwner() {
         require(owner == msg.sender, "Owner only!");
         _;
     }
 
     modifier windowClosed() {
-        require(block.timestamp > deploymentTime + lockTime, "Window not closed!");
+        require(
+            block.timestamp > deploymentTime + lockTime,
+            "Window not closed!"
+        );
         _;
     }
 }
