@@ -1,3 +1,16 @@
+
+// pragma solidity ^0.8.20;
+
+// contract FundMe {
+//     string public data;
+
+//     // 设置存储的字符串
+//     function setData(string memory _data) public {
+//         data = _data;
+//     }
+// }
+
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
