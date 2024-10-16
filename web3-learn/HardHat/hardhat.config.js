@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 // require('dotenv').config()
 require('@chainlink/env-enc').config()
+require('./tasks');
 
 const SEPOLIA_URL = process.env.SEPOLIA_URL
 const PRIVATE_KEY_1 = process.env.PRIVATE_KEY_1
