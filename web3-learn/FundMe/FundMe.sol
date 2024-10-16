@@ -8,12 +8,15 @@ contract FundMe {
 
     mapping(address => uint256) public funderToAmount;
     uint256 constant MIN_VALUE = 1 * (10**18) * (10**8); // 1美元
-    uint256 constant TARGET = 2 * (10**18) * (10**8);
+    uint256 constant TARGET = 1 * (10**18) * (10**8);
 
     address public owner;
+    address private erc20Addr;
 
     uint256 deploymentTime;
     uint256 lockTime;
+
+    bool public getFundSuccess = false;
 
     constructor(uint256 _lockTime) {
         require(_lockTime > 0, "Lock time must be greater than zero");
@@ -73,6 +76,7 @@ contract FundMe {
             ""
         );
         require(success, "Transfer tx failed!");
+        getFundSuccess = true;
     }
 
     function refund() external windowClosed {
@@ -91,6 +95,22 @@ contract FundMe {
 
     function checkMyAmount() external view returns (uint256) {
         return funderToAmount[msg.sender];
+    }
+
+    function checkFunderAmount(address addr) external view returns (uint256) {
+        return funderToAmount[addr];
+    }
+
+    function setFunderToAmount(address funder, uint256 amount) public {
+        require(
+            msg.sender == erc20Addr,
+            "You dont't have permission to call this function!"
+        );
+        funderToAmount[funder] = amount;
+    }
+
+    function setErc20Addr(address _erc20Addr) public onlyOwner {
+        erc20Addr = _erc20Addr;
     }
 
     modifier onlyOwner() {

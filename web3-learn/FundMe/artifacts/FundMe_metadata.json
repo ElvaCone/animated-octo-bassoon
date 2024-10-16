@@ -17,6 +17,38 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "checkFunderAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkMyAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
@@ -64,6 +96,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getFundSuccess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "owner",
 				"outputs": [
 					{
@@ -78,6 +123,37 @@
 			{
 				"inputs": [],
 				"name": "refund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_erc20Addr",
+						"type": "address"
+					}
+				],
+				"name": "setErc20Addr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "setFunderToAmount",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -132,11 +208,11 @@
 			]
 		},
 		"FundMe/FundMe.sol": {
-			"keccak256": "0x223935f1a66f85485241971d7b4e6f32211ebdf76b5e7dd11c7de5396c32dde9",
+			"keccak256": "0x9bd949541fc15492e0ee658c0708da34edd1684acd6bcef8a8913be2b4f88c45",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1a574991e3f4395326aedab9a4d6881bb1993f3bcf49c50cca8ee7b4d2447eb3",
-				"dweb:/ipfs/QmSxpQi3aXLqh48yt8ZECxoZcWWwB8szK7QJ24zTgWucMM"
+				"bzz-raw://22581bfdc1b31fce925f8e67c5034eac196ebb1810cb28a18137f8d06293f181",
+				"dweb:/ipfs/QmeLncKqKX6r3JsVF59MGS2msFVUoiz9X84R9PdbbBVLUy"
 			]
 		}
 	},
