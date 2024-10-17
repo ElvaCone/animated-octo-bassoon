@@ -1,14 +1,39 @@
+const { network } = require('hardhat');
+const { FundMe_lockTime, testnetChainsConfig, localChains, testnetWaitConfirmations } = require('../helper-hardhat-config.js');
+
 // module.exports = async (hre) => {
 //     const getNamedAccounts = hre.getNamedAccounts
 //     const deployments = hre.deployments
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { firstAccount } = await getNamedAccounts()
     const { deploy } = deployments
-    await deploy("FundMe", {
+
+    let dataFeedAddr
+    let waitConfirmations
+    if (localChains.includes(network.name)) {
+        const mockV3Aggregator = deployments.get("MockV3Aggregator")
+        dataFeedAddr = mockV3Aggregator.address
+        waitConfirmations = testnetWaitConfirmations
+    } else {
+        dataFeedAddr = testnetChainsConfig[network.config.chainId].ethUsdDataFeed
+        waitConfirmations = 0
+    }
+
+    const fundMe = await deploy("FundMe", {
         from: firstAccount,
-        args: [180],
-        log: true
+        args: [FundMe_lockTime, dataFeedAddr],
+        log: true,
+        waitConfirmations: waitConfirmations
     })
+
+    if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
+        await hre.run("verify:verify", {
+            address: fundMe.address,
+            constructorArguments: [FundMe_lockTime, dataFeedAddr],
+        });
+    } else {
+        console.log("Network is not sepolia, verification skipped...")
+    }
 }
 
 // module.exports = async ({ getNamedAccounts, deployments }) => {
@@ -16,7 +41,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 //     const { deploy } = deployments
 //     await deploy("FundMe", {
 //         from: deployer,
-//         args: [180],
+//         args: [FundMe_lockTime],
 //         log: true
 //     })
 // }

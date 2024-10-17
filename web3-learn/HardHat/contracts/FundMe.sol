@@ -7,8 +7,8 @@ contract FundMe {
     AggregatorV3Interface public dataFeed;
 
     mapping(address => uint256) public funderToAmount;
-    uint256 constant MIN_VALUE = 1 * (10**18) * (10**8); // 1美元
-    uint256 constant TARGET = 1 * (10**18) * (10**8);
+    uint256 constant MIN_VALUE = 1 * (10 ** 18) * (10 ** 8); // 1美元
+    uint256 constant TARGET = 1 * (10 ** 18) * (10 ** 8);
 
     address public owner;
     address private erc20Addr;
@@ -18,14 +18,12 @@ contract FundMe {
 
     bool public getFundSuccess = false;
 
-    constructor(uint256 _lockTime) {
+    constructor(uint256 _lockTime, address dataFeedAddr) {
         require(_lockTime > 0, "Lock time must be greater than zero");
         owner = msg.sender;
         deploymentTime = block.timestamp; // 单位为秒
         lockTime = _lockTime;
-        dataFeed = AggregatorV3Interface(
-            0x694AA1769357215DE4FAC081bf1f309aDC325306
-        ); // ETH转USD的地址
+        dataFeed = AggregatorV3Interface(dataFeedAddr); // ETH转USD的地址
     }
 
     function fund() external payable {
@@ -47,11 +45,9 @@ contract FundMe {
         return answer;
     }
 
-    function convertEthToUsd(uint256 ethAmount)
-        internal
-        view
-        returns (uint256)
-    {
+    function convertEthToUsd(
+        uint256 ethAmount
+    ) internal view returns (uint256) {
         uint256 ethPrice = uint256(getChainlinkDataFeedLatestAnswer());
         return ethAmount * ethPrice;
     }
