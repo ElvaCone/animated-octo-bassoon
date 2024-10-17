@@ -1,6 +1,6 @@
 node_modules
 .env
-.env.enc
+# .env.enc
 
 # Hardhat files
 /cache
