@@ -12,7 +12,7 @@ contract FundTokenERC20 is ERC20 {
     }
 
     function mint(uint256 amountToMint) public {
-        require(fundMe.getFundSuccess() == true, "FundMe hasn't completed!");
+        require(fundMe.getFundSuccess() == true, "FundMe hasn't completed!"); // 其它合约中的变量可以以函数的形式访问
         uint256 funderAmount = fundMe.checkFunderAmount(msg.sender);
         require(funderAmount >= amountToMint, "You don't have enough fund!");
 
@@ -22,7 +22,7 @@ contract FundTokenERC20 is ERC20 {
 
     function claim(uint256 amountToClaim) public {
         require(fundMe.getFundSuccess() == true, "FundMe hasn't completed!");
-        require(balanceOf(msg.sender) >= amountToClaim, "You don't have enough ERC20 Token!");
+        require(balanceOf(msg.sender) >= amountToClaim, "You don't have enough ERC20 Token!"); // ERC20中的balanceOf函数用来查看余额
         _burn(msg.sender, amountToClaim);
     }
 }

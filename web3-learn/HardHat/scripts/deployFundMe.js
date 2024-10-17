@@ -1,6 +1,6 @@
-const { ethers, hre } = require("hardhat");
-// const hre = require("hardhat");
-require('@chainlink/env-enc').config()
+const { ethers } = require("hardhat"); // ethers在Hardhat的脚本和测试中是全局可用的，但还是建议显式导入
+const hre = require("hardhat"); // hre在Hardhat的任务和脚本中是全局可用的，但还是建议显式导入
+// require('@chainlink/env-enc').config() // 配置文件里写了这句，这个文件里就不用写这句了
 
 const main = async () => {
     try {

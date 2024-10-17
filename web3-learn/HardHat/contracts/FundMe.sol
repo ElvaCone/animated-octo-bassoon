@@ -1,23 +1,10 @@
-
-// pragma solidity ^0.8.20;
-
-// contract FundMe {
-//     string public data;
-
-//     // 设置存储的字符串
-//     function setData(string memory _data) public {
-//         data = _data;
-//     }
-// }
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 contract FundMe {
-    AggregatorV3Interface internal dataFeed;
+    AggregatorV3Interface public dataFeed;
 
     mapping(address => uint256) public funderToAmount;
     uint256 constant MIN_VALUE = 1 * (10**18) * (10**8); // 1美元
