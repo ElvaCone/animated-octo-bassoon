@@ -4,6 +4,8 @@ module.exports = {
     MockV3Aggregator_initialAnswer: 263456000000, // 乘以10的8次方之后的结果，按照这个算的话1美元等于0.0003795700230778574个ETH
     FundMe_lockTime: 180, // 单位是秒
     FundMe_lockTime_more: 200, // 单位是秒
+    lessThanOneUsdParseString: "0.0003795",
+    greaterThanOneUsdParseString: "0.0003796",
     localChains: ['hardhat', 'local'], // 本地网络
     testnetChainsConfig: { // 测试网
         11155111: { // sepolia
