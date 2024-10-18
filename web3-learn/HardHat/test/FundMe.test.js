@@ -1,5 +1,6 @@
 const { ethers, deployments, getNamedAccounts } = require('hardhat');
 const { assert } = require('chai');
+const { FundMe_lockTime } = require('../helper-hardhat-config.js');
 
 describe("test FundMe contract", async () => {
     let firstAccount
@@ -11,22 +12,16 @@ describe("test FundMe contract", async () => {
         fundMe = await ethers.getContractAt("FundMe", fundMeDeployment.address)
     })
 
-    const lockTime = 180;
-
     // it("test if the owner is msg.sender", async () => {
-    //     const [firstAccount] = await ethers.getSigners()
+    //     /* const [firstAccount] = await ethers.getSigners()
     //     const fundMeFactory = await ethers.getContractFactory("FundMe")
-    //     const fundMe = await fundMeFactory.deploy(lockTime)
+    //     const fundMe = await fundMeFactory.deploy(FundMe_lockTime) */
     //     await fundMe.waitForDeployment()
     //     assert.equal((await fundMe.owner()), firstAccount)
     // })
 
     it("test if the dataFeed is assigned correctly", async () => {
-        const [firstAccount] = await ethers.getSigners()
-        const fundMeFactory = await ethers.getContractFactory("FundMe")
-        const fundMe = await fundMeFactory.deploy(lockTime)
-        await fundMe.waitForDeployment()
-        assert.equal((await fundMe.dataFeed()), "0x694AA1769357215DE4FAC081bf1f309aDC325306")
+        assert.equal((await fundMe.dataFeed()), "0x694AA1769357215DE4FAC081bf1f309aDC325306") // strictEqual 会强制类型和值都相等，减少潜在的类型转换错误
     })
 
     // it("getFund", async () => {

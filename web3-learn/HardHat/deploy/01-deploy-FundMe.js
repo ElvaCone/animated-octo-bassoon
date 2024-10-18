@@ -11,12 +11,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     let dataFeedAddr
     let waitConfirmations
     if (localChains.includes(network.name)) {
-        const mockV3Aggregator = deployments.get("MockV3Aggregator")
+        const mockV3Aggregator = await deployments.get("MockV3Aggregator")
         dataFeedAddr = mockV3Aggregator.address
-        waitConfirmations = testnetWaitConfirmations
+        waitConfirmations = 0
     } else {
         dataFeedAddr = testnetChainsConfig[network.config.chainId].ethUsdDataFeed
-        waitConfirmations = 0
+        waitConfirmations = testnetWaitConfirmations
     }
 
     const fundMe = await deploy("FundMe", {
