@@ -8,7 +8,7 @@ contract FundMe {
 
     mapping(address => uint256) public funderToAmount;
     uint256 constant MIN_VALUE = 1 * (10 ** 18) * (10 ** 8); // 1美元
-    uint256 constant TARGET = 1 * (10 ** 18) * (10 ** 8);
+    uint256 constant TARGET = 2 * (10 ** 18) * (10 ** 8);
 
     address public owner;
     address private erc20Addr;
@@ -17,6 +17,9 @@ contract FundMe {
     uint256 lockTime;
 
     bool public getFundSuccess = false;
+
+    event GetFundByOwner(uint256);
+    event ReFundByFunder(address, uint256);
 
     constructor(uint256 _lockTime, address dataFeedAddr) {
         require(_lockTime > 0, "Lock time must be greater than zero");
@@ -45,9 +48,7 @@ contract FundMe {
         return answer;
     }
 
-    function convertEthToUsd(
-        uint256 ethAmount
-    ) internal view returns (uint256) {
+    function convertEthToUsd(uint256 ethAmount) public view returns (uint256) {
         uint256 ethPrice = uint256(getChainlinkDataFeedLatestAnswer());
         return ethAmount * ethPrice;
     }
@@ -68,11 +69,12 @@ contract FundMe {
         // require(success, "Transfer tx failed!");
 
         bool success;
-        (success, ) = payable(msg.sender).call{value: address(this).balance}(
-            ""
-        );
+        uint256 balance = address(this).balance;
+        (success, ) = payable(msg.sender).call{value: balance}("");
         require(success, "Transfer tx failed!");
         getFundSuccess = true;
+
+        emit GetFundByOwner(balance);
     }
 
     function refund() external windowClosed {
@@ -87,6 +89,8 @@ contract FundMe {
         (success, ) = payable(msg.sender).call{value: amount}("");
         require(success, "Transfer tx failed!");
         funderToAmount[msg.sender] = 0;
+
+        emit ReFundByFunder(msg.sender, amount);
     }
 
     function checkMyAmount() external view returns (uint256) {
