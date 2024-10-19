@@ -16,6 +16,7 @@ describe("test FundMe contract", async () => {
         mockV3AggregatorDeployment = await deployments.get("MockV3Aggregator")
         fundMe = await ethers.getContractAt("FundMe", fundMeDeployment.address)
         fundMeWithSecondAccount = await ethers.getContract("FundMe", secondAccount)
+        // fundMeWithSecondAccount = await fundMe.connect(await ethers.getSigner(secondAccount));
 
         // 两者对比：
         // ethers.getContractAt(): Requires an ABI and an explicit contract address. It's a more generic way to obtain a contract instance and can be used in any Ethers.js context.
