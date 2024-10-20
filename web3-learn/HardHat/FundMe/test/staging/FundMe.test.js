@@ -4,7 +4,7 @@ const { localChains, FundMe_lockTime, lessThanOneUsdParseString, greaterThanTwoU
 
 localChains.includes(network.name)
     ? describe.skip
-    : describe("test FundMe contract", async () => {
+    : describe("test FundMe contract", () => {
         let firstAccount
         let fundMe
         beforeEach(async () => {

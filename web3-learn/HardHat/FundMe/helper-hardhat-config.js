@@ -1,4 +1,3 @@
-
 module.exports = {
     MockV3Aggregator_decimals: 8, // 精度
     MockV3Aggregator_initialAnswer: 263861000000, // 乘以10的8次方之后的结果，按照这个算的话1美元等于0.0003795700230778574个ETH

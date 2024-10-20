@@ -5,7 +5,7 @@ const helpers = require('@nomicfoundation/hardhat-network-helpers');
 
 !localChains.includes(network.name)
     ? describe.skip
-    : describe("test FundMe contract", async () => {
+    : describe("test FundMe contract", () => {
         let firstAccount
         let fundMe
         let fundMeWithSecondAccount

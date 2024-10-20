@@ -1,2 +1,4 @@
-exports.deployFundMe = require('./deploy-fundMe');
-exports.interactFundMe = require('./interact-fundMe');
+module.exports = {
+    deployFundMe: require('./deploy-fundMe'),
+    interactFundMe: require('./interact-fundMe')
+}
