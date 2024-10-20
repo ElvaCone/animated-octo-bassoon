@@ -19,7 +19,7 @@ contract FundMe {
     bool public getFundSuccess = false;
 
     event GetFundByOwner(uint256);
-    event ReFundByFunder(address, uint256);
+    event RefundByFunder(address, uint256);
 
     constructor(uint256 _lockTime, address dataFeedAddr) {
         require(_lockTime > 0, "Lock time must be greater than zero");
@@ -90,7 +90,7 @@ contract FundMe {
         require(success, "Transfer tx failed!");
         funderToAmount[msg.sender] = 0;
 
-        emit ReFundByFunder(msg.sender, amount);
+        emit RefundByFunder(msg.sender, amount);
     }
 
     function checkMyAmount() external view returns (uint256) {

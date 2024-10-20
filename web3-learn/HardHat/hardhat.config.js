@@ -44,4 +44,7 @@ module.exports = {
       default: 1
     },
   },
+  mocha: {
+    timeout: 1000 * 1000 // 乘以1000是因为是毫秒
+  }
 };

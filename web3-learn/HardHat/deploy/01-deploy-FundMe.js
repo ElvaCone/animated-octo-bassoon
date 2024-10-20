@@ -15,7 +15,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         dataFeedAddr = mockV3Aggregator.address
         waitConfirmations = 0
     } else {
-        dataFeedAddr = testnetChainsConfig[network.config.chainId].ethUsdDataFeed
+        dataFeedAddr = testnetChainsConfig[network.config.chainId].ethUsdDataFeedAddr
         waitConfirmations = testnetWaitConfirmations
     }
 
