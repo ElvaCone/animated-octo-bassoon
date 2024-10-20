@@ -1,6 +1,6 @@
 const { ethers, deployments, getNamedAccounts, network } = require('hardhat');
 const { expect } = require('chai');
-const { localChains, FundMe_lockTime, greaterThanTwoUsdParseString } = require('../../helper-hardhat-config.js');
+const { localChains, FundMe_lockTime, lessThanOneUsdParseString, greaterThanTwoUsdParseString } = require('../../helper-hardhat-config.js');
 
 localChains.includes(network.name)
     ? describe.skip
@@ -25,12 +25,12 @@ localChains.includes(network.name)
         })
 
         it("fund and refund successfully", async () => {
-            await fundMe.fund({ value: ethers.parseEther(greaterThanTwoUsdParseString) })
+            await fundMe.fund({ value: ethers.parseEther(lessThanOneUsdParseString) })
             await new Promise(resolve => setTimeout(resolve, FundMe_lockTime * 1000))
             const refundTx = await fundMe.refund()
             const refundReceipt = await refundTx.wait()
 
 
-            expect(refundReceipt).to.emit(fundMe, "RefundByFunder").withArgs(firstAccount, ethers.parseEther(greaterThanTwoUsdParseString))
+            expect(refundReceipt).to.emit(fundMe, "RefundByFunder").withArgs(firstAccount, ethers.parseEther(lessThanOneUsdParseString))
         })
     })
