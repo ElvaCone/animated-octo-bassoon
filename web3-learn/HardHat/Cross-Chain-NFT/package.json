@@ -6,6 +6,7 @@
   "devDependencies": {
     "@chainlink/contracts": "^1.2.0",
     "@chainlink/contracts-ccip": "^1.5.0",
+    "@chainlink/env-enc": "^1.0.5",
     "@chainlink/local": "^0.2.2",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
     "@nomicfoundation/hardhat-ethers": "^3.0.8",

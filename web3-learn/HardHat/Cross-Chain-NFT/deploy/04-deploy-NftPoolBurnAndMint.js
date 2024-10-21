@@ -7,12 +7,21 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const { destinationRouter_, linkToken_ } = await ccipLocalSimulator.configuration()
 
     log("NftPoolBurnAndMint delploying")
-    await deploy("NftPoolBurnAndMint", {
+    const nftPoolBurnAndMint = await deploy("NftPoolBurnAndMint", {
         from: firstAccount,
         args: [destinationRouter_, linkToken_, wrappedNftDeployment.address],
         log: true
     })
     log("NftPoolBurnAndMint delployed successfully")
+
+    if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
+        await hre.run("verify:verify", {
+            address: nftPoolBurnAndMint.address,
+            constructorArguments: [destinationRouter_, linkToken_, wrappedNftDeployment.address],
+        });
+    } else {
+        console.log("Network is not sepolia, verification skipped...")
+    }
 }
 
 module.exports.tags = ["destChain", "all"]
