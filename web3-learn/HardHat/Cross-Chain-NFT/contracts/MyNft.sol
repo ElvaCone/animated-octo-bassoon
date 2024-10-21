@@ -20,10 +20,10 @@ contract MyNft is
         "ipfs://QmXw7TEAJWKjKifvLE25Z9yjvowWk2NWY3WgnZPUto9XoA";
 
     constructor(
-        address initialOwner,
+        // address initialOwner,
         string memory tokenName,
         string memory tokenSymbol
-    ) ERC721(tokenName, tokenSymbol) Ownable(initialOwner) {}
+    ) ERC721(tokenName, tokenSymbol) Ownable(msg.sender) {}
 
     function safeMint(address to) public onlyOwner {
         uint256 tokenId = _nextTokenId++;
