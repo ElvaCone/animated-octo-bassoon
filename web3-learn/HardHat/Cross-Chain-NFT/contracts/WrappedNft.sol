@@ -6,7 +6,7 @@ import "./MyNft.sol";
 
 contract WrappedNft is MyNft {
     constructor(
-        address initialOwner,
+        // address initialOwner,
         string memory tokenName,
         string memory tokenSymbol
     ) MyNft(tokenName, tokenSymbol) {}
