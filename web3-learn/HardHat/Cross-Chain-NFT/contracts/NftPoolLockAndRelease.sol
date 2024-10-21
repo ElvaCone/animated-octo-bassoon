@@ -49,7 +49,7 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
 
     IERC20 private s_linkToken;
 
-    MyNft nft;
+    MyNft public nft;
 
     /// @notice Constructor initializes the contract with the router address.
     /// @param _router The address of the router contract.
@@ -70,7 +70,7 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
         address destReceiver
     ) public returns (bytes32) {
         nft.transferFrom(msg.sender, address(this), tokenId);
-        bytes memory payload = abi.encode(tokenId, newOwner);
+        bytes memory payload = abi.encode(newOwner, tokenId);
         bytes32 messageId = sendMessagePayLINK(
             destChainSelector,
             destReceiver,

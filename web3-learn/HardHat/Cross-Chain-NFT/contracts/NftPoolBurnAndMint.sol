@@ -8,7 +8,7 @@ import {CCIPReceiver} from "@chainlink/contracts-ccip/src/v0.8/ccip/applications
 import {IERC20} from "@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/token/ERC20/utils/SafeERC20.sol";
 
-import {MyNft} from "./MyNft.sol";
+import {WrappedNft} from "./WrappedNft.sol";
 
 /**
  * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
@@ -49,7 +49,12 @@ contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
 
     IERC20 private s_linkToken;
 
-    MyNft nft;
+    WrappedNft public wnft;
+
+    struct RequestData {
+        address newOwner;
+        uint256 tokenId;
+    }
 
     /// @notice Constructor initializes the contract with the router address.
     /// @param _router The address of the router contract.
@@ -57,26 +62,10 @@ contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
     constructor(
         address _router,
         address _link,
-        address nftAddr
+        address wnftAddr
     ) CCIPReceiver(_router) {
         s_linkToken = IERC20(_link);
-        nft = MyNft(nftAddr);
-    }
-
-    function lockAndSendNft(
-        uint256 tokenId,
-        address newOwner,
-        uint64 destChainSelector,
-        address destReceiver
-    ) public returns (bytes32) {
-        nft.transferFrom(msg.sender, address(this), tokenId);
-        bytes memory payload = abi.encode(tokenId, newOwner);
-        bytes32 messageId = sendMessagePayLINK(
-            destChainSelector,
-            destReceiver,
-            payload
-        );
-        return messageId;
+        wnft = WrappedNft(wnftAddr);
     }
 
     /// @notice Sends data to receiver on the destination chain.
@@ -179,6 +168,11 @@ contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
     function _ccipReceive(
         Client.Any2EVMMessage memory any2EvmMessage
     ) internal override {
+        RequestData memory rd = abi.decode(any2EvmMessage.data, (RequestData));
+        address newOwner = rd.newOwner;
+        uint256 tokenId = rd.tokenId;
+        wnft.mintWithSpecificTokenId(newOwner, tokenId);
+
         s_lastReceivedMessageId = any2EvmMessage.messageId; // fetch the messageId
         s_lastReceivedText = abi.decode(any2EvmMessage.data, (string)); // abi-decoding of the sent text
 

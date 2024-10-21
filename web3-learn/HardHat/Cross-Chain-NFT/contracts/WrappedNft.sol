@@ -11,7 +11,10 @@ contract WrappedNft is MyNft {
         string memory tokenSymbol
     ) MyNft(tokenName, tokenSymbol) {}
 
-    function safeMint(address to, uint256 tokenId) public onlyOwner {
+    function mintWithSpecificTokenId(
+        address to,
+        uint256 tokenId
+    ) public onlyOwner {
         _safeMint(to, tokenId);
     }
 }
