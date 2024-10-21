@@ -14,7 +14,7 @@ contract WrappedNft is MyNft {
     function mintWithSpecificTokenId(
         address to,
         uint256 tokenId
-    ) public onlyOwner {
+    ) public {
         _safeMint(to, tokenId);
     }
 }

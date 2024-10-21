@@ -25,7 +25,7 @@ contract MyNft is
         string memory tokenSymbol
     ) ERC721(tokenName, tokenSymbol) Ownable(msg.sender) {}
 
-    function safeMint(address to) public onlyOwner {
+    function safeMint(address to) public {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, METADATA_URI);

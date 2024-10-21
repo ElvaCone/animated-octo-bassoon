@@ -37,12 +37,7 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
     );
 
     // Event emitted when a message is received from another chain.
-    event MessageReceived(
-        bytes32 indexed messageId, // The unique ID of the CCIP message.
-        uint64 indexed sourceChainSelector, // The chain selector of the source chain.
-        address sender, // The address of the sender from the source chain.
-        string text // The text that was received.
-    );
+    event TokenBurned(address newOwner, uint256 tokenId);
 
     bytes32 private s_lastReceivedMessageId; // Store the last received messageId.
     string private s_lastReceivedText; // Store the last received text.
@@ -50,6 +45,11 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
     IERC20 private s_linkToken;
 
     MyNft public nft;
+
+    struct RequestData {
+        address newOwner;
+        uint256 tokenId;
+    }
 
     /// @notice Constructor initializes the contract with the router address.
     /// @param _router The address of the router contract.
@@ -179,15 +179,11 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
     function _ccipReceive(
         Client.Any2EVMMessage memory any2EvmMessage
     ) internal override {
-        s_lastReceivedMessageId = any2EvmMessage.messageId; // fetch the messageId
-        s_lastReceivedText = abi.decode(any2EvmMessage.data, (string)); // abi-decoding of the sent text
-
-        emit MessageReceived(
-            any2EvmMessage.messageId,
-            any2EvmMessage.sourceChainSelector, // fetch the source chain identifier (aka selector)
-            abi.decode(any2EvmMessage.sender, (address)), // abi-decoding of the sender address,
-            abi.decode(any2EvmMessage.data, (string))
-        );
+        RequestData memory rd = abi.decode(any2EvmMessage.data, (RequestData));
+        address newOwner = rd.newOwner;
+        uint256 tokenId = rd.tokenId;
+        nft.transferFrom(address(this), newOwner, tokenId);
+        emit TokenBurned(newOwner, tokenId);
     }
 
     /// @notice Construct a CCIP message.
