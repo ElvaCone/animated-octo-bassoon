@@ -68,6 +68,23 @@ contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
         wnft = WrappedNft(wnftAddr);
     }
 
+    function burnAndSendNft(
+        uint256 tokenId,
+        address newOwner,
+        uint64 destChainSelector,
+        address destReceiver
+    ) public returns (bytes32) {
+        wnft.transferFrom(msg.sender, address(this), tokenId);
+        bytes memory payload = abi.encode(newOwner, tokenId);
+        wnft.burn(tokenId);
+        bytes32 messageId = sendMessagePayLINK(
+            destChainSelector,
+            destReceiver,
+            payload
+        );
+        return messageId;
+    }
+
     /// @notice Sends data to receiver on the destination chain.
     /// @notice Pay for fees in LINK.
     /// @dev Assumes your contract has sufficient LINK.
