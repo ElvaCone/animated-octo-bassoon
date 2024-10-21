@@ -31,7 +31,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
         bytes32 indexed messageId, // The unique ID of the CCIP message.
         uint64 indexed destinationChainSelector, // The chain selector of the destination chain.
         address receiver, // The address of the receiver on the destination chain.
-        string text, // The text being sent.
+        bytes text, // The text being sent.
         address feeToken, // the token address used to pay CCIP fees.
         uint256 fees // The fees paid for sending the CCIP message.
     );
@@ -71,7 +71,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
     ) public returns (bytes32) {
         nft.transferFrom(msg.sender, address(this), tokenId);
         bytes memory payload = abi.encode(tokenId, newOwner);
-        bytes32 memory messageId = sendMessagePayLINK(
+        bytes32 messageId = sendMessagePayLINK(
             destChainSelector,
             destReceiver,
             payload
@@ -118,7 +118,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
             messageId,
             _destinationChainSelector,
             _receiver,
-            _text,
+            _payload,
             address(s_linkToken),
             fees
         );
@@ -137,7 +137,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
     function sendMessagePayNative(
         uint64 _destinationChainSelector,
         address _receiver,
-        string calldata _text
+        bytes memory _text
     ) internal returns (bytes32 messageId) {
         // Create an EVM2AnyMessage struct in memory with necessary information for sending a cross-chain message
         Client.EVM2AnyMessage memory evm2AnyMessage = _buildCCIPMessage(
@@ -193,7 +193,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
     /// @notice Construct a CCIP message.
     /// @dev This function will create an EVM2AnyMessage struct with all the necessary information for sending a text.
     /// @param _receiver The address of the receiver.
-    /// @param _text The string data to be sent.
+    /// @param _payload The string data to be sent.
     /// @param _feeTokenAddress The address of the token used for fees. Set address(0) for native gas.
     /// @return Client.EVM2AnyMessage Returns an EVM2AnyMessage struct which contains information for sending a CCIP message.
     function _buildCCIPMessage(

@@ -28,7 +28,8 @@ module.exports = {
     sepolia: {
       url: SEPOLIA_URL,
       accounts: [PRIVATE_KEY_1, PRIVATE_KEY_2],
-      chainId: 11155111
+      chainId: 11155111,
+      // gasMultiplier: 4,
     }
   },
   etherscan: {

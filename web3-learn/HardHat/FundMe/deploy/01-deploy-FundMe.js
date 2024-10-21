@@ -23,7 +23,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         from: firstAccount,
         args: [FundMe_lockTime, dataFeedAddr],
         log: true,
-        waitConfirmations: waitConfirmations
+        waitConfirmations
     })
 
     if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {

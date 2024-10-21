@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MyToken is
+contract MyNft is
     ERC721,
     ERC721Enumerable,
     ERC721URIStorage,
@@ -16,35 +16,34 @@ contract MyToken is
     Ownable
 {
     uint256 private _nextTokenId;
-    string public constant METADATA_URL =
+    string public constant METADATA_URI =
         "ipfs://QmXw7TEAJWKjKifvLE25Z9yjvowWk2NWY3WgnZPUto9XoA";
 
     constructor(
-        string memory tokenName,
-        string memory tokenSymbol
-    ) ERC721(tokenName, tokenSymbol) {}
+        address initialOwner
+    ) ERC721("MyToken", "MTK") Ownable(initialOwner) {}
 
     function safeMint(address to) public onlyOwner {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, METADATA_URL);
+        _setTokenURI(tokenId, METADATA_URI);
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _beforeTokenTransfer(
-        address from,
+    function _update(
         address to,
-        uint256 firstTokenId,
-        uint256 batchSize
-    ) internal override(ERC721, ERC721Enumerable) {
-        super._beforeTokenTransfer(from, to, firstTokenId, batchSize);
+        uint256 tokenId,
+        address auth
+    ) internal override(ERC721, ERC721Enumerable) returns (address) {
+        return super._update(to, tokenId, auth);
     }
 
-    function _burn(
-        uint256 tokenId
-    ) internal override(ERC721, ERC721URIStorage) {
-        super._burn(tokenId);
+    function _increaseBalance(
+        address account,
+        uint128 value
+    ) internal override(ERC721, ERC721Enumerable) {
+        super._increaseBalance(account, value);
     }
 
     function tokenURI(
