@@ -17,7 +17,7 @@ import {MyNft} from "./MyNft.sol";
  */
 
 /// @title - A simple messenger contract for sending/receving string data across chains.
-contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
+contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
     using SafeERC20 for IERC20;
 
     // Custom errors to provide more descriptive revert messages.
