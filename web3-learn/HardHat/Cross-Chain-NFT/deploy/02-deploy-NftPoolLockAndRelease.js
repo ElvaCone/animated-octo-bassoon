@@ -7,13 +7,13 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const ccipLocalSimulator = await ethers.getContract("CCIPLocalSimulator")
     const { sourceRouter_, linkToken_ } = await ccipLocalSimulator.configuration()
 
-    log("NftPoolLockAndRelease delploying")
+    log("NftPoolLockAndRelease deploying")
     const nftPoolLockAndRelease = await deploy("NftPoolLockAndRelease", {
         from: firstAccount,
         args: [sourceRouter_, linkToken_, myNftDeployment.address],
         log: true
     })
-    log("NftPoolLockAndRelease delployed successfully")
+    log("NftPoolLockAndRelease deployed successfully")
 
     if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
         await hre.run("verify:verify", {
