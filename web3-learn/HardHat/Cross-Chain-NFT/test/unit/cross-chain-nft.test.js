@@ -44,4 +44,8 @@ describe("test if the nft can be locked and transferred to destchain", async () 
         await nftPoolLockAndRelease.lockAndSendNft(0, firstAccount, chainSelector, nftPoolBurnAndMint.target)
         expect(await myNft.ownerOf(0)).to.equal(nftPoolLockAndRelease.target)
     })
+
+    it("check if wnft's account is owner", async () => {
+        expect(await wrappedNft.ownerOf(0)).to.equal(firstAccount)
+    })
 })
