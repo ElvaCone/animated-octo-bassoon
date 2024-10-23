@@ -204,11 +204,13 @@ contract NftPoolLockAndRelease is CCIPReceiver, OwnerIsCreator {
                 data: _payload, // ABI-encoded string
                 tokenAmounts: new Client.EVMTokenAmount[](0), // Empty array as no tokens are transferred
                 extraArgs: Client._argsToBytes(
+                    // V2会导致报错，要用V1，所以注释掉了：
                     // Additional arguments, setting gas limit
-                    Client.EVMExtraArgsV2({
-                        gasLimit: 200_000, // Gas limit for the callback on the destination chain
-                        allowOutOfOrderExecution: true // Allows the message to be executed out of order relative to other messages from the same sender
-                    })
+                    // Client.EVMExtraArgsV2({
+                    //     gasLimit: 200_000, // Gas limit for the callback on the destination chain
+                    //     allowOutOfOrderExecution: true // Allows the message to be executed out of order relative to other messages from the same sender
+                    // })
+                    Client.EVMExtraArgsV1({gasLimit: 200_000})
                 ),
                 // Set the feeToken to a feeTokenAddress, indicating specific asset will be used for fees
                 feeToken: _feeTokenAddress
