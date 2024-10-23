@@ -59,7 +59,7 @@ describe("test if the nft can be burned and transferred back to sourcechain", as
         expect(await wrappedNft.totalSupply()).to.equal(0)
     })
 
-    // it("check if wnft's account is owner", async () => {
-    //     expect(await wrappedNft.ownerOf(0)).to.equal(firstAccount)
-    // })
+    it("owner of the NFT is transferred to firstAccount", async () => {
+        expect(await myNft.ownerOf(0)).to.equal(firstAccount)
+    })
 })
