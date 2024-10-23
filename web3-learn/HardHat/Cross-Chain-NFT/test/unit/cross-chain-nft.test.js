@@ -49,3 +49,17 @@ describe("test if the nft can be locked and transferred to destchain", async () 
         expect(await wrappedNft.ownerOf(0)).to.equal(firstAccount)
     })
 })
+
+describe("test if the nft can be burned and transferred back to sourcechain", async () => {
+    it("wnft can be burned", async () => {
+        await ccipLocalSimulator.requestLinkFromFaucet(nftPoolBurnAndMint.target, ethers.parseEther("10"))
+        await wrappedNft.approve(nftPoolBurnAndMint.target, 0)
+
+        await nftPoolBurnAndMint.burnAndSendNft(0, firstAccount, chainSelector, nftPoolLockAndRelease.target)
+        expect(await wrappedNft.totalSupply()).to.equal(0)
+    })
+
+    // it("check if wnft's account is owner", async () => {
+    //     expect(await wrappedNft.ownerOf(0)).to.equal(firstAccount)
+    // })
+})
