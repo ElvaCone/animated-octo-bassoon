@@ -69,9 +69,9 @@ contract NftPoolBurnAndMint is CCIPReceiver, OwnerIsCreator {
         uint64 destChainSelector,
         address destReceiver
     ) public returns (bytes32) {
-        wnft.transferFrom(msg.sender, address(this), tokenId);
-        bytes memory payload = abi.encode(newOwner, tokenId);
+        wnft.transferFrom(msg.sender, address(this), tokenId); // ERC721 标准要求只有 NFT 的持有者或被授权者才能进行销毁，所以这一行可能不需要
         wnft.burn(tokenId);
+        bytes memory payload = abi.encode(newOwner, tokenId);
         bytes32 messageId = sendMessagePayLINK(
             destChainSelector,
             destReceiver,
