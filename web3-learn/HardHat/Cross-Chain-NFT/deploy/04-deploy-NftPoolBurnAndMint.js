@@ -26,13 +26,13 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     })
     log("NftPoolBurnAndMint deployed successfully")
 
-    if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
+    if (network.config.chainId === 80002 && process.env.ETHERSCAN_API_KEY) {
         await hre.run("verify:verify", {
             address: nftPoolBurnAndMint.address,
             constructorArguments: [destRouterAddr, linkTokenAddr, wrappedNftDeployment.address],
         });
     } else {
-        console.log("Network is not sepolia, verification skipped...")
+        console.log("Network is not amoy, verification skipped...")
     }
 }
 
