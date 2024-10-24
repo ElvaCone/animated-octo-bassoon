@@ -6,7 +6,6 @@ require("@nomicfoundation/hardhat-ethers");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
 require('@nomicfoundation/hardhat-chai-matchers');
-require('@nomicfoundation/hardhat-ethers');
 require('@typechain/hardhat');
 require('hardhat-gas-reporter');
 require('solidity-coverage');
@@ -17,6 +16,7 @@ const { testnetWaitConfirmations } = require('./helper-hardhat-config');
 
 
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
+const POLYGON_SCAN_API_KEY = process.env.POLYGON_SCAN_API_KEY
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
 const AMOY_RPC_URL = process.env.AMOY_RPC_URL
 const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL
@@ -50,9 +50,12 @@ module.exports = {
     },
   },
   etherscan: {
+    // apiKey里的键是规定好的不能写成不一样的，比如polygonAmoy不能写成amoy
     apiKey: {
-      sepolia: ETHERSCAN_API_KEY
+      sepolia: ETHERSCAN_API_KEY,
+      polygonAmoy: POLYGON_SCAN_API_KEY,
     }
+    // apiKey: ETHERSCAN_API_KEY
   },
   namedAccounts: {
     firstAccount: {

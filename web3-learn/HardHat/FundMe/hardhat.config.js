@@ -6,7 +6,6 @@ require("@nomicfoundation/hardhat-ethers");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
 require('@nomicfoundation/hardhat-chai-matchers');
-require('@nomicfoundation/hardhat-ethers');
 require('@typechain/hardhat');
 require('hardhat-gas-reporter');
 require('solidity-coverage');
@@ -33,9 +32,10 @@ module.exports = {
     }
   },
   etherscan: {
-    apiKey: {
-      sepolia: ETHERSCAN_API_KEY
-    }
+    // apiKey: {
+    //   sepolia: ETHERSCAN_API_KEY
+    // }
+    apiKey: ETHERSCAN_API_KEY
   },
   namedAccounts: {
     firstAccount: {
