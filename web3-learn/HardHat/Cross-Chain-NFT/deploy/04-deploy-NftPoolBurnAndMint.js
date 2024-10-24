@@ -1,15 +1,27 @@
+const { network } = require('hardhat');
+const { localChains, testnetChainsConfig } = require('../helper-hardhat-config');
+
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { firstAccount } = await getNamedAccounts()
     const { deploy, log } = deployments
 
+    let destRouterAddr
+    let linkTokenAddr
+    if (localChains.includes(network.name)) {
+        const ccipLocalSimulator = await ethers.getContract("CCIPLocalSimulator")
+        const ccipConfig = await ccipLocalSimulator.configuration()
+        destRouterAddr = ccipConfig.sourceRouter_
+        linkTokenAddr = ccipConfig.linkToken_
+    } else {
+        destRouterAddr = testnetChainsConfig[network.config.chainId].routerAddr
+        linkTokenAddr = testnetChainsConfig[network.config.chainId].linkTokenAddr
+    }
     const wrappedNftDeployment = await deployments.get("WrappedNft")
-    const ccipLocalSimulator = await ethers.getContract("CCIPLocalSimulator")
-    const { destinationRouter_, linkToken_ } = await ccipLocalSimulator.configuration()
 
     log("NftPoolBurnAndMint deploying")
     const nftPoolBurnAndMint = await deploy("NftPoolBurnAndMint", {
         from: firstAccount,
-        args: [destinationRouter_, linkToken_, wrappedNftDeployment.address],
+        args: [destRouterAddr, linkTokenAddr, wrappedNftDeployment.address],
         log: true
     })
     log("NftPoolBurnAndMint deployed successfully")
@@ -17,7 +29,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
         await hre.run("verify:verify", {
             address: nftPoolBurnAndMint.address,
-            constructorArguments: [destinationRouter_, linkToken_, wrappedNftDeployment.address],
+            constructorArguments: [destRouterAddr, linkTokenAddr, wrappedNftDeployment.address],
         });
     } else {
         console.log("Network is not sepolia, verification skipped...")

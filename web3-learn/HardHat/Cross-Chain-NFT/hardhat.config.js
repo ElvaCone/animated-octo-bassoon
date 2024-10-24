@@ -11,14 +11,19 @@ require('@typechain/hardhat');
 require('hardhat-gas-reporter');
 require('solidity-coverage');
 
-
 require("@nomicfoundation/hardhat-toolbox");
-// require('./tasks'); // 运行 npx hardhat help 能看到tasks
+require('./tasks'); // 运行 npx hardhat help 能看到tasks
+const { testnetWaitConfirmations } = require('./helper-hardhat-config');
 
-const SEPOLIA_URL = process.env.SEPOLIA_URL
+
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
+const AMOY_RPC_URL = process.env.AMOY_RPC_URL
+const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL
 const PRIVATE_KEY_1 = process.env.PRIVATE_KEY_1
 const PRIVATE_KEY_2 = process.env.PRIVATE_KEY_2
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
+
+const accounts = [PRIVATE_KEY_1, PRIVATE_KEY_2]
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -26,11 +31,23 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     sepolia: {
-      url: SEPOLIA_URL,
-      accounts: [PRIVATE_KEY_1, PRIVATE_KEY_2],
+      url: SEPOLIA_RPC_URL,
+      accounts: accounts,
       chainId: 11155111,
-      // gasMultiplier: 4,
-    }
+      blockConfirmations: testnetWaitConfirmations
+    },
+    holesky: {
+      url: HOLESKY_RPC_URL,
+      accounts: accounts,
+      chainId: 17000,
+      blockConfirmations: testnetWaitConfirmations
+    },
+    amoy: {
+      url: AMOY_RPC_URL,
+      accounts: accounts,
+      chainId: 80002,
+      blockConfirmations: testnetWaitConfirmations
+    },
   },
   etherscan: {
     apiKey: {

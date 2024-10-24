@@ -15,7 +15,7 @@ require('solidity-coverage');
 require("@nomicfoundation/hardhat-toolbox");
 require('./tasks'); // 运行 npx hardhat help 能看到tasks
 
-const SEPOLIA_URL = process.env.SEPOLIA_URL
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
 const PRIVATE_KEY_1 = process.env.PRIVATE_KEY_1
 const PRIVATE_KEY_2 = process.env.PRIVATE_KEY_2
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
@@ -26,7 +26,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     sepolia: {
-      url: SEPOLIA_URL,
+      url: SEPOLIA_RPC_URL,
       accounts: [PRIVATE_KEY_1, PRIVATE_KEY_2],
       chainId: 11155111,
       // gasMultiplier: 4,
