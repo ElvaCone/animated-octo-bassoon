@@ -1,6 +1,6 @@
 const { task } = require("hardhat/config");
 
-task("check-nft").setAction(async (taskArgs, hre) => {
+task("check-wrapped-nft").setAction(async (taskArgs, hre) => {
     const ethers = hre.ethers
     const wrappedNft = await ethers.getContract("WrappedNft")
 
