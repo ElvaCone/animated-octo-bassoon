@@ -12,7 +12,7 @@ task("lock-and-cross")
         const { firstAccount } = await hre.getNamedAccounts()
         const myNft = await ethers.getContract("MyNft")
         const nftPoolLockAndRelease = await ethers.getContract("NftPoolLockAndRelease")
-        const minTokenBalance = ethers.parseEther("0.1")
+        const minTokenBalance = ethers.parseEther("0.1") // 费用数值可以去CCIP浏览器看看最近的几笔交易
         const nftPoolLockAndReleaseAddr = nftPoolLockAndRelease.target
 
         let destChainSelector

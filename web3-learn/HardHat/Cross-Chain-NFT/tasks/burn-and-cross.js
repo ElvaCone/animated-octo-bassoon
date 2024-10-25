@@ -12,7 +12,7 @@ task("burn-and-cross")
         const { firstAccount } = await hre.getNamedAccounts()
         const wrappedNft = await ethers.getContract("WrappedNft")
         const nftPoolBurnAndMint = await ethers.getContract("NftPoolBurnAndMint")
-        const minTokenBalance = ethers.parseEther("0.1")
+        const minTokenBalance = ethers.parseEther("0.3") // 费用数值可以去CCIP浏览器看看最近的几笔交易
         const nftPoolBurnAndMintAddr = nftPoolBurnAndMint.target
 
         let destChainSelector
