@@ -1,7 +1,7 @@
 const { task } = require("hardhat/config");
 const { testnetChainsConfig } = require("../helper-hardhat-config");
 
-task("lock-and-cross")
+task("burn-and-cross")
     .addParam("tokenId", "tokenId to be locked and crossed")
     .addOptionalParam("destChainSelector", "chain selector of destination chain")
     .addOptionalParam("destReceiver", "receiver in the destination chain")
@@ -10,10 +10,10 @@ task("lock-and-cross")
         const thisChainConfig = testnetChainsConfig[network.config.chainId]
         const ethers = hre.ethers
         const { firstAccount } = await hre.getNamedAccounts()
-        const myNft = await ethers.getContract("MyNft")
-        const nftPoolLockAndRelease = await ethers.getContract("NftPoolLockAndRelease")
+        const wrappedNft = await ethers.getContract("WrappedNft")
+        const nftPoolBurnAndMint = await ethers.getContract("NftPoolBurnAndMint")
         const minTokenBalance = ethers.parseEther("0.1")
-        const nftPoolLockAndReleaseAddr = nftPoolLockAndRelease.target
+        const nftPoolBurnAndMintAddr = nftPoolBurnAndMint.target
 
         let destChainSelector
         if (taskArgs.destChainSelector) {
@@ -26,32 +26,32 @@ task("lock-and-cross")
         if (taskArgs.destReceiver) {
             destReceiver = taskArgs.destReceiver
         } else {
-            const nftPoolBurnAndMint = await hre.companionNetworks.destChain.deployments.get("NftPoolBurnAndMint") // hre.companionNetworks.xxx可以获取其它网络
-            destReceiver = nftPoolBurnAndMint.address
+            const nftPoolLockAndRelease = await hre.companionNetworks.destChain.deployments.get("NftPoolLockAndRelease") // hre.companionNetworks.xxx可以获取其它网络
+            destReceiver = nftPoolLockAndRelease.address
         }
 
         const linkTokenAddr = thisChainConfig.linkTokenAddr
         const linkToken = await ethers.getContractAt("LinkToken", linkTokenAddr)
-        const balance = await linkToken.balanceOf(nftPoolLockAndReleaseAddr)
+        const balance = await linkToken.balanceOf(nftPoolBurnAndMintAddr)
         if (balance < minTokenBalance) {
             console.log("linkToken is not enough, transfering ...")
-            const linkTokenTransferTx = await linkToken.transfer(nftPoolLockAndReleaseAddr, minTokenBalance)
+            const linkTokenTransferTx = await linkToken.transfer(nftPoolBurnAndMintAddr, minTokenBalance)
             await linkTokenTransferTx.wait()
             console.log("linkToken transfer success")
         } else {
             console.log("linkToken is enough")
         }
 
-        console.log("nft approving...")
-        const nftApproveTx = await myNft.approve(nftPoolLockAndReleaseAddr, tokenId)
-        await nftApproveTx.wait()
-        console.log("nft approve successs")
+        console.log("wnft approving...")
+        const wnftApproveTx = await wrappedNft.approve(nftPoolBurnAndMintAddr, tokenId)
+        await wnftApproveTx.wait()
+        console.log("wnft approve successs")
 
-        const lockAndSendNftTx = await nftPoolLockAndRelease.lockAndSendNft(
+        const burnAndSendNftTx = await nftPoolBurnAndMint.burnAndSendNft(
             tokenId,
             firstAccount,
             destChainSelector,
             destReceiver
         )
-        console.log(`NFT locked and crossed, transaction hash is ${lockAndSendNftTx.hash}`)
+        console.log(`WNFT burned and crossed, transaction hash is ${burnAndSendNftTx.hash}`)
     })
