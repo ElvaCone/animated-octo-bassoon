@@ -10,7 +10,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     })
     log("WrappedNft deployed successfully")
 
-    if (network.config.chainId === 80002 && process.env.ETHERSCAN_API_KEY) {
+    if (network.config.chainId === 80002 && process.env.POLYGON_SCAN_API_KEY) {
         await hre.run("verify:verify", {
             address: wrappedNft.address,
             constructorArguments: ["WrappedNft", "WNT"],

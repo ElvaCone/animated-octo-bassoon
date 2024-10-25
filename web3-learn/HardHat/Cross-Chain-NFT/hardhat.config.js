@@ -34,19 +34,25 @@ module.exports = {
       url: SEPOLIA_RPC_URL,
       accounts: accounts,
       chainId: 11155111,
-      blockConfirmations: testnetWaitConfirmations
-    },
-    holesky: {
-      url: HOLESKY_RPC_URL,
-      accounts: accounts,
-      chainId: 17000,
-      blockConfirmations: testnetWaitConfirmations
+      blockConfirmations: testnetWaitConfirmations,
+      companionNetworks: {
+        destChain: "amoy"
+      }
     },
     amoy: {
       url: AMOY_RPC_URL,
       accounts: accounts,
       chainId: 80002,
-      blockConfirmations: testnetWaitConfirmations
+      blockConfirmations: testnetWaitConfirmations,
+      companionNetworks: {
+        destChain: "sepolia"
+      }
+    },
+    holesky: {
+      url: HOLESKY_RPC_URL,
+      accounts: accounts,
+      chainId: 17000,
+      blockConfirmations: testnetWaitConfirmations,
     },
   },
   etherscan: {
